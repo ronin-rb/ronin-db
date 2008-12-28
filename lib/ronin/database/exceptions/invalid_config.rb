@@ -21,4 +21,9 @@
 #++
 #
 
-require 'ronin/database/database'
+module Ronin
+  module Database
+    class InvalidConfig < RuntimeError
+    end
+  end
+end
