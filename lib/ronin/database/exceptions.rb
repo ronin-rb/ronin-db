@@ -21,4 +21,4 @@
 #++
 #
 
-require 'ronin/database/database'
+require 'ronin/database/exceptions/invalid_config'
