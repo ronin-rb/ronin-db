@@ -19,9 +19,29 @@
 #
 
 require 'ronin/database/migrations/migrations'
-require 'ronin/database/migrations/create_arches_table'
-require 'ronin/database/migrations/create_oses_table'
-require 'ronin/database/migrations/create_vendors_table'
-require 'ronin/database/migrations/create_softwares_table'
-require 'ronin/database/migrations/create_licenses_table'
-require 'ronin/database/migrations/create_authors_table'
+
+module Ronin
+  module Database
+    module Migrations
+      migration(:ronin, '0.4.0', :create_authors_table) do
+        up do
+          create_table :ronin_authors do
+            column :id, Integer, :serial => true
+            column :name, String, :not_null => true
+            column :organization, String
+            column :pgp_signature, String
+            column :email, String
+            column :site, String
+            column :biography, Text
+          end
+
+          create_index :ronin_authors, :name, :unique => true
+        end
+
+        down do
+          drop_table :ronin_authors
+        end
+      end
+    end
+  end
+end
