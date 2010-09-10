@@ -42,5 +42,8 @@ module Ronin
     # The organization that is being targeted
     has 1, :organization, :through => :address
 
+    # The remote files recovered from the target
+    has 0..n, :remote_files
+
   end
 end
