@@ -18,31 +18,5 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/migrations'
-
-module Ronin
-  module Database
-    module Migrations
-      migration(:create_authors_table) do
-        up do
-          create_table :ronin_authors do
-            column :id, Integer, :serial => true
-            column :name, String
-            column :organization, String
-            column :pgp_signature, String
-            column :email, String
-            column :site, String
-            column :biography, Text
-            column :overlay_id, Integer
-          end
-
-          create_index :ronin_authors, :name, :unique => true
-        end
-
-        down do
-          drop_table :ronin_authors
-        end
-      end
-    end
-  end
-end
+require 'ronin/model/cacheable/class_methods'
+require 'ronin/model/cacheable/cacheable'

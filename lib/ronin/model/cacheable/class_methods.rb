@@ -18,28 +18,38 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/platform/create_overlays_table'
-require 'ronin/database/migrations/migrations'
-
 module Ronin
-  module Database
-    module Migrations
-      migration(
-        :create_cached_files_table,
-        :needs => :create_overlays_table
-      ) do
-        up do
-          create_table :ronin_platform_cached_files do
-            column :id, Integer, :serial => true
-            column :path, FilePath, :not_null => true
-            column :timestamp, Time, :not_null => true
-            column :model_name, String, :not_null => true
-            column :overlay_id, Integer, :not_null => true
-          end
+  module Model
+    module Cacheable
+      module ClassMethods
+        #
+        # Loads all objects with the matching attributes.
+        #
+        # @param [Hash] attributes
+        #   Attributes to search for.
+        #
+        def load_all(attributes={})
+          resources = all(attributes)
+          resources.each { |resource| resource.load_original! }
+
+          return resources
         end
 
-        down do
-          drop_table :ronin_platform_cached_files
+        #
+        # Loads the first object with matching attributes.
+        #
+        # @param [Hash] attributes
+        #   Attributes to search for.
+        #
+        # @return [Cacheable]
+        #   The loaded cached objects.
+        #
+        def load_first(attributes={})
+          if (resource = first(attributes))
+            resource.load_original!
+          end
+
+          return resource
         end
       end
     end

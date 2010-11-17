@@ -18,6 +18,30 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/platform/add_overlay_id_column_to_authors_table'
-require 'ronin/database/migrations/platform/create_cached_files_table'
-require 'ronin/database/migrations/platform/create_overlays_table'
+require 'ronin/database/migrations/create_overlays_table'
+require 'ronin/database/migrations/migrations'
+
+module Ronin
+  module Database
+    module Migrations
+      migration(
+        :create_cached_files_table,
+        :needs => :create_overlays_table
+      ) do
+        up do
+          create_table :ronin_cached_files do
+            column :id, Integer, :serial => true
+            column :path, FilePath, :not_null => true
+            column :timestamp, Time, :not_null => true
+            column :model_name, String, :not_null => true
+            column :overlay_id, Integer, :not_null => true
+          end
+        end
+
+        down do
+          drop_table :ronin_cached_files
+        end
+      end
+    end
+  end
+end
