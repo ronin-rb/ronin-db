@@ -18,10 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/overlay'
 require 'ronin/model'
-
-require 'uri'
 
 module Ronin
   #
@@ -52,9 +49,6 @@ module Ronin
 
     # Author's biography
     property :biography, Text
-
-    # The Overlay the maintainer works on
-    belongs_to :overlay, :required => false
 
     #
     # Converts the author to a String.
