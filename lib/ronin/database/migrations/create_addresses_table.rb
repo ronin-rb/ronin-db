@@ -19,6 +19,7 @@
 #
 
 require 'ronin/database/migrations/create_organizations_table'
+require 'ronin/database/migrations/create_taggings_table'
 require 'ronin/database/migrations/migrations'
 
 module Ronin
@@ -26,7 +27,7 @@ module Ronin
     module Migrations
       migration(
         :create_addresses_table,
-        :needs => :create_organizations_table
+        :needs => [:create_organizations_table, :create_taggings_table]
       ) do
         up do
           create_table :ronin_addresses do
