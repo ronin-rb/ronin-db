@@ -1,7 +1,7 @@
 #
 # ronin-db - A common database library for managing and querying security data.
 #
-# Copyright (c) 2006-2021 Hal Brodigan (postmodern.mod3 at gmail.com)
+# Copyright (c) 2006-2022 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
 # This file is part of ronin-db.
 #
