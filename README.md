@@ -68,16 +68,6 @@ Remove a Database:
 ## Requirements
 
 * [Ruby] >= 2.6.0
-* [DataMapper]:
-  * [dm-sqlite-adapter] ~> 1.2
-    * [libsqlite3]
-  * [dm-core] ~> 1.2
-  * [dm-types] ~> 1.2
-  * [dm-migrations] ~> 1.2
-  * [dm-validations] ~> 1.2
-  * [dm-aggregates] ~> 1.2
-  * [dm-timestamps] ~> 1.2
-  * [dm-serializer] ~> 1.2
 * [uri-query_params] ~> 0.6
 * [ronin-support] ~> 1.0
 
@@ -122,15 +112,6 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 [ronin-rb]: https://ronin-rb.dev/
 [Ruby]: https://www.ruby-lang.org
 
-[DataMapper]: http://datamapper.org
-[dm-sqlite-adapter]: https://github.com/datamapper/dm-sqlite-adapter#readme
 [libsqlite3]: https://sqlite.org/
-[dm-core]: https://github.com/datamapper/dm-core#readme
-[dm-types]: https://github.com/datamapper/dm-types#readme
-[dm-migrations]: https://github.com/datamapper/dm-migrations#readme
-[dm-validations]: https://github.com/datamapper/dm-validations#readme
-[dm-aggregates]: https://github.com/datamapper/dm-aggregates#readme
-[dm-timestamps]: https://github.com/datamapper/dm-timestamps#readme
-[dm-serializer]: https://github.com/datamapper/dm-serializer#readme
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
