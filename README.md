@@ -79,7 +79,7 @@ Remove a Database:
   * [dm-timestamps] ~> 1.2
   * [dm-serializer] ~> 1.2
 * [uri-query_params] ~> 0.6
-* [ronin-support] ~> 0.6
+* [ronin-support] ~> 1.0
 
 ## Install
 

@@ -39,7 +39,7 @@ dependencies:
   # Library dependencies:
   uri-query_params: ~> 0.6
   # Ronin dependencies:
-  ronin-support: ~> 0.6
+  ronin-support: ~> 1.0
 
 development_dependencies:
   bundler: ~> 2.0
