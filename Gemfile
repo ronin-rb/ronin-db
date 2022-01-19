@@ -22,8 +22,5 @@ group :development do
   gem 'yard',            '~> 0.9'
   gem 'yard-spellcheck', require: false
 
-  gem 'ruby-graphviz',   '~> 0.9.10'
-  gem 'dm-visualizer',   '~> 0.2.0'
-
   gem 'dead_end',        require: false
 end
