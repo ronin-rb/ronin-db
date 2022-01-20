@@ -19,7 +19,7 @@ tables and inserting/querying security data, such as URLs, email addresses,
 host names, IPs, ports, etc. ronin-db also provides CLI commands for managing
 the database(s).
 
-ronin-exploits is part of the [ronin-rb] project, a [Ruby] toolkit for security
+ronin-db is part of the [ronin-rb] project, a [Ruby] toolkit for security
 research and development.
 
 ## Features
