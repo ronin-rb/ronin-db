@@ -90,6 +90,12 @@ $ gem install ronin-db
 gem 'ronin-db', '~> 0.1'
 ```
 
+### gemspec
+
+```ruby
+gem.add_dependency 'ronin-db', '~> 0.1'
+```
+
 ## Development
 
 1. [Fork It!](https://github.com/ronin-rb/ronin-db/fork)
