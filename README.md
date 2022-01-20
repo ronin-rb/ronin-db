@@ -55,15 +55,21 @@ research and development.
 
 List available Databases:
 
-    $ ronin database
+```shell
+$ ronin database
+```
 
 Add a new Database:
 
-    $ ronin database --add team --uri mysql://user:pass@vpn.example.com/db
+```shell
+$ ronin database --add team --uri mysql://user:pass@vpn.example.com/db
+```
 
 Remove a Database:
 
-    $ ronin database --remove team
+```shell
+$ ronin database --remove team
+```
 
 ## Requirements
 
@@ -73,11 +79,15 @@ Remove a Database:
 
 ## Install
 
-    $ gem install ronin-db
+```shell
+$ gem install ronin-db
+```
 
 ### Gemfile
 
-    gem 'ronin-db', '~> 0.1'
+```ruby
+gem 'ronin-db', '~> 0.1'
+```
 
 ## Development
 
