@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/vendor'
+require 'ronin/db/vendor'
 
 describe Vendor do
   let(:name) { 'TestCo' }

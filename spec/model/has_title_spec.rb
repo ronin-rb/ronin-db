@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'model/models/titled_model'
 
-require 'ronin/model/has_title'
+require 'ronin/db/model/has_title'
 
 describe Model::HasTitle do
   let(:model) { TitledModel }
@@ -11,7 +11,7 @@ describe Model::HasTitle do
   describe ".included" do
     subject { model }
 
-    it "should include Ronin::Model" do
+    it "should include Ronin::DB::Model" do
       expect(subject.ancestors).to include(Model)
     end
 

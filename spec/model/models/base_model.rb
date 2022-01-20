@@ -1,8 +1,8 @@
-require 'ronin/model/model'
+require 'ronin/db/model/model'
 
 class BaseModel
 
-  include Ronin::Model
+  include Ronin::DB::Model
 
   property :id, Serial
 

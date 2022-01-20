@@ -1,8 +1,8 @@
-require 'ronin/model/has_title'
+require 'ronin/db/model/has_title'
 
 class TitledModel
 
-  include Ronin::Model::HasTitle
+  include Ronin::DB::Model::HasTitle
 
   property :id, Serial
 

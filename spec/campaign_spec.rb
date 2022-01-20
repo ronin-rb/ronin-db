@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/campaign'
+require 'ronin/db/campaign'
 
 describe Campaign do
   describe "targets?" do

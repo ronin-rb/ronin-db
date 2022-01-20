@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'model/models/versioned_model'
 
-require 'ronin/model/has_version'
+require 'ronin/db/model/has_version'
 
 describe Model::HasVersion do
   let(:model) { VersionedModel }
@@ -11,7 +11,7 @@ describe Model::HasVersion do
   describe ".included" do
     subject { model }
 
-    it "should include Ronin::Model" do
+    it "should include Ronin::DB::Model" do
       expect(subject.ancestors).to include(Model)
     end
 

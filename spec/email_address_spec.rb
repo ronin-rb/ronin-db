@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/email_address'
+require 'ronin/db/email_address'
 
 describe EmailAddress do
   let(:user)  { 'joe' }

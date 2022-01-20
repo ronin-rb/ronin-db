@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/author'
+require 'ronin/db/author'
 
 describe Author do
   describe "#to_s" do

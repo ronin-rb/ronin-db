@@ -1,8 +1,8 @@
-require 'ronin/model/has_version'
+require 'ronin/db/model/has_version'
 
 class VersionedModel
 
-  include Ronin::Model::HasVersion
+  include Ronin::DB::Model::HasVersion
 
   property :id, Serial
 

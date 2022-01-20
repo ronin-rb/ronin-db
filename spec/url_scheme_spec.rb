@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/url_scheme'
+require 'ronin/db/url_scheme'
 
 describe URLScheme do
   before(:all) { described_class.create(name: 'http') }

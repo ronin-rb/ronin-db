@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/os'
+require 'ronin/db/os'
 
 describe OS do
   let(:name)    { 'Linux'  }

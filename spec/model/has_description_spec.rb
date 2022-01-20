@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'model/models/described_model'
 
-require 'ronin/model/has_description'
+require 'ronin/db/model/has_description'
 
 describe Model::HasDescription do
   let(:model) { DescribedModel }
@@ -11,7 +11,7 @@ describe Model::HasDescription do
   describe ".included" do
     subject { model }
 
-    it "should include Ronin::Model" do
+    it "should include Ronin::DB::Model" do
       expect(subject.ancestors).to include(Model)
     end
 

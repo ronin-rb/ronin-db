@@ -1,9 +1,9 @@
-require 'ronin/model/model'
+require 'ronin/db/model/model'
 require_relative 'base_model'
 
 class InheritedModel < BaseModel
 
-  include Ronin::Model
+  include Ronin::DB::Model
 
   attr_reader :var
 

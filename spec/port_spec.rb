@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/port'
+require 'ronin/db/port'
 
 describe Port do
   let(:protocol) { 'tcp' }

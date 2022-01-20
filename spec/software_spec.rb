@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/software'
+require 'ronin/db/software'
 
 describe Software do
   let(:name)    { 'Test'  }

@@ -25,31 +25,31 @@ research and development.
 ## Features
 
 * Provides a Database using [DataMapper] with:
-  * {Ronin::Author}
-  * {Ronin::License}
-  * {Ronin::Arch}
-  * {Ronin::OS}
-  * {Ronin::Software}
-  * {Ronin::Vendor}
-  * {Ronin::Address}
-    * {Ronin::MACAddress}
-    * {Ronin::IPAddress}
-    * {Ronin::HostName}
-  * {Ronin::Port}
-    * {Ronin::TCPPort}
-    * {Ronin::UDPPort}
-  * {Ronin::Service}
-  * {Ronin::OpenPort}
-  * {Ronin::OSGuess}
-  * {Ronin::UserName}
-  * {Ronin::URL}
-  * {Ronin::EmailAddress}
-  * {Ronin::Credential}
-    * {Ronin::ServiceCredential}
-    * {Ronin::WebCredential}
-  * {Ronin::Organization}
-  * {Ronin::Campaign}
-  * {Ronin::Target}
+  * {Ronin::DB::Author}
+  * {Ronin::DB::License}
+  * {Ronin::DB::Arch}
+  * {Ronin::DB::OS}
+  * {Ronin::DB::Software}
+  * {Ronin::DB::Vendor}
+  * {Ronin::DB::Address}
+    * {Ronin::DB::MACAddress}
+    * {Ronin::DB::IPAddress}
+    * {Ronin::DB::HostName}
+  * {Ronin::DB::Port}
+    * {Ronin::DB::TCPPort}
+    * {Ronin::DB::UDPPort}
+  * {Ronin::DB::Service}
+  * {Ronin::DB::OpenPort}
+  * {Ronin::DB::OSGuess}
+  * {Ronin::DB::UserName}
+  * {Ronin::DB::URL}
+  * {Ronin::DB::EmailAddress}
+  * {Ronin::DB::Credential}
+    * {Ronin::DB::ServiceCredential}
+    * {Ronin::DB::WebCredential}
+  * {Ronin::DB::Organization}
+  * {Ronin::DB::Campaign}
+  * {Ronin::DB::Target}
 
 ## Synopsis
 

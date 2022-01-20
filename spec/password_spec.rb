@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/password'
+require 'ronin/db/password'
 
 describe Password do
   let(:password) { 'secret' }

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'model/models/licensed_model'
 
-require 'ronin/model/has_license'
+require 'ronin/db/model/has_license'
 
 describe Model::HasLicense do
   let(:model) { LicensedModel }
@@ -11,7 +11,7 @@ describe Model::HasLicense do
   describe ".included" do
     subject { model }
 
-    it "should include Ronin::Model" do
+    it "should include Ronin::DB::Model" do
       expect(subject.ancestors).to include(Model)
     end
 

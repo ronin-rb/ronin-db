@@ -1,8 +1,8 @@
-require 'ronin/model/has_description'
+require 'ronin/db/model/has_description'
 
 class DescribedModel
 
-  include Ronin::Model::HasDescription
+  include Ronin::DB::Model::HasDescription
 
   property :id, Serial
 

@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Model::Types::Description do
   class DescriptionModel
 
-    include Ronin::Model
+    include Ronin::DB::Model
 
     property :id, Serial
 
-    property :description, Types::Description
+    property :description, Ronin::DB::Types::Description
 
   end
 

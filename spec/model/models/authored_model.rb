@@ -1,8 +1,8 @@
-require 'ronin/model/has_authors'
+require 'ronin/db/model/has_authors'
 
 class AuthoredModel
 
-  include Ronin::Model::HasAuthors
+  include Ronin::DB::Model::HasAuthors
 
   property :id, Serial
 

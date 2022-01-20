@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/mac_address'
+require 'ronin/db/mac_address'
 
 describe MACAddress do
   let(:address) { '00:01:02:03:04:05' }

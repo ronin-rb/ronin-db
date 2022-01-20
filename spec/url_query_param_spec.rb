@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/url_query_param'
+require 'ronin/db/url_query_param'
 
 describe URLQueryParam do
   let(:name)  { 'foo' }

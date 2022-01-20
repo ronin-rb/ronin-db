@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/credential'
+require 'ronin/db/credential'
 
 describe Credential do
   let(:name)     { 'alice'  }

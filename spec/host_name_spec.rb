@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/host_name'
+require 'ronin/db/host_name'
 
 describe HostName do
   let(:domain) { 'localhost' }

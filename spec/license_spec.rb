@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/license'
+require 'ronin/db/license'
 
 describe License do
   describe "validations" do

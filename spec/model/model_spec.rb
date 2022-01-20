@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'model/models/base_model'
 require 'model/models/inherited_model'
 
-require 'ronin/model/model'
+require 'ronin/db/model/model'
 
 describe Model do
   let(:base_model) { BaseModel }

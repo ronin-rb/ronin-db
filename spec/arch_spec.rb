@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/arch'
+require 'ronin/db/arch'
 
 describe Arch do
   describe "validations" do

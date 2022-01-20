@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'model/models/authored_model'
 
-require 'ronin/model/has_authors'
+require 'ronin/db/model/has_authors'
 
 describe Model::HasAuthors do
   let(:model) { AuthoredModel }
@@ -11,7 +11,7 @@ describe Model::HasAuthors do
   describe ".included" do
     subject { model }
 
-    it "should include Ronin::Model" do
+    it "should include Ronin::DB::Model" do
       expect(subject.ancestors).to include(Model)
     end
 

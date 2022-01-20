@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/service'
+require 'ronin/db/service'
 
 describe Service do
   let(:name) { 'Apache' }

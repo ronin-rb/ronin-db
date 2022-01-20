@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/ip_address'
+require 'ronin/db/ip_address'
 
 describe IPAddress do
   let(:example_domain) { 'localhost' }

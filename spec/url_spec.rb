@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'ronin/url'
+require 'ronin/db/url'
 
 describe URL do
   let(:scheme) { 'https' }

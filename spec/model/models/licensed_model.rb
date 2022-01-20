@@ -1,8 +1,8 @@
-require 'ronin/model/has_license'
+require 'ronin/db/model/has_license'
 
 class LicensedModel
 
-  include Ronin::Model::HasLicense
+  include Ronin::DB::Model::HasLicense
 
   property :id, Serial
 
