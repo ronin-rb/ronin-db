@@ -22,7 +22,7 @@ generated_files:
  - man/ronin-ips.1
  - man/ronin-urls.1
 
-required_ruby_version: ">= 2.6.0"
+required_ruby_version: ">= 2.7.0"
 
 dependencies:
   # Library dependencies:
