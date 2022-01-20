@@ -76,6 +76,7 @@ $ ronin database --remove team
 * [Ruby] >= 2.7.0
 * [uri-query_params] ~> 0.6
 * [ronin-support] ~> 1.0
+* [ronin-core] ~> 0.1
 
 ## Install
 
@@ -125,3 +126,4 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 [libsqlite3]: https://sqlite.org/
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
+[ronin-core]: https://github.com/ronin-rb/ronin-core#readme

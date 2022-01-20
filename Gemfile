@@ -10,6 +10,9 @@ gem 'jruby-openssl',	'~> 0.7', platforms: :jruby
 gem 'ronin-support',	'~> 1.0', git: "#{RONIN_URI}/ronin-support.git",
                                 branch: '1.0.0'
 
+gem 'ronin-core',	'~> 0.1', git: "#{RONIN_URI}/ronin-core.git",
+                            branch: 'main'
+
 group :development do
   gem 'rake'
   gem 'rubygems-tasks',  '~> 0.1'
