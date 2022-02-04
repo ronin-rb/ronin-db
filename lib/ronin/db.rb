@@ -21,7 +21,6 @@
 
 require 'ronin/db/address'
 require 'ronin/db/arch'
-require 'ronin/db/author'
 require 'ronin/db/campaign'
 require 'ronin/db/credential'
 require 'ronin/db/database'

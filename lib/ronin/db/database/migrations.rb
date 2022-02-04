@@ -22,7 +22,6 @@
 require 'ronin/db/database/migrations/migrations'
 require 'ronin/db/database/migrations/address'
 require 'ronin/db/database/migrations/arch'
-require 'ronin/db/database/migrations/author'
 require 'ronin/db/database/migrations/campaign'
 require 'ronin/db/database/migrations/country'
 require 'ronin/db/database/migrations/credential'
