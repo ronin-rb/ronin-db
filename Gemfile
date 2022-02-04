@@ -5,6 +5,7 @@ RONIN_URI  = 'https://github.com/ronin-rb'
 gemspec
 
 gem 'jruby-openssl',	'~> 0.7', platforms: :jruby
+gem 'sqlite3',        '~> 1.4'
 
 # Library dependencies
 gem 'ronin-support',	'~> 1.0', git: "#{RONIN_URI}/ronin-support.git",
