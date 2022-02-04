@@ -49,12 +49,6 @@ module Ronin
       # The optional organization the host belongs to
       belongs_to :organization, required: false
 
-      # The targets associated with the address
-      has 0..n, :targets
-
-      # The campaigns targeting the address
-      has 0..n, :campaigns, through: :targets
-
       # Tracks when the IP Address was first created
       timestamps :created_at
 
