@@ -21,7 +21,7 @@
 
 require 'ronin/db/database/exceptions/invalid_config'
 require 'ronin/db/database/exceptions/unknown_repository'
-require 'ronin/db/database/migrations/migrations'
+require 'ronin/db/migrations'
 require 'ronin/ronin'
 require 'ronin/config'
 
