@@ -2,6 +2,5 @@ require 'rspec'
 require 'simplecov'
 SimpleCov.start
 
-require 'ronin/db/spec/database'
-
+require 'ronin/db/version'
 include Ronin::DB
