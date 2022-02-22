@@ -19,6 +19,16 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/migrations/migrations'
-require 'ronin/db/migrations/address'
-require 'ronin/db/migrations/host_name_ip_address'
+require 'ronin/core/home'
+
+module Ronin
+  module DB
+    module Home
+      # The path to the `~/.config/ronin-db/` directory.
+      CONFIG_DIR = File.join(Core::Home::CONFIG_DIR,'ronin-db')
+
+      # The path to the `~/.cache/ronin-db/` directory.
+      CACHE_DIR = File.join(Core::Home::CACHE_DIR,'ronin-db')
+    end
+  end
+end

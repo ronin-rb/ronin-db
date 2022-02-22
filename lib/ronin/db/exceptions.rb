@@ -19,46 +19,9 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/migrations'
-require 'ronin/db/migrations/organization'
-
 module Ronin
   module DB
-    module Migrations
-      #
-      # 1.0.0
-      #
-      migration :create_services_table, needs: :create_organizations_table do
-        up do
-          create_table :ronin_services do
-            column :id, Integer, serial: true
-            column :name, String, not_null: true
-            column :organization_id, Integer
-          end
-
-          create_index :ronin_services, :name, unique: true
-        end
-
-        down do
-          drop_table :ronin_services
-        end
-      end
-
-      #
-      # 1.6.0
-      #
-      migration :add_protocol_to_services_table do
-        up do
-          modify_table :ronin_services do
-            add_column :protocol, String
-          end
-
-          create_index :ronin_services, :protocol
-        end
-
-        down do
-        end
-      end
+    class UnknownDatabase < RuntimeError
     end
   end
 end

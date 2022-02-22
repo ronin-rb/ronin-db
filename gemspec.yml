@@ -25,9 +25,9 @@ required_ruby_version: ">= 2.7.0"
 
 dependencies:
   # Library dependencies:
-  uri-query_params: ~> 0.6
-  activerecord: ~> 7.0
+  sqlite3: ~> 1.0
   # Ronin dependencies:
+  ronin-db-activerecord: ~> 0.1
   ronin-support: ~> 1.0
   ronin-core: ~> 0.1
 

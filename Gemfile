@@ -8,6 +8,9 @@ gem 'jruby-openssl',	'~> 0.7', platforms: :jruby
 gem 'sqlite3',        '~> 1.4'
 
 # Library dependencies
+gem 'ronin-db-activerecord', '~> 0.1', git: "#{RONIN_URI}/ronin-db-activerecord.git",
+                                       branch: 'main'
+
 gem 'ronin-support',	'~> 1.0', git: "#{RONIN_URI}/ronin-support.git",
                                 branch: '1.0.0'
 

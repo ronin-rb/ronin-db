@@ -75,7 +75,8 @@ $ ronin database --remove team
 
 * [Ruby] >= 2.7.0
 * [uri-query_params] ~> 0.6
-* [activerecord] ~> 7.0
+* [sqlite3] ~> 1.0
+* [ronin-db-activerecord] ~> 0.1
 * [ronin-support] ~> 1.0
 * [ronin-core] ~> 0.1
 
@@ -132,6 +133,8 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 
 [libsqlite3]: https://sqlite.org/
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
+[sqlite3]: https://github.com/sparklemotion/sqlite3-ruby#readme
 [activerecord]: https://github.com/rails/rails/tree/main/activerecord#readme
+[ronin-db-activerecord]: https://github.com/ronin-rb/ronin-db-activerecord#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
 [ronin-core]: https://github.com/ronin-rb/ronin-core#readme

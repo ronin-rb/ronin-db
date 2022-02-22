@@ -19,33 +19,68 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/address'
-require 'ronin/db/arch'
-require 'ronin/db/credential'
-require 'ronin/db/database'
-require 'ronin/db/email_address'
-require 'ronin/db/host_name_ip_address'
-require 'ronin/db/host_name'
-require 'ronin/db/ip_address_mac_address'
-require 'ronin/db/ip_address'
-require 'ronin/db/mac_address'
-require 'ronin/db/model'
-require 'ronin/db/open_port'
-require 'ronin/db/organization'
-require 'ronin/db/os_guess'
-require 'ronin/db/os'
-require 'ronin/db/password'
-require 'ronin/db/port'
-require 'ronin/db/service_credential'
-require 'ronin/db/service'
-require 'ronin/db/software'
-require 'ronin/db/tcp_port'
-require 'ronin/db/udp_port'
-require 'ronin/db/url_query_param_name'
-require 'ronin/db/url_query_param'
-require 'ronin/db/url'
-require 'ronin/db/url_scheme'
-require 'ronin/db/user_name'
-require 'ronin/db/vendor'
-require 'ronin/db/web_credential'
+require 'ronin/db/exceptions'
+require 'ronin/db/config_file'
 require 'ronin/db/version'
+
+require 'active_record'
+
+module Ronin
+  module DB
+    #
+    # Sets up the Database logger.
+    #
+    # @api semipublic
+    #
+    def self.logger=(new_logger)
+      ActiveRecord::Base.logger = new_logger
+    end
+
+    #
+    # @return [Hash{Symbol => Hash}]
+    #
+    def self.config
+      @config ||= ConfigFile.load
+    end
+
+    #
+    # Connects to the Database.
+    #
+    # @param [Symbol, Hash] uri
+    #   The optional default repository to setup instead of {repositories}.
+    #
+    # @raise [UnknownDatabase]
+    #
+    # @raise [ArgumentError]
+    #
+    # @see Database.upgrade!
+    #
+    # @api semipublic
+    #
+    def self.connect(database=:default)
+      config = case database
+               when Hash
+                 database
+               when Symbol
+                 self.config.fetch(database) do
+                   raise(UnknownDatabase,"unknown database: #{database.inspect}")
+                 end
+               else
+                 raise(ArgumentError,"#{self.class}.#{__method__} only accepts a Symbol or a Hash")
+               end
+
+      # connect to the database
+      ActiveRecord::Base.establish_connection(config)
+
+      require 'ronin/db/migrations'
+      Migrations.migrate
+
+      # require all models
+      require 'ronin/db/models'
+
+      # connect the models
+      Models.connect
+      return true
+    end
+  end
+end
