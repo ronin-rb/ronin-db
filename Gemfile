@@ -1,21 +1,17 @@
 source 'https://rubygems.org'
 
-RONIN_URI  = 'https://github.com/ronin-rb'
-
 gemspec
 
 gem 'jruby-openssl',	'~> 0.7', platforms: :jruby
 gem 'sqlite3',        '~> 1.4'
 
 # Library dependencies
-gem 'ronin-db-activerecord', '~> 0.1', git: "#{RONIN_URI}/ronin-db-activerecord.git",
+gem 'ronin-db-activerecord', '~> 0.1', github: "ronin-rb/ronin-db-activerecord",
                                        branch: 'main'
-
-gem 'ronin-support',	'~> 1.0', git: "#{RONIN_URI}/ronin-support.git",
-                                branch: '1.0.0'
-
-gem 'ronin-core',	'~> 0.1', git: "#{RONIN_URI}/ronin-core.git",
-                            branch: 'main'
+gem 'ronin-support',	       '~> 1.0', github: "ronin-rb/ronin-support",
+                                       branch: '1.0.0'
+gem 'ronin-core',	           '~> 0.1', github: "ronin-rb/ronin-core",
+                                       branch: 'main'
 
 group :development do
   gem 'rake'
