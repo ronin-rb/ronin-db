@@ -73,7 +73,7 @@ $ ronin database --remove team
 
 ## Requirements
 
-* [Ruby] >= 2.7.0
+* [Ruby] >= 3.0.0
 * [uri-query_params] ~> 0.6
 * [sqlite3] ~> 1.0
 * [ronin-db-activerecord] ~> 0.1
