@@ -42,6 +42,31 @@ module Ronin
     end
 
     #
+    # Migrate the database up and apply any pending migrations.
+    #
+    def self.migrate!
+      require 'ronin/db/migrations'
+      Migrations.migrate
+    end
+
+    #
+    # Only migrate the database if the database is empty, otherwise warn the
+    # user that there are pending migrations.
+    #
+    def self.migrate
+      require 'ronin/db/migrations'
+
+      if Migrations.current_version == 0
+        # auto-run the migrations when the database is empty
+        Migrations.migrate
+      elsif Migrations.needs_migration?
+        # warn the user that there are pending migrations, instead of
+        # auto-running migrations each time
+        warn "WARNING: Database requires migrating!"
+      end
+    end
+
+    #
     # Connects to the Database.
     #
     # @param [Symbol, Hash] uri
@@ -55,7 +80,7 @@ module Ronin
     #
     # @api semipublic
     #
-    def self.connect(database=:default)
+    def self.connect(database=:default, migrate: nil)
       config = case database
                when Hash
                  database
@@ -70,15 +95,9 @@ module Ronin
       # connect to the database
       ActiveRecord::Base.establish_connection(config)
 
-      require 'ronin/db/migrations'
-
-      if Migrations.current_version == 0
-        # auto-run the migrations when the database is empty
-        Migrations.migrate
-      elsif Migrations.needs_migration?
-        # warn the user that there are pending migrations, instead of
-        # auto-running migrations each time
-        warn "WARNING: Database requires migrating!"
+      # migrate the database if necessary
+      if migrate == true then migrate!
+      else                    migrate
       end
 
       # require all models
