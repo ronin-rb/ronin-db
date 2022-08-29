@@ -24,51 +24,29 @@ research and development.
 
 ## Features
 
-* Provides a Database using [DataMapper] with:
-  * {Ronin::DB::Author}
-  * {Ronin::DB::License}
-  * {Ronin::DB::Arch}
-  * {Ronin::DB::OS}
-  * {Ronin::DB::Software}
-  * {Ronin::DB::Vendor}
-  * {Ronin::DB::Address}
-    * {Ronin::DB::MACAddress}
-    * {Ronin::DB::IPAddress}
-    * {Ronin::DB::HostName}
-  * {Ronin::DB::Port}
-    * {Ronin::DB::TCPPort}
-    * {Ronin::DB::UDPPort}
-  * {Ronin::DB::Service}
-  * {Ronin::DB::OpenPort}
-  * {Ronin::DB::OSGuess}
-  * {Ronin::DB::UserName}
-  * {Ronin::DB::URL}
-  * {Ronin::DB::EmailAddress}
-  * {Ronin::DB::Credential}
-    * {Ronin::DB::ServiceCredential}
-    * {Ronin::DB::WebCredential}
-  * {Ronin::DB::Organization}
-  * {Ronin::DB::Campaign}
-  * {Ronin::DB::Target}
+* Uses a [sqlite] database by default.
+* Provides common [ActiveRecord models][ronin-db-activerecord] for interacting
+  with the database tables.
+* Provides a `ronin-db` command for easy management of the database(s).
 
 ## Synopsis
 
 List available Databases:
 
 ```shell
-$ ronin database
+$ ronin-db list
 ```
 
 Add a new Database:
 
 ```shell
-$ ronin database --add team --uri mysql://user:pass@vpn.example.com/db
+$ ronin-db add team --uri mysql://user:pass@vpn.example.com/db
 ```
 
 Remove a Database:
 
 ```shell
-$ ronin database --remove team
+$ ronin-db remove team
 ```
 
 ## Requirements
