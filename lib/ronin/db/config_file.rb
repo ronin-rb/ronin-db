@@ -96,15 +96,15 @@ module Ronin
       #   or does not contain Hashes.
       #
       def self.load(path=PATH)
-        config = if File.file?(path)
-                   YAML.load_file(path, symbolize_names: true).tap do |data|
-                     validate(path,data)
-                   end
-                 else
-                   {}
-                 end
+        if File.file?(path)
+          config = YAML.load_file(path, symbolize_names: true).tap do |data|
+            validate(path,data)
+          end
 
-        return DEFAULT_CONFIG.merge(config)
+          DEFAULT_CONFIG.merge(config)
+        else
+          DEFAULT_CONFIG
+        end
       end
 
       #
