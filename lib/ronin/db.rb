@@ -35,7 +35,11 @@ module Ronin
     end
 
     #
+    # `ronin-db` database(s) configuration.
+    #
     # @return [Hash{Symbol => Hash}]
+    #
+    # @api private
     #
     def self.config
       @config ||= ConfigFile.load
