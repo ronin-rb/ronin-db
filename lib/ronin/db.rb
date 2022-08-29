@@ -73,7 +73,15 @@ module Ronin
       ActiveRecord::Base.establish_connection(config)
 
       require 'ronin/db/migrations'
-      Migrations.migrate
+
+      if Migrations.current_version == 0
+        # auto-run the migrations when the database is empty
+        Migrations.migrate
+      elsif Migrations.needs_migration?
+        # warn the user that there are pending migrations, instead of
+        # auto-running migrations each time
+        warn "WARNING: Database requires migrating!"
+      end
 
       # require all models
       require 'ronin/db/models'
