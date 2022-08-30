@@ -104,10 +104,8 @@ module Ronin
       else                    migrate
       end
 
-      # require all models
+      # require and connect all models
       require 'ronin/db/models'
-
-      # connect the models
       Models.connect
       return true
     end
