@@ -14,6 +14,7 @@ homepage: https://ronin-rb.dev
 has_yard: true
 
 generated_files:
+ - man/ronin-db-edit.1
  - man/ronin-creds.1
  - man/ronin-database.1
  - man/ronin-emails.1
