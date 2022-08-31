@@ -17,66 +17,60 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/resources_command'
-require 'ronin/email_address'
+require 'ronin/db/cli/model_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       module Commands
         #
-        # Manages {EmailAddress EmailAddresses}.
+        # Manages email addresses in the database.
         #
         # ## Usage
         #
-        #     ronin emails [options]
+        #     ronin-db emails [options]
         #
         # ## Options
         #
-        #      -v, --[no-]verbose               Enable verbose output.
-        #      -q, --[no-]quiet                 Disable verbose output.
-        #          --[no-]silent                Silence all output.
-        #      -D, --database [URI]             The Database URI.
-        #          --[no-]csv                   CSV output.
-        #          --[no-]xml                   XML output.
-        #          --[no-]yaml                  YAML output.
-        #          --[no-]json                  JSON output.
-        #      -H, --with-hosts [HOST [...]]
-        #      -I, --with-ips [IP [...]]
-        #      -u, --with-users [NAME [...]]
-        #      -l, --[no-]list                  Default: true
-        #      -i, --import [FILE]
+        #      -H, --with-host [HOST [...]]
+        #      -I, --with-ip [IP [...]]
+        #      -u, --with-user [NAME [...]]
         #
-        class Emails < ResourcesCommand
+        class Emails < ModelCommand
 
-          model EmailAddress
+          model_file 'ronin/db/email_address'
+          model_name 'EmailAddress'
 
-          summary 'Manages EmailAddresses'
+          option :with_host, short: '-H',
+                             value: {
+                               type:  String,
+                               usage: 'HOST'
+                             },
+                             desc: 'Searches for the associated HOST(s)' do |host|
+                               @query_method_calls << [:with_host_name, [host]]
+                             end
 
-          query_option :with_hosts, type:        Array,
-                                    flag:        '-H',
-                                    usage:       'HOST [...]',
-                                    description: 'Searches for the associated HOST(s)'
+          option :with_ip, short: '-I',
+                           value: {
+                             type:  String,
+                             usage: 'IP'
+                           },
+                           desc: 'Searches for the associated IP(s)' do |ip|
+                             @query_method_calls << [:with_ip_address, [ip]]
+                           end
 
-          query_option :with_ips, type:        Array,
-                                  flag:        '-I',
-                                  usage:       'IP [...]',
-                                  description: 'Searches for the associated IP(s)'
+          option :with_user, short: '-u',
+                             value: {
+                               type:  String,
+                               usage: 'USER'
+                             },
+                             desc: 'Searches for the associated user name' do |user|
+                               @query_method_calls << [:with_user_name, [user]]
+                             end
 
-          query_option :with_users, type:        Array,
-                                    flag:        '-u',
-                                    usage:       'NAME [...]',
-                                    description: 'Searches for the associated UserName(s)'
+          description 'Manages all email addresses in the database'
 
-          option :list, type:        true,
-                        default:     true,
-                        flag:        '-l',
-                        description: 'Lists the EmailAddresses'
-
-          option :import, type:        String,
-                          flag:        '-i',
-                          usage:       'FILE',
-                          description: 'Imports EmailAddresses from the FILE'
+          man_page 'ronin-db-emails.1'
 
         end
       end

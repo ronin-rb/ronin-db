@@ -17,18 +17,14 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/resources_command'
-
-require 'ronin/credential'
-require 'ronin/service_credential'
-require 'ronin/web_credential'
+require 'ronin/db/cli/model_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       module Commands
         #
-        # Lists {Credential Credentials}.
+        # Queries all credentials in the database.
         #
         # ## Usage
         #
@@ -36,69 +32,35 @@ module Ronin
         #
         # ## Options
         #
-        #      -v, --[no-]verbose               Enable verbose output.
-        #      -q, --[no-]quiet                 Disable verbose output.
-        #          --[no-]silent                Silence all output.
-        #      -D, --database [URI]             The Database URI.
-        #          --[no-]csv                   CSV output.
-        #          --[no-]xml                   XML output.
-        #          --[no-]yaml                  YAML output.
-        #          --[no-]json                  JSON output.
-        #      -u, --for-user [USER]            Username to search for.
-        #      -p, --with-password [PASS]       Password to search for.
-        #      -l, --[no-]list                  List all Credentials.
-        #                                       Default: true
+        #      -u, --user [USER]                Username to search for.
+        #      -p, --password [PASS]            Password to search for.
         #
-        class Creds < ResourcesCommand
+        class Creds < ModelCommand
 
-          model Credential
+          model_file 'ronin/db/credential'
+          model_name 'Credential'
 
-          summary 'Lists Credentials'
+          option :user, short: '-u',
+                        value: {
+                          type:  String,
+                          usage: 'USER'
+                        },
+                        desc: 'Username to search for' do |user|
+                          @query_method_calls << [:for_user, [user]]
+                        end
 
-          query_option :for_user, type:        String,
-                                  flag:        '-u',
-                                  usage:       'USER',
-                                  description: 'Username to search for'
+          option :password, short: '-P',
+                            value: {
+                              type:  String,
+                              usage: 'PASSWORD'
+                            },
+                            desc: 'Password to search for' do |password|
+                              @query_method_calls << [:with_password, [password]]
+                            end
 
-          query_option :with_password, type:        String,
-                                       flag:        '-p',
-                                       usage:       'PASS',
-                                       description: 'Password to search for'
+          description 'Queries all credentials in the database'
 
-          option :list, type:        true,
-                        default:     true,
-                        flag:        '-l',
-                        description: 'List the Credentials'
-
-          #
-          # Queries the {Credential} model.
-          #
-          # @since 1.0.0
-          #
-          def execute
-            super if list?
-          end
-
-          protected
-
-          #
-          # Prints a credential.
-          #
-          # @param [Credential] cred
-          #   The credential to display.
-          #
-          # @since 1.0.0
-          #
-          def print_resource(cred)
-            case cred
-            when ServiceCredential
-              puts "#{cred}\t(#{cred.open_port.ip_address} #{cred.open_port})"
-            when WebCredential
-              puts "#{cred}\t(#{cred.url})"
-            else
-              super(cred)
-            end
-          end
+          man_page 'ronin-db-creds.1'
 
         end
       end

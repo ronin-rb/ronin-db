@@ -17,121 +17,140 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/resources_command'
-require 'ronin/url'
+require 'ronin/db/cli/model_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       module Commands
         #
-        # Manages {URL URLs}.
+        # Manages all URLs in the database.
         #
         # ## Usage
         #
-        #     ronin urls [options]
+        #     ronin-db urls [options]
         #
         # ## Options
         #
-        #      -v, --[no-]verbose               Enable verbose output.
-        #          --[no-]quiet                 Disable verbose output.
-        #          --[no-]silent                Silence all output.
-        #      -D, --database [URI]             The Database URI.
-        #          --[no-]csv                   CSV output.
-        #          --[no-]xml                   XML output.
-        #          --[no-]yaml                  YAML output.
-        #          --[no-]json                  JSON output.
-        #      -i, --import [FILE]
         #          --[no-]http
         #          --[no-]https
-        #      -H, --hosts [HOST [...]]
-        #      -P, --ports [PORT [...]]
-        #      -d, --directory [SUBDIR]
-        #      -q [NAME [...]],
+        #      -H, --hosts HOST
+        #      -P, --ports PORT
+        #      -d, --directory SUBDIR
+        #      -E, --ext EXT
+        #      -q NAME
         #          --with-query-param
-        #      -Q [VALUE [...]],
+        #      -Q VALUE
         #          --with-query-value
-        #      -l, --[no-]list                  Default: true
         #
-        class Urls < ResourcesCommand
+        class Urls < ModelCommand
 
-          model URL
+          model_file 'ronin/db/url'
+          model_name 'URL'
 
-          summary 'Manages URLs'
-
-          query_option :http, type:        true,
-                              description: 'Searches for http:// URLs'
-
-          query_option :https, type:        true,
-                               description: 'Searches for https:// URLs'
-
-          query_option :hosts, type:        Array,
-                               flag:        '-H',
-                               usage:       'HOST [...]',
-                               description: 'Searches for the associated HOST(s)'
-
-          query_option :ports, type:        Array[Integer],
-                               flag:        '-P',
-                               usage:       'PORT [...]',
-                               description: 'Searches for the associated PORT(s)'
-
-          query_option :directory, type:        String, 
-                                   flag:        '-d',
-                                   description: 'Searches for the associated DIRECTORY'
-
-          query_option :with_query_param, type:        Array,
-                                          flag:        '-q',
-                                          usage:       'NAME [...]',
-                                          description: 'Searches for the associated query-param NAME(s)'
-
-          query_option :with_query_value, type:        Array,
-                                          flag:        '-Q',
-                                          usage:       'VALUE [...]',
-                                          description: 'Searches for the associated query-param VALUE(s)'
-
-          option :list, type:        true,
-                        default:     true,
-                        flag:        '-l',
-                        description: 'Lists the URLs'
-
-          option :import, type:        String,
-                          flag:        '-i',
-                          usage:       'FILE',
-                          description: 'Imports URLs from the FILE'
-
-          protected
-
-          #
-          # Prints a URL.
-          #
-          # @param [Ronin::DB::URL] url
-          #   The URL to print.
-          #
-          # @since 1.0.0
-          #
-          def print_resource(url)
-            return super(url) unless verbose?
-
-            print_title url
-
-            indent do
-              print_hash 'Host' => url.host_name,
-                         'Port' => url.port.number,
-                         'Path' => url.path,
-                         'Fragment' => url.fragment,
-                         'Last Scanned' => url.last_scanned_at
-
-              unless url.query_params.empty?
-                params = {}
-
-                url.query_params.each do |param|
-                  params[param.name] = param.value
-                end
-
-                print_hash params, title: 'Query Params'
-              end
-            end
+          option :http, desc: 'Searches for http:// URLs' do
+            @query_method_calls << :http
           end
+
+          option :https, desc: 'Searches for https:// URLs' do
+            @query_method_calls << :https
+          end
+
+          option :host, short: '-H',
+                        value: {
+                          type: String,
+                          usage: 'HOST'
+                        },
+                        desc: 'Searches for the associated HOST(s)' do |host|
+                          @query_method_calls << [:with_host_name, [host]]
+                        end
+
+          option :port, short: '-p',
+                        value: {
+                          type: Integer,
+                          usage: 'PORT'
+                        },
+                        desc: 'Searches for the associated PORT(s)' do |port|
+                          @query_method_calls << [:with_port_number, [port]]
+                        end
+
+          option :path, value: {
+                          type: String,
+                          usage: 'PATH'
+                        },
+                        desc: 'Searches for all URLs with the PATH' do |path|
+                          @query_method_calls << [:where, [], {path: path}]
+                        end
+
+          option :fragment, value: {
+                              type: String,
+                              usage: 'FRAGMENT'
+                            },
+                            desc: 'Searches for all URLs with the FRAGMENT' do |fragment|
+                              @query_method_calls << [:where, [], {fragment: fragment}]
+                            end
+
+          option :directory, short: '-d',
+                             value: {
+                               type:  String,
+                               usage: 'DIR'
+                             },
+                             desc: 'Searches for the associated DIR' do |dir|
+                               @query_method_calls << [:with_directory, [dir]]
+                             end
+
+          option :with_ext, short: '-E',
+                            value: {
+                              type:  String,
+                              usage: 'EXT'
+                            },
+                            desc: 'Searches for URLs with the file extension' do |ext|
+                              @query_method_calls << [:with_ext, [ext]]
+                            end
+
+          option :query_string, short: '-q',
+                                value: {
+                                  type:  String,
+                                  usage: 'STRING',
+                                },
+                                desc: 'Searches for all URLs with the query string' do |string|
+                                  @query_method_calls << [:where, [], {query: string}]
+                                end
+
+          option :with_query_param, short: '-P',
+                                    value: {
+                                      type: String,
+                                      usage: 'NAME[=VALUE]'
+                                    },
+                                    desc: 'Searches for the associated query-param NAME(s)' do |string|
+                                      name, value = string.split('=',2)
+
+                                      if value
+                                        @query_method_calls << [:with_query_param, [name, value]]
+                                      else
+                                        @query_method_calls << [:with_query_param_name, [name]]
+                                      end
+                                    end
+
+          option :with_query_param_name, value: {
+                                           type:  String,
+                                           usage: 'NAME'
+                                         },
+                                         desc: 'Searches for the associated query-param VALUE(s)' do |name|
+                                           @query_method_calls << [:with_query_param_name, [name]]
+                                         end
+
+          option :with_query_param_value, value: {
+                                            type:  String,
+                                            usage: 'VALUE'
+                                          },
+                                          desc: 'Searches for the associated query-param VALUE(s)' do |value|
+                                            @query_method_calls << [:with_query_param_value, [value]]
+                                          end
+
+          description 'Manages URLs'
+
+          man_page 'ronin-db-urls.1'
 
         end
       end

@@ -17,157 +17,70 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/resources_command'
-require 'ronin/host_name'
+require 'ronin/db/cli/model_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       module Commands
         #
-        # Manages {HostName HostNames}.
+        # Manages all host names in the database.
         #
         # ## Usage
         #
-        #     ronin hosts [options]
+        #     ronin-db hosts [options]
         #
         # ## Options
         #
-        #      -v, --[no-]verbose               Enable verbose output.
-        #      -q, --[no-]quiet                 Disable verbose output.
-        #          --[no-]silent                Silence all output.
-        #          --database [URI]             The Database URI.
-        #          --[no-]csv                   CSV output.
-        #          --[no-]xml                   XML output.
-        #          --[no-]yaml                  YAML output.
-        #          --[no-]json                  JSON output.
-        #      -i, --import [FILE]
-        #      -I, --with-ips [IP [...]]
-        #      -p, --with-ports [PORT [...]]
+        #      -I, --with-ip [IP [...]]
+        #      -p, --with-port [PORT [...]]
         #      -D, --domain [DOMAIN]
         #      -T, --tld [TLD]
-        #      -l, --[no-]list                  Default: true
-        #      -L, --lookup [IP]
         #
-        class Hosts < ResourcesCommand
+        class Hosts < ModelCommand
 
-          model HostName
+          model_file 'ronin/db/host_name'
+          model_name 'HostName'
 
-          summary 'Manages HostNames'
+          option :with_ip, short: '-I',
+                           value: {
+                             type:  String,
+                             usage: 'IP'
+                           },
+                           desc: 'Searches for the associated IP(s)' do |ip|
+                             @query_method_calls << [:with_ip_address, [ip]]
+                           end
 
-          query_option :with_ips, type:        Array,
-                                  flag:        '-I',
-                                  usage:       'IP [...]',
-                                  description: 'Searches for the associated IP(s)'
+          option :with_port, short: '-p',
+                             value: {
+                               type:  Integer,
+                               usage: 'PORT'
+                             },
+                             desc: 'Searches for the associated PORT(s)' do |port|
+                               @query_method_calls << [:with_port_number, [port]]
+                             end
 
-          query_option :with_ports, type:        Array[Integer],
-                                    flag:        '-p',
-                                    usage:       'PORT [...]',
-                                    description: 'Searches for the associated PORT(s)'
+          option :domain, short: '-D',
+                          value: {
+                            type:  String,
+                            usage: 'DOMAIN'
+                          },
+                          desc: 'Searches for the associated parent DOMAIN' do |domain|
+                            @query_method_calls << [:with_domain, [domain]]
+                          end
 
-          query_option :domain, type:        String,
-                                flag:        '-D',
-                                usage:       'DOMAIN',
-                                description: 'Searches for the associated parent DOMAIN'
+          option :tld, short: '-T',
+                       value: {
+                         type:  String,
+                         usage: 'TLD'
+                       },
+                       desc: 'Searches for the associated TLD' do |tld|
+                         @query_method_calls << [:with_tld, [tld]]
+                       end
 
-          query_option :tld, type:        String,
-                             flag:        '-T',
-                             usage:       'TLD',
-                             description: 'Searches for the associated TLD'
+          description 'Manages HostNames'
 
-          option :list, type:        true,
-                        default:     true,
-                        flag:        '-l',
-                        description: 'Lists the HostNames'
-
-          option :lookup, type:        String,
-                          flag:        '-L',
-                          usage:       'IP',
-                          description: 'Looks up HostNames for the IP'
-
-          option :import, type:        String,
-                          flag:        '-i',
-                          usage:       'FILE',
-                          description: 'Imports HostNames from the FILE'
-
-          #
-          # Queries the {HostName} model.
-          #
-          # @since 1.0.0
-          #
-          def execute
-            if lookup? then lookup(@lookup)
-            else            super
-            end
-          end
-
-          protected
-
-          #
-          # Looks up an IP address.
-          #
-          # @param [String] ip
-          #   The IP address to look up.
-          #
-          # @since 1.0.0
-          #
-          def lookup(ip)
-            print_info "Looking up #{ip} ..."
-
-            HostName.lookup(ip).each do |host|
-              print_info "  #{host}"
-            end
-
-            print_info "Looked up #{ip}"
-          end
-
-          #
-          # Prints a host name.
-          #
-          # @param [HostName] host
-          #   The host name to print.
-          #
-          # @since 1.0.0
-          #
-          def print_resource(host)
-            return super(host) unless verbose?
-
-            print_title host.address
-
-            indent do
-              if (org = host.organization)
-                print_hash 'Organization' => org
-              end
-
-              if (last_scanned_at = host.last_scanned_at)
-                print_hash 'Last Scanned' => last_scanned_at
-              end
-
-              unless host.ip_addresses.empty?
-                print_array host.ip_addresses, title: 'IP Addresses'
-              end
-
-              unless host.open_ports.empty?
-                print_section 'Open Ports' do
-                  host.open_ports.each do |port|
-                    if port.service
-                      puts "#{port}\t#{port.service}"
-                    else
-                      puts port
-                    end
-                  end
-                end
-              end
-
-              unless host.email_addresses.empty?
-                print_array host.email_addresses, title: 'Email Addresses'
-              end
-
-              unless host.urls.empty?
-                print_array host.urls, title: 'URLs'
-              end
-            end
-          end
+          man_page 'ronin-db-hosts.1'
 
         end
       end

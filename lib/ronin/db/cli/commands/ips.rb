@@ -17,13 +17,11 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/resources_command'
-require 'ronin/extensions/ip_addr'
-require 'ronin/ip_address'
+require 'ronin/db/cli/model_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       module Commands
         #
         # Manages {IPAddress IPAddresses}.
@@ -51,124 +49,49 @@ module Ronin
         #          --[no-]list                  Default: true
         #      -L, --lookup [HOST]
         #
-        class Ips < ResourcesCommand
+        class Ips < ModelCommand
 
-          model IPAddress
+          model_file 'ronin/db/ip_address'
+          model_name 'IPAddress'
 
-          summary 'Manages IPAddresses'
+          option :v4, short: '-4',
+                      desc: 'Searches for IPv4 addresses' do
+                        @query_method_calls << :v4
+                      end
 
-          query_option :v4, type:         true,
-                            flag:        '-4',
-                            description: 'Searches for IPv4 addresses'
+          option :v6, short: '-6',
+                      desc: 'Searches for IPv6 addresses' do
+                        @query_method_calls << :v6
+                      end
 
-          query_option :v6, type:        true,
-                            flag:        '-6',
-                            description: 'Searches for IPv6 addresses'
+          option :with_port, short: '-p',
+                             value: {
+                               type: Integer,
+                               usage: 'PORT'
+                             },
+                             desc: 'Searches for the associated PORT(s)' do |port|
+                               @query_method_calls << [:with_port_number, [port]]
+                             end
 
-          query_option :with_ports, type:        Array[Integer],
-                                    flag:        '-p',
-                                    usage:       'PORT [...]',
-                                    description: 'Searches for the associated PORT(s)'
+          option :with_mac_addr, short:  '-M',
+                                 value: {
+                                   type: String,
+                                   usage: 'MAC'
+                                 },
+                                 desc: 'Searches for the associated MAC address(es)' do |mac|
+                                   @query_method_calls << [:with_mac_address, [mac]]
+                                 end
 
-          query_option :with_macs, type:        Array,
-                                   flag:        '-M',
-                                   usage:       'MAC [...]',
-                                   description: 'Searches for the associated MAC address(es)'
+          option :with_host, short: '-H',
+                             value: {
+                               type: String,
+                               usage: 'HOST'
+                             },
+                             desc: 'Searches for the associated HOST(s)' do |host|
+                               @query_method_calls << [:with_host_name, [host]]
+                             end
 
-          query_option :with_hosts, type:        Array,
-                                    flag:        '-H',
-                                    usage:       'HOST [...]',
-                                    description: 'Searches for the associated HOST(s)'
-
-          option :list, type:        true,
-                        default:     true,
-                        flag:        '-l',
-                        description: 'Lists the IP addresses'
-
-          option :lookup, type:        String,
-                          flag:        '-L',
-                          usage:       'HOST',
-                          description: 'Looks up the IP addresses for the HOST'
-
-          option :import, type:        String,
-                          flag:        '-i',
-                          usage:       'FILE',
-                          description: 'Imports IP addresses from the FILE'
-
-          #
-          # Queries the {IPAddress} model.
-          #
-          # @since 1.0.0
-          #
-          def execute
-            if lookup? then lookup(@lookup)
-            else            super
-            end
-          end
-
-          protected
-
-          #
-          # Looks up a host name.
-          #
-          # @param [String] host
-          #   The host name to lookup.
-          #
-          # @since 1.0.0
-          #
-          def lookup(host)
-            print_info "Looking up #{host} ..."
-
-            IPAddress.lookup(host).each do |ip|
-              print_info "  #{ip}"
-            end
-
-            print_info "Looked up #{host}"
-          end
-
-          #
-          # Prints an IP Address.
-          #
-          # @param [IPAddress] ip
-          #   The IP Address to print.
-          #
-          # @since 1.0.0
-          #
-          def print_resource(ip)
-            return super(ip) unless verbose?
-
-            print_title ip.address
-
-            indent do
-              if (org = ip.organization)
-                print_hash 'Organization' => org
-              end
-
-              if (last_scanned_at = ip.last_scanned_at)
-                print_hash 'Last Scanned' => last_scanned_at
-              end
-
-              unless ip.mac_addresses.empty?
-                print_array ip.mac_addresses, title: 'MAC Addresses'
-              end
-
-              unless ip.host_names.empty?
-                print_array ip.host_names, title: 'Hostnames'
-              end
-
-              unless ip.open_ports.empty?
-                print_section 'Open Ports' do
-                  ip.open_ports.each do |port|
-                    if port.service
-                      puts "#{port}\t#{port.service}"
-                    else
-                      puts port
-                    end
-                  end
-                end
-              end
-            end
-          end
+          description 'Manages IP addresses'
 
         end
       end
