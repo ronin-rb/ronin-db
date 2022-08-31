@@ -17,163 +17,162 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/cli/command'
-require 'ronin/db/database'
+require 'ronin/db/cli/database_command'
 
 module Ronin
   module DB
-    module CLI
+    class CLI
       #
-      # A base-command for querying {Model}s.
+      # A base-command for database models commands.
       #
-      class ModelCommand < Command
-
-        option :database, type:        URI,
-                          flag:        '-D',
-                          description: 'The Database URI'
+      class ModelCommand < DatabaseCommand
 
         #
-        # The query options for the command.
+        # Sets or gets the model file to require.
         #
-        # @return [Array<Symbol>]
-        #   The query options and their query method names.
+        # @param [String, nil] new_model_file
+        #   The new model file.
         #
-        # @since 1.0.0
+        # @return [String]
+        #   The model file to require.
         #
-        # @api semipublic
+        # @raise [NotImplementedError]
+        #   The class did not define a `model_file`.
         #
-        def self.query_options
-          @query_options ||= []
-        end
-
+        # @example
+        #   model_file 'ronin/db/foo'
         #
-        # Iterates over the query options for the command.
-        #
-        # @yield [name]
-        #   The given block will be passed the names of the query options.
-        #
-        # @yieldparam [Symbol] name
-        #   The name of a query option.
-        #
-        # @return [Enumerator]
-        #   If no block is given, an Enumerator object will be returned.
-        #
-        # @since 1.1.0
-        #
-        def self.each_query_option(&block)
-          return enum_for(__method__) unless block
-
-          self.class.ancestors.each do |ancestor|
-            if ancestor < ModelCommand
-              ancestor.query_options.each(&block)
-            end
-          end
-        end
-
-        protected
-
-        #
-        # Sets or gets the model to query.
-        #
-        # @param [DataMapper::Resource, nil] model
-        #   The model class.
-        #
-        # @return [DataMapper::Resource]
-        #   The model that will be queried.
-        #
-        # @since 1.1.0
-        #
-        # @api semipublic
-        #
-        def self.model(model=nil)
-          if model
-            @model = model
+        def self.model_file(new_model_file=nil)
+          if new_model_file
+            @model_file = new_model_file
           else
-            @model ||= if superclass < ModelCommand
-                         superclass.model
-                       end
+            @model_file ||= if superclass < ModelCommand
+                              superclass.model_file
+                            else
+                              raise(NotImplementedError,"#{self} did not define model_file")
+                            end
           end
         end
 
         #
-        # Defines a query option for the command.
+        # Sets or gets the model name to require.
         #
-        # @param [Symbol] name
-        #   The option name.
+        # @param [String, nil] new_model_name
+        #   The new model name.
         #
-        # @param [Hash] options
-        #   Additional options.
+        # @return [String]
+        #   The model name to require.
         #
-        # @since 1.0.0
+        # @raise [NotImplementedError]
+        #   The class did not define a `model_name`.
         #
-        # @api semipublic
+        # @example
+        #   model_name 'Foo'
         #
-        def self.query_option(name,options={})
-          query_options << name
-
-          return option(name,options)
-        end
-
-        #
-        # Sets up the {Database}.
-        #
-        # @since 1.1.0
-        #
-        # @api semipublic
-        #
-        def setup
-          super
-
-          if @database
-            Database.repositories[:default] = @database
+        def self.model_name(new_model_name=nil)
+          if new_model_name
+            @model_name = new_model_name
+          else
+            @model_name ||= if superclass < ModelCommand
+                              superclass.model_name
+                            else
+                              raise(NotImplementedError,"#{self} did not define model_name")
+                            end
           end
+        end
 
-          Database.setup
+        # The query method calls to chain together.
+        #
+        # @return [Array<(Symbol),
+        #                (Symbol, Array),
+        #                (Symbol, Hash),
+        #                (Symbol, Array, Hash)>]
+        attr_reader :query_method_calls
+
+        #
+        # Initializes the command.
+        #
+        # @param [Hash{Symbol => Object}] kwargs
+        #   Additional keyword arguments.
+        #
+        def initialize(**kwargs)
+          super(**kwargs)
+
+          @query_method_calls = []
         end
 
         #
-        # Builds a new query using the options of the command.
+        # Runs the command.
         #
-        # @return [DataMapper::Collection]
+        def run
+          connect
+          load_model
+
+          records = query
+          records.each(&method(:print_record))
+        end
+
+        #
+        # The model to query.
+        #
+        # @return [Class<ActiveRecord::Base>]
+        #   The loaded model.
+        #
+        # @raise [LoadError]
+        #   The {model_file} could not be loaded.
+        #
+        # @raise [NameError]
+        #   The {model_name} was not found within {Ronin::DB}.
+        #
+        def load_model
+          require self.class.model_file
+
+          @model = Ronin::DB.const_get(self.class.model_name)
+          @model.connection
+          return @model
+        end
+
+        #
+        # The model to query.
+        #
+        # @return [Class<ActiveRecord::Base>]
+        #   The loaded model.
+        #
+        def model
+          @model ||= load_model
+        end
+
+        #
+        # Builds a new query by chaining together the method calls defined by
+        # {#query_method_calls}.
+        #
+        # @return [ActiveRecord::Relation, ActiveRecord::QueryMethods::WhereChain]
         #   The new query.
         #
-        # @raise [RuntimeError]
-        #   The query option does not map to a query-method or property
-        #   defined in the Model.
-        #
-        # @since 1.0.0
-        #
-        # @api semipublic
-        #
         def query
-          unless self.class.model
-            raise("query model not defined for #{self.class}")
-          end
+          common_object_methods = Object.public_instance_methods
 
-          query = self.class.model.all
+          query = model.all
 
-          self.class.each_query_option do |name|
-            value = get_param(name).value
-
-            # skip unset options
-            next if value.nil?
-
-            if model.properties.named?(name)
-              query = query.all(name => value)
-            elsif model.respond_to?(name)
-              query_method = model.method(name)
-
-              query = case query_method.arity
-                      when 0 then query.send(name)
-                      when 1 then query.send(name,value)
-                      else        query.send(name,*value)
-                      end
-            else
-              raise("unknown query method or property #{name} for #{model}")
+          @query_method_calls.each do |method,arguments,kwargs={}|
+            if common_object_methods.include?(method)
+              raise(ArgumentError,"cannot call method Object##{method} on query #{query.inspect}")
             end
+
+            query = query.public_send(method,*arguments,**kwargs)
           end
 
           return query
+        end
+
+        #
+        # Prints the given record.
+        #
+        # @param [ActiveRecord::Base] record
+        #   The record to print.
+        #
+        def print_record(record)
+          puts record
         end
 
       end
