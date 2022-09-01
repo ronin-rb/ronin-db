@@ -50,11 +50,7 @@ namespace :db do
 
   desc 'Migrates the development database'
   task :migrate => :connect do
-    lib_dir = File.expand_path('lib')
-    $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
-
     require 'ronin/db/migrations'
-
     Ronin::DB::Migrations.up
   end
 
@@ -68,6 +64,9 @@ namespace :db do
 
     require 'ronin/db/models'
     Ronin::DB::Models.connect
+
+    lib_dir = File.expand_path('lib')
+    $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 
     require 'ronin/db/cli/console'
     Ronin::DB::CLI::Console.start
