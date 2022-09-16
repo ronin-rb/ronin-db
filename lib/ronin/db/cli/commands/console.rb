@@ -47,7 +47,7 @@ module Ronin
           man_page 'ronin-db-console.1'
 
           #
-          # Starts the `ronin db console` command.
+          # Starts the `ronin-db console` command.
           #
           def run
             unless options[:no_connect]
