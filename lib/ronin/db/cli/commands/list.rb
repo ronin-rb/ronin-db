@@ -23,6 +23,7 @@ require 'ronin/db/config_file'
 require 'command_kit/options/verbose'
 require 'command_kit/printing'
 require 'command_kit/printing/indent'
+require 'command_kit/printing/fields'
 
 module Ronin
   module DB
@@ -47,9 +48,10 @@ module Ronin
         #
         class List < Command
 
+          include CommandKit::Options::Verbose
           include CommandKit::Printing
           include CommandKit::Printing::Indent
-          include CommandKit::Options::Verbose
+          include CommandKit::Printing::Fields
 
           usage '[options] [NAME]'
 
