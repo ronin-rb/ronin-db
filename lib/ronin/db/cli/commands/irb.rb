@@ -18,18 +18,18 @@
 #
 
 require 'ronin/db/cli/database_command'
-require 'ronin/db/cli/console'
+require 'ronin/db/cli/ruby_shell'
 
 module Ronin
   module DB
     class CLI
       module Commands
         #
-        # Connects to a database and start an interactive ruby console.
+        # Connects to a database and start an interactive ruby shell.
         #
         # ## Usage
         #
-        #     ronin-db console [options]
+        #     ronin-db irb [options]
         #
         # ## Options
         #
@@ -38,16 +38,16 @@ module Ronin
         #         --no-connect                 Do not connect to a database on startup
         #     -h, --help                       Print help information
         #
-        class Console < DatabaseCommand
+        class Irb < DatabaseCommand
 
           option :no_connect, desc: 'Do not connect to a database on startup'
 
-          description "Connects to a database and start an interactive ruby console"
+          description "Connects to a database and start an interactive ruby shell"
 
-          man_page 'ronin-db-console.1'
+          man_page 'ronin-db-irb.1'
 
           #
-          # Starts the `ronin-db console` command.
+          # Starts the `ronin-db irb` command.
           #
           def run
             unless options[:no_connect]
@@ -55,7 +55,7 @@ module Ronin
               load_models
             end
 
-            CLI::Console.start
+            CLI::RubyShell.start
           end
 
           #

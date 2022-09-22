@@ -17,21 +17,21 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/core/cli/console'
+require 'ronin/core/cli/ruby_shell'
 
 module Ronin
   module DB
     class CLI
       #
-      # The interactive Ruby console for {Ronin::DB}.
+      # The interactive Ruby shell for {Ronin::DB}.
       #
-      class Console < Core::CLI::Console
+      class RubyShell < Core::CLI::RubyShell
 
         #
-        # Initializes the `ronin-db` console.
+        # Initializes the `ronin-db` shell.
         #
         # @param [String] name
-        #   The name of the IRB console.
+        #   The name of the IRB shell.
         #
         # @param [Object] context
         #   Custom context to launch IRB from within.

@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'ronin/db/cli/console'
+require 'ronin/db/cli/ruby_shell'
 
-describe Ronin::DB::CLI::Console do
+describe Ronin::DB::CLI::RubyShell do
   describe "#initialize" do
     it "must default #name to 'ronin-db'" do
       expect(subject.name).to eq('ronin-db')

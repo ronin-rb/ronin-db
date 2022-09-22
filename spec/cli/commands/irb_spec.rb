@@ -1,12 +1,12 @@
 require 'spec_helper'
-require 'ronin/db/cli/commands/console'
+require 'ronin/db/cli/commands/irb'
 
-describe Ronin::DB::CLI::Commands::Console do
+describe Ronin::DB::CLI::Commands::Irb do
   describe "#run" do
-    it "must call #connet, then #load_models, then CLI::Console.start" do
+    it "must call #connet, then #load_models, then CLI::RubyShell.start" do
       expect(subject).to receive(:connect)
       expect(subject).to receive(:load_models)
-      expect(Ronin::DB::CLI::Console).to receive(:start)
+      expect(Ronin::DB::CLI::RubyShell).to receive(:start)
 
       subject.run
     end
@@ -17,7 +17,7 @@ describe Ronin::DB::CLI::Commands::Console do
       it "must not call #connet or #load_models" do
         expect(subject).to_not receive(:connect)
         expect(subject).to_not receive(:load_models)
-        expect(Ronin::DB::CLI::Console).to receive(:start)
+        expect(Ronin::DB::CLI::RubyShell).to receive(:start)
 
         subject.run
       end

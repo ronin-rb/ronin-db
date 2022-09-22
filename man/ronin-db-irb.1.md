@@ -1,12 +1,12 @@
-# ronin-db-console 1 "2022-01-01" Ronin DB "User Manuals"
+# ronin-db-irb 1 "2022-01-01" Ronin DB "User Manuals"
 
 ## SYNOPSIS
 
-`ronin-db console` [*options*]
+`ronin-db irb` [*options*]
 
 ## DESCRIPTION
 
-Connects to a database and start an interactive ruby console.
+Connects to a database and start an interactive ruby shell.
 
 ## OPTIONS
 
@@ -18,7 +18,7 @@ Connects to a database and start an interactive ruby console.
   The database URI to connect to.
 
 `--no-connect`
-  Causes the console to not connect to a database on startup.
+  Causes the ruby shell to not connect to a database on startup.
 
 `-h`, `--help`
   Print help information.
