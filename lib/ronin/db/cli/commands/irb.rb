@@ -25,7 +25,7 @@ module Ronin
     class CLI
       module Commands
         #
-        # Connects to a database and start an interactive ruby shell.
+        # Connects to a database and start an interactive Ruby shell.
         #
         # ## Usage
         #
@@ -42,7 +42,7 @@ module Ronin
 
           option :no_connect, desc: 'Do not connect to a database on startup'
 
-          description "Connects to a database and start an interactive ruby shell"
+          description "Connects to a database and start an interactive Ruby shell"
 
           man_page 'ronin-db-irb.1'
 

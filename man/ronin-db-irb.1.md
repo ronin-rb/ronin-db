@@ -6,7 +6,7 @@
 
 ## DESCRIPTION
 
-Connects to a database and start an interactive ruby shell.
+Connects to a database and start an interactive Ruby shell.
 
 ## OPTIONS
 
@@ -18,7 +18,7 @@ Connects to a database and start an interactive ruby shell.
   The database URI to connect to.
 
 `--no-connect`
-  Causes the ruby shell to not connect to a database on startup.
+  Causes the Ruby shell to not connect to a database on startup.
 
 `-h`, `--help`
   Print help information.
