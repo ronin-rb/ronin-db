@@ -17,6 +17,7 @@ generated_files:
  - man/ronin-db-add.1
  - man/ronin-db-irb.1
  - man/ronin-db-edit.1
+ - man/ronin-db-irb.1
  - man/ronin-db-list.1
  - man/ronin-db-remove.1
  - man/ronin-creds.1
