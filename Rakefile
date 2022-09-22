@@ -68,7 +68,7 @@ namespace :db do
     lib_dir = File.expand_path('lib')
     $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 
-    require 'ronin/db/cli/console'
-    Ronin::DB::CLI::Console.start
+    require 'ronin/db/cli/ruby_shell'
+    Ronin::DB::CLI::RubyShell.start
   end
 end
