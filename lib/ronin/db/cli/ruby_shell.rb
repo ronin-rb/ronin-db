@@ -28,7 +28,7 @@ module Ronin
       class RubyShell < Core::CLI::RubyShell
 
         #
-        # Initializes the `ronin-db` shell.
+        # Initializes the `ronin-db` Ruby shell.
         #
         # @param [String] name
         #   The name of the IRB shell.
