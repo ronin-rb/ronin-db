@@ -139,7 +139,7 @@ host_names = Ronin::DB::HostName.where(name: 'www.example.com')
 ```
 
 For more information on how to query the database models, see [Active Record
-Querying Interface](https://guides.rubyonrails.org/active_record_querying.html)
+Query Interface](https://guides.rubyonrails.org/active_record_querying.html)
 and [ronin-db-activerecord].
 
 ## Requirements
