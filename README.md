@@ -122,20 +122,20 @@ host_name = Ronin::DB::HostName.first
 #  created_at: 2022-09-30 05:06:25.633087551 UTC>
 
 host_names = Ronin::DB::HostName.where(name: 'www.example.com')
-=>
-[#<Ronin::DB::HostName:0x00007f327597b4c8
-  id: 1,
-  name: "www.example.com",
-  last_scanned_at: nil,
-  created_at: 2000-01-01 05:06:25.633087 UTC>]
+# =>
+# [#<Ronin::DB::HostName:0x00007f327597b4c8
+#   id: 1,
+#   name: "www.example.com",
+#   last_scanned_at: nil,
+#   created_at: 2000-01-01 05:06:25.633087 UTC>]
 
 host_names = Ronin::DB::HostName.where(name: 'www.example.com')
-=>
-[#<Ronin::DB::HostName:0x00007f327597b4c8
-  id: 1,
-  name: "www.example.com",
-  last_scanned_at: nil,
-  created_at: 2000-01-01 05:06:25.633087 UTC>]
+# =>
+# [#<Ronin::DB::HostName:0x00007f327597b4c8
+#   id: 1,
+#   name: "www.example.com",
+#   last_scanned_at: nil,
+#   created_at: 2000-01-01 05:06:25.633087 UTC>]
 ```
 
 For more information on how to query the database models, see [Active Record
