@@ -49,6 +49,99 @@ Remove a Database:
 $ ronin-db remove team
 ```
 
+## Examples
+
+Manually creating the database:
+
+```ruby
+require 'ronin/db'
+
+Ronin::DB.connect(migrate: true)
+```
+
+Connecting to the default database:
+
+```ruby
+require 'ronin/db'
+
+Ronin::DB.connect
+```
+
+Creating a custom database:
+
+```ruby
+require 'ronin/db'
+
+Ronin::DB.connect('sqlite3:path/to/db.sqlite3', migrate: true)
+```
+
+Connecting to a custom database:
+
+```ruby
+require 'ronin/db'
+
+Ronin::DB.connect('sqlite3:path/to/db.sqlite3')
+```
+
+Interacting with the [Ronin::DB][ronin-db-activerecord] models:
+
+```ruby
+require 'ronin/db'
+
+Ronin::DB.connect
+
+Ronin::DB::HostName.create(name: 'www.example.com')
+# =>
+# #<Ronin::DB::HostName:0x00007f3275cc93f0
+#  id: 1,
+#  name: "www.example.com",
+#  last_scanned_at: nil,
+#  created_at: 2022-09-30 05:06:25.633087551 UTC>
+Ronin::DB::HostName.create(name: 'www.example.org')
+# =>
+# #<Ronin::DB::HostName:0x00007f32768b60a0
+#  id: 2,
+#  name: "www.example.org",
+#  last_scanned_at: nil,
+#  created_at: 2022-09-30 05:07:00.996736126 UTC>
+
+host_name = Ronin::DB::HostName.find(2)
+# =>
+# #<Ronin::DB::HostName:0x00007f32758072e0
+#  id: 2,
+#  name: "www.example.org",
+#  last_scanned_at: nil,
+#  created_at: 2000-01-01 05:07:00.996736 UTC>
+
+host_name = Ronin::DB::HostName.first
+# =>
+# #<Ronin::DB::HostName:0x00007f3275cc93f0
+#  id: 1,
+#  name: "www.example.com",
+#  last_scanned_at: nil,
+#  created_at: 2022-09-30 05:06:25.633087551 UTC>
+
+host_names = Ronin::DB::HostName.where(name: 'www.example.com')
+=>
+[#<Ronin::DB::HostName:0x00007f327597b4c8
+  id: 1,
+  name: "www.example.com",
+  last_scanned_at: nil,
+  created_at: 2000-01-01 05:06:25.633087 UTC>]
+
+host_names = Ronin::DB::HostName.where(name: 'www.example.com')
+=>
+[#<Ronin::DB::HostName:0x00007f327597b4c8
+  id: 1,
+  name: "www.example.com",
+  last_scanned_at: nil,
+  created_at: 2000-01-01 05:06:25.633087 UTC>]
+```
+
+For more information on how to query the database models, see [Active Record
+Querying Interface](https://guides.rubyonrails.org/active_record_querying.html)
+and [ronin-db-activerecord].
+
 ## Requirements
 
 * [Ruby] >= 3.0.0
