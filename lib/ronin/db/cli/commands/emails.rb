@@ -32,9 +32,16 @@ module Ronin
         #
         # ## Options
         #
-        #      -H, --with-host [HOST [...]]
-        #      -I, --with-ip [IP [...]]
-        #      -u, --with-user [NAME [...]]
+        #         --db NAME                    The database to connect to (Default: default)
+        #         --db-uri URI                 The database URI to connect to
+        #     -v, --verbose                    Enables verbose output
+        #         --add VALUE                  Adds a value to the database
+        #         --import FILE                Imports the values from the FILE into the database
+        #         --delete VALUE               Deletes a value from the database
+        #         --delete-all                 Deletes all values from the database
+        #     -H, --with-host [HOST [...]]
+        #     -I, --with-ip [IP [...]]
+        #     -u, --with-user [NAME [...]]
         #
         class Emails < ModelCommand
 

@@ -6,54 +6,43 @@
 
 ## DESCRIPTION
 
-Manages HostNames.
+Manages host names.
 
 ## OPTIONS
 
-`-v`, `--[no-]verbose`
+`--db` *NAME*
+  The database to connect to. Defaults to `default` if not given.
+
+`--db-uri` *URI*
+  The explicit database URI to connect to
+  (ex: `mysql://user:password@host/ronin`).
+
+`-v`, `--verbose`
 	Enable verbose output.
 
-`-q`, `--[no-]quiet`
-	Disable verbose output.
+`--add` *USER*:*PASSWORD*
+  Adds the *USER* and *PASSWORD* to the database.
 
-`--[no-]silent`
-	Silence all output.
+`--import` *FILE*
+  Imports the credentials from the given *FILE*.
 
-`-D`, `--database` *URI*
-	The database to URI (`mysql://user:password@host/ronin`).
+`--delete` *VALUE*
+  Deletes a value from the database.
 
-`--[no-]csv`
-	CSV output.
+`--delete-all`
+  Deletes every value from the database.
 
-`--[no-]xml`
-	XML output.
+`-I`, `--with-ip` *IP*
+	Searches for HostNames associated with the IP address.
 
-`--[no-]yaml`
-	YAML output.
-
-`--[no-]json`
-	JSON output.
-
-`-i`, `--import` *FILE*
-	Imports HostNames from the FILE.
-
-`-I`, `--with-ips` *IP* [...]
-	Searches for HostNames associated with the IP Address(es).
-
-`-p`, `--with-ports` *PORT* [...]
-	Searches for HostNames associated with the PORT(s).
+`-p`, `--with-port` *PORT*
+	Searches for HostNames associated with the *PORT*.
 
 `-D`, `--domain` *DOMAIN*
 	Searches for HostNames belonging to the DOMAIN (`co.uk`).
 
 `-T`, `--tld` *TLD*
 	Searches for HostNames with the Top-Level-Domain (TLD) (`ru`).
-
-`-l`, `--[no-]list`
-	Lists the HostNames.
-
-`-L`, `--lookup` *IP*
-	Looks the HostNames associated with the IP Address.
 
 ## FILES
 

@@ -10,44 +10,39 @@ Manages URLs.
 
 ## OPTIONS
 
-`-v`, `--[no-]verbose`
+`--db` *NAME*
+  The database to connect to. Defaults to `default` if not given.
+
+`--db-uri` *URI*
+  The explicit database URI to connect to
+  (ex: `mysql://user:password@host/ronin`).
+
+`-v`, `--verbose`
 	Enable verbose output.
 
-`-q`, `--[no-]quiet`
-	Disable verbose output.
+`--add` *USER*:*PASSWORD*
+  Adds the *USER* and *PASSWORD* to the database.
 
-`--[no-]silent`
-	Silence all output.
+`--import` *FILE*
+  Imports the credentials from the given *FILE*.
 
-`-D`, `--database` *URI*
-	The database to URI (`mysql://user:password@host/ronin`).
+`--delete` *VALUE*
+  Deletes a value from the database.
 
-`--[no-]csv`
-	CSV output.
+`--delete-all`
+  Deletes every value from the database.
 
-`--[no-]xml`
-	XML output.
-
-`--[no-]yaml`
-	YAML output.
-
-`--[no-]json`
-	JSON output.
-
-`-i`, `--import` *FILE*
-	Imports HostNames from the FILE.
-
-`--[no-]http`
+`--http`
 	Searches for `http://` URLs.
 
-`--[no-]https`
+`--https`
 	Searches for `https://` URLs.
 
-`-H`, `--hosts` *HOST* [...]
-	Searches for URLs with the given HOST name(s).
+`-H`, `--host` *HOST*
+	Searches for URLs with the given *HOST*.
 
-`-p`, `--with-ports` *PORT* [...]
-	Searches for URLs associated with the PORT(s).
+`-p`, `--with-port` *PORT*
+	Searches for URLs associated with the *PORT*.
 
 `-d`, `--directory` *DIRECTORY*
 	Searches for URLs sharing the DIRECTORY.
@@ -57,9 +52,6 @@ Manages URLs.
 
 `-Q`, `--with-query-value` *VALUE* [...]
 	Searches for URLs containing the query-param VALUE.
-
-`-l`, `--[no-]list`
-	Lists the HostNames.
 
 ## FILES
 

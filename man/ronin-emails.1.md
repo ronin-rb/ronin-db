@@ -6,48 +6,40 @@
 
 ## DESCRIPTION
 
-Manages EmailAddresses.
+Manages email addresses.
 
 ## OPTIONS
 
-`-v`, `--[no-]verbose`
+`--db` *NAME*
+  The database to connect to. Defaults to `default` if not given.
+
+`--db-uri` *URI*
+  The explicit database URI to connect to
+  (ex: `mysql://user:password@host/ronin`).
+
+`-v`, `--verbose`
 	Enable verbose output.
 
-`-q`, `--[no-]quiet`
-	Disable verbose output.
+`--add` *USER*:*PASSWORD*
+  Adds the *USER* and *PASSWORD* to the database.
 
-`--[no-]silent`
-	Silence all output.
+`--import` *FILE*
+  Imports the credentials from the given *FILE*.
 
-`-D`, `--database` [*URI*]
-	The database to URI (`mysql://user:password@host/ronin`).
+`--delete` *VALUE*
+  Deletes a value from the database.
 
-`--[no-]csv`
-	CSV output.
+`--delete-all`
+  Deletes every value from the database.
 
-`--[no-]xml`
-	XML output.
+`-H`, `--with-host` *HOST*
+	Searches for email addresses associated with the *HOST*.
 
-`--[no-]yaml`
-	YAML output.
-
-`--[no-]json`
-	JSON output.
-
-`-H`, `--with-hosts` *HOST* [...]
-	Searches for EmailAddresses associated with the HOST(s).
-
-`-I`, `--with-ips` *IP* [...]
-	Searches for EmailAddresses associated with the IP Address(es).
+`-I`, `--with-ip` *IP*
+	Searches for email addresses associated with the IP address.
 
 `-u`, `--with-users` *NAME* [...]
-	Searches for EmailAddresses associated with the user NAME(s).
-
-`-l`, `--[no-]list`
-	Lists the EmailAddresses.
-
-`-i`, `--import` *FILE*
-	Imports EmailAddresses from the FILE.
+	Searches for email addresses associated with the user NAME(s).
 
 ## FILES
 

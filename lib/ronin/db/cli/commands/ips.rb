@@ -32,22 +32,18 @@ module Ronin
         #
         # ## Options
         #
-        #      -v, --[no-]verbose               Enable verbose output.
-        #      -q, --[no-]quiet                 Disable verbose output.
-        #          --[no-]silent                Silence all output.
-        #      -D, --database [URI]             The Database URI.
-        #          --[no-]csv                   CSV output.
-        #          --[no-]xml                   XML output.
-        #          --[no-]yaml                  YAML output.
-        #          --[no-]json                  JSON output.
-        #      -i, --import [FILE]
-        #      -4, --[no-]v4
-        #      -6, --[no-]v6
-        #      -p, --with-ports [PORT [...]]
-        #      -M, --with-macs [MAC [...]]
-        #      -H, --with-hosts [HOST [...]]
-        #          --[no-]list                  Default: true
-        #      -L, --lookup [HOST]
+        #         --db NAME                    The database to connect to (Default: default)
+        #         --db-uri URI                 The database URI to connect to
+        #     -v, --verbose                    Enables verbose output
+        #         --add VALUE                  Adds a value to the database
+        #         --import FILE                Imports the values from the FILE into the database
+        #         --delete VALUE               Deletes a value from the database
+        #         --delete-all                 Deletes all values from the database
+        #     -4, --v4
+        #     -6, --v6
+        #     -p, --with-port PORT
+        #     -M, --with-mac-addr MAC
+        #     -H, --with-host HOST
         #
         class Ips < ModelCommand
 

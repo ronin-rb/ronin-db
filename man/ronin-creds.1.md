@@ -10,29 +10,27 @@ Lists Credentials.
 
 ## OPTIONS
 
-`-v`, `--[no-]verbose`
+`--db` *NAME*
+  The database to connect to. Defaults to `default` if not given.
+
+`--db-uri` *URI*
+  The explicit database URI to connect to
+  (ex: `mysql://user:password@host/ronin`).
+
+`-v`, `--verbose`
 	Enable verbose output.
 
-`-q`, `--[no-]quiet`
-	Disable verbose output.
+`--add` *USER*:*PASSWORD*
+  Adds the *USER* and *PASSWORD* to the database.
 
-`--[no-]silent`
-	Silence all output.
+`--import` *FILE*
+  Imports the credentials from the given *FILE*.
 
-`-D`, `--database` *URI*
-	The database to URI (`mysql://user:password@host/ronin`).
+`--delete` *VALUE*
+  Deletes a value from the database.
 
-`--[no-]csv`
-	CSV output.
-
-`--[no-]xml`
-	XML output.
-
-`--[no-]yaml`
-	YAML output.
-
-`--[no-]json`
-	JSON output.
+`--delete-all`
+  Deletes every value from the database.
 
 `-u`, `--for-user` *USER*
 	Searches for Credentials associated with the USER.

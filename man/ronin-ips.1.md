@@ -6,57 +6,46 @@
 
 ## DESCRIPTION
 
-Manages IPAddresses.
+Manages IP addresses.
 
 ## OPTIONS
 
-`-v`, `--[no-]verbose`
+`--db` *NAME*
+  The database to connect to. Defaults to `default` if not given.
+
+`--db-uri` *URI*
+  The explicit database URI to connect to
+  (ex: `mysql://user:password@host/ronin`).
+
+`-v`, `--verbose`
 	Enable verbose output.
 
-`-q`, `--[no-]quiet`
-	Disable verbose output.
+`--add` *USER*:*PASSWORD*
+  Adds the *USER* and *PASSWORD* to the database.
 
-`--[no-]silent`
-	Silence all output.
+`--import` *FILE*
+  Imports the credentials from the given *FILE*.
 
-`-D`, `--database` *URI*
-	The database to URI (`mysql://user:password@host/ronin`).
+`--delete` *VALUE*
+  Deletes a value from the database.
 
-`--[no-]csv`
-	CSV output.
+`--delete-all`
+  Deletes every value from the database.
 
-`--[no-]xml`
-	XML output.
-
-`--[no-]yaml`
-	YAML output.
-
-`--[no-]json`
-	JSON output.
-
-`-i`, `--import` *FILE*
-	Imports HostNames from the FILE.
-
-`-4`, `--[no-]v4`
+`-4`, `--v4`
 	Searches for IPv4 addresses.
 
-`-6`, `--[no-]v6`
+`-6`, `--v6`
 	Searches for IPv6 addresses.
 
-`-p`, `--with-ports` *PORT* [...]
-	Searches for IPAddresses associated with the user PORT(s).
+`-p`, `--with-port` *PORT*
+	Searches for IP addresses associated with the user *PORT*.
 
-`-I`, `--with-macs` *MAC* [...]
-	Searches for IPAddresses associated with the MAC Address(es).
+`-I`, `--with-mac-addr` *MAC*
+	Searches for IP addresses associated with the MAC address.
 
-`-I`, `--with-hosts` *HOST* [...]
-	Searches for IPAddresses associated with the HOST(s).
-
-`-l`, `--[no-]list`
-	Lists the IPAddresses.
-
-`-L`, `--lookup` *IP*
-	Looks the IPAddresses associated with the IP Address.
+`-I`, `--with-host` *HOST*
+	Searches for IP addresses associated with the *HOST*.
 
 ## FILES
 

@@ -32,10 +32,17 @@ module Ronin
         #
         # ## Options
         #
-        #          --[no-]http
-        #          --[no-]https
-        #      -H, --hosts HOST
-        #      -P, --ports PORT
+        #         --db NAME                    The database to connect to (Default: default)
+        #         --db-uri URI                 The database URI to connect to
+        #     -v, --verbose                    Enables verbose output
+        #         --add VALUE                  Adds a value to the database
+        #         --import FILE                Imports the values from the FILE into the database
+        #         --delete VALUE               Deletes a value from the database
+        #         --delete-all                 Deletes all values from the database
+        #          --http
+        #          --https
+        #      -H, --host HOST
+        #      -P, --port PORT
         #      -d, --directory SUBDIR
         #      -E, --ext EXT
         #      -q NAME
