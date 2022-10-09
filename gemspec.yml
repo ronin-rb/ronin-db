@@ -15,11 +15,16 @@ has_yard: true
 
 generated_files:
  - man/ronin-db-add.1
+ - man/ronin-db-creds.1
+ - man/ronin-db-emails.1
+ - man/ronin-db-hosts.1
+ - man/ronin-db-ips.1
  - man/ronin-db-irb.1
  - man/ronin-db-edit.1
  - man/ronin-db-irb.1
  - man/ronin-db-list.1
  - man/ronin-db-remove.1
+ - man/ronin-db-urls.1
 
 required_ruby_version: ">= 3.0.0"
 
