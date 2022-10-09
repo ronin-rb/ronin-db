@@ -49,6 +49,33 @@ Remove a Database:
 $ ronin-db remove team
 ```
 
+Add a host name to the database:
+
+```shell
+$ ronin-db hosts --add example.com
+$ ronin-db hosts --add www.example.com
+```
+
+List host names in the database:
+
+```shell
+$ ronin-db hosts
+example.com
+www.example.com
+```
+
+Queries only certain host names:
+
+```shell
+$ ronin-db hosts --domain example.com
+```
+
+Imports a file of host names:
+
+```shell
+$ ronin-db hosts --import targets.txt
+```
+
 ## Examples
 
 Manually creating the database:
