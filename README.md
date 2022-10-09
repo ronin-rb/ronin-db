@@ -31,6 +31,31 @@ research and development.
 
 ## Synopsis
 
+```
+Usage: ronin-db [options] [COMMAND [ARGS...]]
+
+Options:
+    -h, --help                       Print help information
+
+Arguments:
+    [COMMAND]                        The command name to run
+    [ARGS ...]                       Additional arguments for the command
+
+Commands:
+    add
+    creds
+    database
+    edit
+    emails
+    help
+    hosts
+    ips
+    irb
+    list
+    remove
+    urls
+```
+
 List available Databases:
 
 ```shell
