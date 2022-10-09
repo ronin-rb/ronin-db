@@ -87,12 +87,16 @@ List host names in the database:
 $ ronin-db hosts
 example.com
 www.example.com
+...
 ```
 
 Queries only certain host names:
 
 ```shell
 $ ronin-db hosts --domain example.com
+example.com
+www.example.com
+...
 ```
 
 Imports a file of host names:
