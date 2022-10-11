@@ -75,6 +75,9 @@ module Ronin
     # @param [Symbol, Hash] uri
     #   The optional default repository to setup instead of {repositories}.
     #
+    # @param [Boolean] load_models
+    #   Specifies whether to load all models or just connect to the database.
+    #
     # @raise [UnknownDatabase]
     #
     # @raise [ArgumentError]
@@ -83,7 +86,7 @@ module Ronin
     #
     # @api semipublic
     #
-    def self.connect(database=:default, migrate: nil)
+    def self.connect(database=:default, migrate: nil, load_models: true)
       config = case database
                when Hash
                  database
@@ -106,9 +109,12 @@ module Ronin
       else                    migrate
       end
 
-      # require and connect all models
-      require 'ronin/db/models'
-      Models.connect
+      if load_models
+        # require and connect all models
+        require 'ronin/db/models'
+        Models.connect
+      end
+
       return true
     end
   end
