@@ -85,8 +85,6 @@ module Ronin
     #
     # @raise [ArgumentError]
     #
-    # @see Database.upgrade!
-    #
     # @api semipublic
     #
     def self.connect(database=:default, migrate: nil, load_models: true)
