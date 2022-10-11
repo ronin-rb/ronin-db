@@ -75,6 +75,9 @@ module Ronin
     # @param [Symbol, Hash] uri
     #   The optional default repository to setup instead of {repositories}.
     #
+    # @param [Boolean] migrate
+    #   Specifies whether to hard or lazy migrate the database.
+    #
     # @param [Boolean] load_models
     #   Specifies whether to load all models or just connect to the database.
     #
