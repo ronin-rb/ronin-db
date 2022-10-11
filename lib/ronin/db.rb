@@ -21,8 +21,6 @@ require 'ronin/db/exceptions'
 require 'ronin/db/config_file'
 require 'ronin/db/version'
 
-require 'active_record'
-
 module Ronin
   module DB
     #
@@ -31,6 +29,7 @@ module Ronin
     # @api semipublic
     #
     def self.logger=(new_logger)
+      require 'active_record'
       ActiveRecord::Base.logger = new_logger
     end
 
@@ -95,6 +94,9 @@ module Ronin
                else
                  raise(ArgumentError,"#{self.class}.#{__method__} only accepts a Symbol or a Hash")
                end
+
+      # load activerecord
+      require 'active_record'
 
       # connect to the database
       ActiveRecord::Base.establish_connection(config)
