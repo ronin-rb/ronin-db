@@ -132,7 +132,6 @@ module Ronin
         #
         def run
           connect
-          load_model
 
           if options[:add]
             add(options[:add])
@@ -149,10 +148,14 @@ module Ronin
         end
 
         #
-        # Connects to the database, but not load the other models.
+        # Connects to the database.
         #
         def connect
+          # connect to the database but do not load other models.
           DB.connect(config, load_models: false)
+
+          # load and connect the model
+          model.connection
         end
 
         #
@@ -170,9 +173,7 @@ module Ronin
         def load_model
           require self.class.model_file
 
-          @model = Ronin::DB.const_get(self.class.model_name)
-          @model.connection
-          return @model
+          Ronin::DB.const_get(self.class.model_name)
         end
 
         #
