@@ -142,8 +142,7 @@ module Ronin
           elsif options[:delete_all]
             delete_all
           else
-            records = query
-            records.each(&method(:print_record))
+            list
           end
         end
 
@@ -184,6 +183,14 @@ module Ronin
         #
         def model
           @model ||= load_model
+        end
+
+        #
+        # Queries and lists records.
+        #
+        def list
+          records = query
+          records.each(&method(:print_record))
         end
 
         #
