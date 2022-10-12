@@ -216,10 +216,12 @@ module Ronin
           end
 
           File.open(path) do |file|
-            file.each_line(chomp: true) do |value|
-              log_info "Importing #{value} ..." if verbose?
+            model.transaction do
+              file.each_line(chomp: true) do |value|
+                log_info "Importing #{value} ..." if verbose?
 
-              add(value)
+                add(value)
+              end
             end
           end
         end
