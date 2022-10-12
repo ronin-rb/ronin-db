@@ -23,6 +23,7 @@ generated_files:
  - man/ronin-db-edit.1
  - man/ronin-db-irb.1
  - man/ronin-db-list.1
+ - man/ronin-db-migrate.1
  - man/ronin-db-remove.1
  - man/ronin-db-urls.1
 
