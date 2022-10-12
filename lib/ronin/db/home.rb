@@ -27,6 +27,9 @@ module Ronin
 
       # The path to the `~/.cache/ronin-db/` directory.
       CACHE_DIR = File.join(Core::Home::CACHE_DIR,'ronin-db')
+
+      # The path to the `~/.local/share/ronin-db/` directory.
+      LOCAL_SHARE_DIR = File.join(Core::Home::LOCAL_SHARE_DIR,'ronin-db')
     end
   end
 end
