@@ -18,6 +18,7 @@
 #
 
 require 'ronin/db/cli/model_command'
+require 'ronin/db/cli/modifiable'
 
 module Ronin
   module DB
@@ -45,6 +46,8 @@ module Ronin
         #     -T, --tld [TLD]
         #
         class Hosts < ModelCommand
+
+          include Modifiable
 
           model_file 'ronin/db/host_name'
           model_name 'HostName'

@@ -18,6 +18,7 @@
 #
 
 require 'ronin/db/cli/model_command'
+require 'ronin/db/cli/modifiable'
 
 module Ronin
   module DB
@@ -51,6 +52,8 @@ module Ronin
         #          --with-query-value
         #
         class Urls < ModelCommand
+
+          include Modifiable
 
           model_file 'ronin/db/url'
           model_name 'URL'

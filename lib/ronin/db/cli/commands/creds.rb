@@ -18,6 +18,7 @@
 #
 
 require 'ronin/db/cli/model_command'
+require 'ronin/db/cli/modifiable'
 
 module Ronin
   module DB
@@ -43,6 +44,8 @@ module Ronin
         #     -p, --password [PASS]            Password to search for.
         #
         class Creds < ModelCommand
+
+          include Modifiable
 
           model_file 'ronin/db/credential'
           model_name 'Credential'
