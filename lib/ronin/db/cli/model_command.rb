@@ -149,6 +149,13 @@ module Ronin
         end
 
         #
+        # Connects to the database, but not load the other models.
+        #
+        def connect
+          DB.connect(config, load_models: false)
+        end
+
+        #
         # The model to query.
         #
         # @return [Class<ActiveRecord::Base>]

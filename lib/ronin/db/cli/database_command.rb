@@ -61,7 +61,7 @@ module Ronin
         # Connects to the database.
         #
         def connect
-          ActiveRecord::Base.establish_connection(config)
+          DB.connect(config)
         end
 
       end
