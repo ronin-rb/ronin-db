@@ -38,9 +38,6 @@ Manages credentials.
 `-p`, `--with-password` *PASSWORD*
 	Searches for Credentials that have the PASSWORD.
 
-`-l`, `--[no-]list`
-	Lists the Credentials.
-
 ## FILES
 
 *~/.ronin/*
