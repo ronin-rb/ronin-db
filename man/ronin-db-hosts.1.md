@@ -1,8 +1,8 @@
-# ronin-hosts 1 "April 2012" Ronin "User Manuals"
+# ronin-db-hosts 1 "April 2012" Ronin "User Manuals"
 
 ## SYNOPSIS
 
-`ronin hosts` [*options*]
+`ronin-db hosts` [*options*]
 
 ## DESCRIPTION
 

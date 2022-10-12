@@ -1,8 +1,8 @@
-# ronin-ips 1 "April 2012" Ronin "User Manuals"
+# ronin-db-ips 1 "April 2012" Ronin "User Manuals"
 
 ## SYNOPSIS
 
-`ronin ips` [*options*]
+`ronin-db ips` [*options*]
 
 ## DESCRIPTION
 

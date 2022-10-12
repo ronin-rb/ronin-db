@@ -1,12 +1,12 @@
-# ronin-creds 1 "April 2012" Ronin "User Manuals"
+# ronin-db-creds 1 "April 2012" Ronin "User Manuals"
 
 ## SYNOPSIS
 
-`ronin creds` [*options*]
+`ronin-db creds` [*options*]
 
 ## DESCRIPTION
 
-Lists Credentials.
+Manages credentials.
 
 ## OPTIONS
 

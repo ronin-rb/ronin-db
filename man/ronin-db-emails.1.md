@@ -1,8 +1,8 @@
-# ronin-emails 1 "April 2012" Ronin "User Manuals"
+# ronin-db-emails 1 "April 2012" Ronin "User Manuals"
 
 ## SYNOPSIS
 
-`ronin emails` [*options*]
+`ronin-db emails` [*options*]
 
 ## DESCRIPTION
 

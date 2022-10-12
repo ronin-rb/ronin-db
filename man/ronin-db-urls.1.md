@@ -1,8 +1,8 @@
-# ronin-urls 1 "April 2012" Ronin "User Manuals"
+# ronin-db-urls 1 "April 2012" Ronin "User Manuals"
 
 ## SYNOPSIS
 
-`ronin urls` [*options*]
+`ronin-db urls` [*options*]
 
 ## DESCRIPTION
 
