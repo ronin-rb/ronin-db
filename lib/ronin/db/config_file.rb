@@ -34,11 +34,14 @@ module Ronin
       # Path to the `~/.config/ronin-db/databases.yml` configuration file.
       PATH = File.join(DB::Home::CONFIG_DIR,'databases.yml')
 
+      # Path to the default sqlite3 database file.
+      DEFAULT_DB_FILE = File.join(DB::Home::LOCAL_SHARE_DIR,'default.sqlite3')
+
       # Default database configuration.
       DEFAULT_CONFIG = {
         default: {
           adapter: 'sqlite3',
-          database: File.join(DB::Home::CACHE_DIR,'default.sqlite3')
+          database: DEFAULT_DB_FILE
         }
       }
 
