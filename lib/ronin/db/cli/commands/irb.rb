@@ -55,7 +55,14 @@ module Ronin
               load_models
             end
 
+            set_logger
+
             CLI::RubyShell.start
+          end
+
+          def set_logger
+            require 'logger'
+            DB.logger = Logger.new(stderr,:debug)
           end
 
           #
