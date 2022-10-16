@@ -57,6 +57,8 @@ namespace :db do
   desc 'Starts an interactive database console'
   task :console => 'db/dev.sqlite3' do
     require 'active_record'
+    ActiveRecord::Base.logger = Logger.new($stderr,:debug)
+
     ActiveRecord::Base.establish_connection(
       adapter: 'sqlite3',
       database: 'db/dev.sqlite3'
