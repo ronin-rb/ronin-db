@@ -107,7 +107,7 @@ module Ronin
 
       # migrate the database if necessary
       if migrate == true then migrate!
-      else                    migrate
+      else                    self.migrate
       end
 
       if load_models
