@@ -28,6 +28,8 @@ research and development.
 * Provides common [ActiveRecord models][ronin-db-activerecord] for interacting
   with the database tables.
 * Provides a `ronin-db` command for easy management of the database(s).
+* Provides additional commands for querying, inserting, deleting entries from
+  various database tables.
 
 ## Synopsis
 
@@ -43,8 +45,8 @@ Arguments:
 
 Commands:
     add
+    asn
     creds
-    database
     edit
     emails
     help
@@ -52,6 +54,7 @@ Commands:
     ips
     irb
     list
+    migrate
     remove
     urls
 ```
@@ -65,13 +68,13 @@ $ ronin-db list
 Add a new Database:
 
 ```shell
-$ ronin-db add team --uri mysql://user:pass@vpn.example.com/db
+$ ronin-db add team-db --uri postgres://user:pass@vpn.example.com/db
 ```
 
 Remove a Database:
 
 ```shell
-$ ronin-db remove team
+$ ronin-db remove team-db
 ```
 
 Add a host name to the database:
