@@ -61,13 +61,13 @@ module Ronin
         end
 
         #
-        # Sets or gets the model name to require.
+        # Sets or gets the model name to lookup.
         #
         # @param [String, nil] new_model_name
         #   The new model name.
         #
         # @return [String]
-        #   The model name to require.
+        #   The model name to lookup.
         #
         # @raise [NotImplementedError]
         #   The class did not define a `model_name`.
