@@ -30,4 +30,5 @@ group :development do
   gem 'yard-spellcheck', require: false
 
   gem 'dead_end',        require: false
+  gem 'stackprof',       require: false
 end
