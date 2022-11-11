@@ -5,8 +5,8 @@ gemspec
 gem 'jruby-openssl',	'~> 0.7', platforms: :jruby
 gem 'sqlite3',        '~> 1.4'
 
-gem 'command_kit', '0.4.0', github: 'postmodern/command_kit',
-                            branch: '0.4.0'
+# gem 'command_kit', '0.4.0', github: 'postmodern/command_kit',
+#                             branch: '0.4.0'
 
 # Library dependencies
 gem 'ronin-db-activerecord', '~> 0.1', github: "ronin-rb/ronin-db-activerecord",
