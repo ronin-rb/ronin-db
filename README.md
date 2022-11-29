@@ -7,8 +7,7 @@
 * [Source](https://github.com/ronin-rb/ronin-db)
 * [Issues](https://github.com/ronin-rb/ronin-db/issues)
 * [Documentation](https://ronin-rb.dev/docs/ronin-db/frames)
-* [Slack](https://ronin-rb.slack.com) |
-  [Discord](https://discord.gg/6WAb3PsVX9) |
+* [Discord](https://discord.gg/6WAb3PsVX9) |
   [Twitter](https://twitter.com/ronin_rb)
 
 ## Description
@@ -264,6 +263,7 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 [libsqlite3]: https://sqlite.org/
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
 [sqlite3]: https://github.com/sparklemotion/sqlite3-ruby#readme
+[activerecord-jdbcsqlite3-adapter]: https://github.com/jruby/activerecord-jdbc-adapter#readme
 [activerecord]: https://github.com/rails/rails/tree/main/activerecord#readme
 [ronin-db-activerecord]: https://github.com/ronin-rb/ronin-db-activerecord#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
