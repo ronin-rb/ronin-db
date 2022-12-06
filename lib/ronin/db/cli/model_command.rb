@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # ronin-db - A common database library for managing and querying security data.
 #
