@@ -30,9 +30,13 @@ generated_files:
 
 required_ruby_version: ">= 3.0.0"
 
+ruby_dependencies:
+  sqlite: ~> 1.0
+
+jruby_dependencies:
+  activerecord-jdbcsqlite3-adapter: ~> 70.0.pre
+
 dependencies:
-  # Library dependencies:
-  sqlite3: ~> 1.0
   # Ronin dependencies:
   ronin-db-activerecord: ~> 0.1
   ronin-support: ~> 1.0

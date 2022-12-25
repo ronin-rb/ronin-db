@@ -204,7 +204,7 @@ and [ronin-db-activerecord].
 ## Requirements
 
 * [Ruby] >= 3.0.0
-* [sqlite3] ~> 1.0
+* [sqlite3] ~> 1.0 (or [activerecord-jdbcsqlite3-adapter] ~> 70.0.pre on JRuby)
 * [ronin-db-activerecord] ~> 0.1
 * [ronin-support] ~> 1.0
 * [ronin-core] ~> 0.1
@@ -264,6 +264,7 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 [libsqlite3]: https://sqlite.org/
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
 [sqlite3]: https://github.com/sparklemotion/sqlite3-ruby#readme
+[activerecord-jdbcsqlite3-adapter]: https://github.com/jruby/activerecord-jdbc-adapter#readme
 [activerecord]: https://github.com/rails/rails/tree/main/activerecord#readme
 [ronin-db-activerecord]: https://github.com/ronin-rb/ronin-db-activerecord#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme

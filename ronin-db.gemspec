@@ -48,6 +48,22 @@ Gem::Specification.new do |gem|
 
   split = lambda { |string| string.split(/,\s*/) }
 
+  if RUBY_PLATFORM =~ /java/
+    gem.platform = Gem::Platform.new("java")
+
+    if gemspec['jruby_dependencies']
+      gemspec['jruby_dependencies'].each do |name,versions|
+        gem.add_dependency(name,split[versions])
+      end
+    end
+  else
+    if gemspec['ruby_dependencies']
+      gemspec['ruby_dependencies'].each do |name,versions|
+        gem.add_dependency(name,split[versions])
+      end
+    end
+  end
+
   if gemspec['dependencies']
     gemspec['dependencies'].each do |name,versions|
       gem.add_dependency(name,split[versions])
