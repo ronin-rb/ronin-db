@@ -262,7 +262,7 @@ along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 [ronin-rb]: https://ronin-rb.dev/
 [Ruby]: https://www.ruby-lang.org
 
-[bsqlite]: https://sqlite.org/
+[sqlite]: https://sqlite.org/
 [uri-query_params]: https://github.com/postmodern/uri-query_params#readme
 [sqlite3]: https://github.com/sparklemotion/sqlite3-ruby#readme
 [activerecord-jdbcsqlite3-adapter]: https://github.com/jruby/activerecord-jdbc-adapter#readme
