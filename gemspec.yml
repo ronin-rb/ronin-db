@@ -38,7 +38,7 @@ jruby_dependencies:
 
 dependencies:
   # Ronin dependencies:
-  ronin-db-activerecord: ~> 0.1
+  ronin-db-activerecord: ~> 0.1.0.beta1
   ronin-support: ~> 1.0
   ronin-core: ~> 0.1
 
