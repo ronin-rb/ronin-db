@@ -26,7 +26,7 @@ module Ronin
     class CLI
       module Commands
         #
-        # Manages {IPAddress IPAddresses}.
+        # Manages IP addresses in the database.
         #
         # ## Usage
         #
