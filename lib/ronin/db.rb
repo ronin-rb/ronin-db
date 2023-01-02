@@ -73,8 +73,8 @@ module Ronin
     #
     # Connects to the Database.
     #
-    # @param [Symbol, Hash] uri
-    #   The optional default repository to setup instead of {repositories}.
+    # @param [Symbol, Hash] database
+    #   The optional database name or Hash of database information.
     #
     # @param [Boolean] migrate
     #   Specifies whether to hard or lazy migrate the database.
