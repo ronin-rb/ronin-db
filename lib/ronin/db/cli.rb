@@ -18,8 +18,11 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+require 'ronin/db/version'
+
 require 'command_kit/commands'
 require 'command_kit/commands/auto_load'
+require 'command_kit/options/version'
 
 module Ronin
   module DB
@@ -30,8 +33,10 @@ module Ronin
         dir:       "#{__dir__}/cli/commands",
         namespace: "#{self}::Commands"
       )
+      include CommandKit::Options::Version
 
       command_name 'ronin-db'
+      version Ronin::DB::VERSION
 
     end
   end
