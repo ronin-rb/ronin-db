@@ -21,6 +21,6 @@
 module Ronin
   module DB
     # ronin-db version
-    VERSION = '0.1.0.beta1'
+    VERSION = '0.1.0.beta2'
   end
 end
