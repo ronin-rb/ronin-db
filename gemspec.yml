@@ -38,7 +38,7 @@ generated_files:
 required_ruby_version: ">= 3.0.0"
 
 ruby_dependencies:
-  sqlite: ~> 1.0
+  sqlite3: ~> 1.0
 
 jruby_dependencies:
   activerecord-jdbcsqlite3-adapter: ~> 70.0.pre
