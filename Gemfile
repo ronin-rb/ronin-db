@@ -2,12 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'sqlite3', '~> 1.0', platform: :mri
-
-platform :jruby do
-  gem 'jruby-openssl',	'~> 0.7'
-  gem 'activerecord-jdbcsqlite3-adapter', '~> 70.0.pre'
-end
+gem 'jruby-openssl',	'~> 0.7', platform: :jruby
 
 # gem 'command_kit', '0.4.0', github: 'postmodern/command_kit',
 #                             branch: 'main'
