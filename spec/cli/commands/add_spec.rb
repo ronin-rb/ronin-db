@@ -1,7 +1,10 @@
 require 'spec_helper'
 require 'ronin/db/cli/commands/add'
+require_relative 'man_page_example'
 
 describe Ronin::DB::CLI::Commands::Add do
+  include_examples "man_page"
+
   describe "options" do
     before { subject.parse_options(argv) }
 
