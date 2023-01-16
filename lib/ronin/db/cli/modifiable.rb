@@ -92,7 +92,7 @@ module Ronin
         end
 
         #
-        # Imports the values from the givne file.
+        # Imports the values from the given file.
         #
         # @param [String] path
         #   The path to the file.
