@@ -93,6 +93,8 @@ module Ronin
 
           description 'Manages IP addresses'
 
+          man_page 'ronin-db-ips.1'
+
         end
       end
     end
