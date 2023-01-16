@@ -23,7 +23,7 @@ Queries or updates Autonomous System Numbers (ASNs) in the database.
 `-n`, `--number` *INT*
   Searches for all ASN records with the AS number.
 
-`-C`, `--country-code` *XX*\|`None`\|`Uknown`
+`-C`, `--country-code` *XX*\|`None`\|`Unknown`
   Searches for all ASN records with the country code.
 
 `-N`, `--name` *NAME*

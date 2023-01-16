@@ -41,7 +41,7 @@ module Ronin
         #         --db-uri URI                 The database URI to connect to
         #     -v, --verbose                    Enables verbose output
         #     -n, --number INT                 Searches for all ASN records with the AS number
-        #     -C XX|None|Uknown,               Searches for all ASN records with the country code
+        #     -C XX|None|Unknown,              Searches for all ASN records with the country code
         #         --country-code
         #     -N, --name NAME                  Searches for all ASN records with the matching name
         #     -I, --ip IP                      Queries the ASN record for the IP
@@ -70,7 +70,7 @@ module Ronin
           option :country_code, short: '-C',
                                 value: {
                                   type:  /[A-Z]{2}|None|Unknown/,
-                                  usage: 'XX|None|Uknown'
+                                  usage: 'XX|None|Unknown'
                                 },
                                 desc: 'Searches for all ASN records with the country code' do |cc|
                                   @query_method_calls << [:with_country_code, [cc]]
