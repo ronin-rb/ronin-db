@@ -1,4 +1,4 @@
-### 0.1.0 / 2023-XX-XX
+### 0.1.0 / 2023-02-01
 
 * Initial release:
   * Uses a [sqlite] database by default.
