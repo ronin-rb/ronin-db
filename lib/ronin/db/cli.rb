@@ -26,6 +26,11 @@ require 'command_kit/options/version'
 
 module Ronin
   module DB
+    #
+    # The `ronin-db` command-line interface (CLI).
+    #
+    # @api private
+    #
     class CLI
 
       include CommandKit::Commands
