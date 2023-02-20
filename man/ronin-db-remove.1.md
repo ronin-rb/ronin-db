@@ -1,4 +1,4 @@
-# ronin-db-remove 1 "2022-01-01" Ronin DB "User Manuals"
+# ronin-db-remove 1 "2023-02-01" Ronin DB "User Manuals"
 
 ## SYNOPSIS
 

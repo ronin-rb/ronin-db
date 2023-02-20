@@ -1,4 +1,4 @@
-# ronin-db-creds 1 "April 2012" Ronin "User Manuals"
+# ronin-db-creds 1 "2023-01-02" Ronin "User Manuals"
 
 ## SYNOPSIS
 

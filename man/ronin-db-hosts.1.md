@@ -1,4 +1,4 @@
-# ronin-db-hosts 1 "April 2012" Ronin "User Manuals"
+# ronin-db-hosts 1 "2023-02-01" Ronin "User Manuals"
 
 ## SYNOPSIS
 
