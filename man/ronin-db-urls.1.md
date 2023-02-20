@@ -53,19 +53,24 @@ Manages URLs.
 `-Q`, `--with-query-value` *VALUE* [...]
 	Searches for URLs containing the query-param VALUE.
 
+## ENVIRONMENT
+
+*HOME*
+  Alternate location for the user's home directory.
+
+*XDG_CONFIG_HOME*
+  Alternate location for the `~/.config` directory.
+
+*XDG_DATA_HOME*
+  Alternate location for the `~/.local/share` directory.
+
 ## FILES
 
-*~/.ronin/*
-	Ronin configuration directory.
+*~/.local/share/ronin-db/database.sqlite3*
+  The default sqlite3 database file.
 
-*~/.ronin/database.log*
-	Database log.
-
-*~/.ronin/database.sqlite3*
-	The default sqlite3 Database file.
-
-*~/.ronin/database.yml*
-	Optional Database configuration.
+*~/.config/ronin-db/database.yml*
+  Optional database configuration.
 
 ## AUTHOR
 

@@ -21,19 +21,24 @@ Lists entries in the `~/.config/ronin-db/database.yml` configuration file.
 `-h`, `--help`
   Print help information.
 
-## FILES
-
-*~/.config/ronin-db/database.yml*
-	The `ronin-db` database(s) configuration file.
-
 ## ENVIRONMENT
 
-HOME
-	Specifies the home directory of the user. Ronin will search for the
-	*~/.config/ronin-db* cache directory within the home directory.
+*HOME*
+  Alternate location for the user's home directory.
 
-XDG_CONFIG_HOME
-  Specifies the cache directory to use. Defaults to *$HOME/.config*.
+*XDG_CONFIG_HOME*
+  Alternate location for the `~/.config` directory.
+
+*XDG_DATA_HOME*
+  Alternate location for the `~/.local/share` directory.
+
+## FILES
+
+*~/.local/share/ronin-db/database.sqlite3*
+  The default sqlite3 database file.
+
+*~/.config/ronin-db/database.yml*
+  Optional database configuration.
 
 ## AUTHOR
 
