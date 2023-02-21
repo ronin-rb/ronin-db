@@ -54,10 +54,10 @@ Manages email addresses.
 
 ## FILES
 
-*~/.local/share/ronin-db/database.sqlite3*
+`~/.local/share/ronin-db/database.sqlite3`
   The default sqlite3 database file.
 
-*~/.config/ronin-db/database.yml*
+`~/.config/ronin-db/database.yml`
   Optional database configuration.
 
 ## AUTHOR
