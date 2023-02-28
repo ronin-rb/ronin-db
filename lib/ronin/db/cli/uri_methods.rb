@@ -24,6 +24,10 @@ require 'ronin/db'
 module Ronin
   module DB
     class CLI
+      #
+      # Mixin which adds methods for parsing database URIs
+      # (ex: `sqlite3:path/to/db.sqlite3`).
+      #
       module URIMethods
         # Common database adapter names and their ActiveRecord equivalents.
         ADAPTER_ALIASES = {
