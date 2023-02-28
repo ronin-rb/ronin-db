@@ -25,6 +25,9 @@ require 'ronin/core/cli/command'
 module Ronin
   module DB
     class CLI
+      #
+      # Base class for all `ronin-db` commands.
+      #
       class Command < Core::CLI::Command
 
         man_dir File.join(ROOT,'man')
