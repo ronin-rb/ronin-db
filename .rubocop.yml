@@ -1,0 +1,16 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.1
+
+inherit_gem:
+  rubocop-ronin: rubocop.yml
+
+#
+# ronin-db specific exceptions
+#
+
+# This looks like a rubocop bug.
+Lint/ShadowingOuterLocalVariable:
+  Exclude:
+    - 'lib/ronin/db/cli/commands/list.rb'
