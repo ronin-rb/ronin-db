@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 #
 # Copyright (c) 2021 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
@@ -21,13 +22,11 @@
 root = File.expand_path(File.join(__dir__,'..'))
 if File.file?(File.join(root,'Gemfile.lock'))
   Dir.chdir(root) do
-    begin
-      require 'bundler/setup'
-    rescue LoadError => e
-      warn e.message
-      warn "Run `gem install bundler` to install Bundler"
-      exit -1
-    end
+    require 'bundler/setup'
+  rescue LoadError => e
+    warn e.message
+    warn "Run `gem install bundler` to install Bundler"
+    exit(-1)
   end
 end
 

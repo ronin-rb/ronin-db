@@ -122,7 +122,7 @@ module Ronin
           option :query_string, short: '-q',
                                 value: {
                                   type:  String,
-                                  usage: 'STRING',
+                                  usage: 'STRING'
                                 },
                                 desc: 'Searches for all URLs with the query string' do |string|
                                   @query_method_calls << [:where, [], {query: string}]
@@ -136,11 +136,11 @@ module Ronin
                                     desc: 'Searches for the associated query-param NAME(s)' do |string|
                                       name, value = string.split('=',2)
 
-                                      if value
-                                        @query_method_calls << [:with_query_param, [name, value]]
-                                      else
-                                        @query_method_calls << [:with_query_param_name, [name]]
-                                      end
+                                      @query_method_calls << if value
+                                                               [:with_query_param, [name, value]]
+                                                             else
+                                                               [:with_query_param_name, [name]]
+                                                             end
                                     end
 
           option :with_query_param_name, value: {

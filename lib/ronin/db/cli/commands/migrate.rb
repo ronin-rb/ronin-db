@@ -37,7 +37,7 @@ module Ronin
         #         --db NAME                    The database to connect to (Default: default)
         #         --db-uri URI                 The database URI to connect to
         #     -h, --help                       Print help information
-        # 
+        #
         class Migrate < DatabaseCommand
 
           usage '[options]'

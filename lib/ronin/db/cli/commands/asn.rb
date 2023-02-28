@@ -61,7 +61,7 @@ module Ronin
 
           option :number, short: '-n',
                           value: {
-                            type: Integer,
+                            type: Integer
                           },
                           desc: 'Searches for all ASN records with the AS number' do |number|
                             @query_method_calls << [:with_number, [number]]

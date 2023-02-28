@@ -88,7 +88,7 @@ describe Ronin::DB::CLI::URIMethods do
 
   describe "#parse_uri" do
     [:sqlite3, :sqlite].each do |adapter|
-      let(:adapter)  { adapter }
+      let(:adapter) { adapter }
 
       context "when given '#{adapter}:path'" do
         let(:path) { "db.sqlite3"      }
@@ -105,7 +105,7 @@ describe Ronin::DB::CLI::URIMethods do
       end
 
       context "when given '#{adapter}:/path'" do
-        let(:path) { "/db.sqlite3"      }
+        let(:path) { "/db.sqlite3" }
         let(:uri)  { "#{adapter}:#{path}" }
 
         it "must return {adapter: 'sqlite3', database: '/path'}" do

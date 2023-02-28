@@ -140,8 +140,7 @@ describe Ronin::DB::CLI::ModelCommand do
     end
   end
 
-  describe ".model_name" do
-  end
+  describe ".model_name"
 
   module TestModelCommand
     class TestCommand < Ronin::DB::CLI::ModelCommand

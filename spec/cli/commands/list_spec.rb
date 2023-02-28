@@ -5,6 +5,5 @@ require_relative 'man_page_example'
 describe Ronin::DB::CLI::Commands::List do
   include_examples "man_page"
 
-  describe "#run" do
-  end
+  describe "#run"
 end

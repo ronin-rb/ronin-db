@@ -60,8 +60,6 @@ module Ronin
           end
         end
 
-        protected
-
         #
         # Sets the model used by the command.
         #

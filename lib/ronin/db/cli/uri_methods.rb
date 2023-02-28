@@ -61,8 +61,8 @@ module Ronin
         #   The expanded path or `":memory:"` if the path was `":memory:"`.
         #
         def normalize_sqlite3_path(path)
-          if path== ':memory:' then path
-          else                      File.expand_path(path)
+          if path == ':memory:' then path
+          else                       File.expand_path(path)
           end
         end
 
@@ -76,7 +76,7 @@ module Ronin
         #   The database configuration Hash.
         #
         def parse_uri(uri)
-          if (match = uri.match(/\Asqlite[3]?:(.+)\z/))
+          if (match = uri.match(/\Asqlite(?:3)?:(.+)\z/))
             {
               adapter: 'sqlite3',
               database: normalize_sqlite3_path(match[1])
@@ -86,6 +86,7 @@ module Ronin
             adapter = normalize_adapter(uri.scheme)
 
             hash = {adapter: adapter}
+
             hash[:host]     = uri.host if uri.host
             hash[:port]     = uri.port if uri.port
             hash[:username] = uri.user if uri.user
