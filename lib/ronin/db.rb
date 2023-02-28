@@ -23,6 +23,9 @@ require 'ronin/db/config_file'
 require 'ronin/db/version'
 
 module Ronin
+  #
+  # Manages the Ronin database.
+  #
   module DB
     #
     # Sets up the Database logger.
