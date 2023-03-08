@@ -1,7 +1,17 @@
 require 'spec_helper'
-require 'ronin/db/cli/database_command'
+require 'ronin/db/cli/database_options'
+require 'ronin/db/cli/command'
 
-describe Ronin::DB::CLI::DatabaseCommand do
+describe Ronin::DB::CLI::DatabaseOptions do
+  module TestDatabaseOptions
+    class Command < Ronin::DB::CLI::Command
+      include Ronin::DB::CLI::DatabaseOptions
+    end
+  end
+
+  let(:command_class) { TestDatabaseOptions::Command }
+  subject { command_class.new }
+
   describe "#config" do
     context "when neither options[:db] nor options[:db_uri] are set" do
       it "must default to connecting to the :default database" do

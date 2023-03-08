@@ -18,7 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/database_command'
+require 'ronin/db/cli/command'
+require 'ronin/db/cli/database_options'
 require 'ronin/db/cli/ruby_shell'
 
 module Ronin
@@ -39,7 +40,9 @@ module Ronin
         #         --no-connect                 Do not connect to a database on startup
         #     -h, --help                       Print help information
         #
-        class Irb < DatabaseCommand
+        class Irb < Command
+
+          include DatabaseOptions
 
           option :no_connect, desc: 'Do not connect to a database on startup'
 

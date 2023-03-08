@@ -18,7 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/database_command'
+require 'ronin/db/cli/command'
+require 'ronin/db/cli/database_options'
 require 'ronin/core/cli/logging'
 
 require 'command_kit/options/verbose'
@@ -29,8 +30,9 @@ module Ronin
       #
       # A base-command for database models commands.
       #
-      class ModelCommand < DatabaseCommand
+      class ModelCommand < Command
 
+        include DatabaseOptions
         include CommandKit::Options::Verbose
         include Core::CLI::Logging
 
