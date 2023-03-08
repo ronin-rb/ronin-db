@@ -18,7 +18,6 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/command'
 require 'ronin/db/cli/uri_methods'
 require 'ronin/db'
 
@@ -28,22 +27,32 @@ module Ronin
       #
       # Base class for all commands that access the database.
       #
-      class DatabaseCommand < Command
-
+      # @since 0.2.0
+      #
+      module DatabaseOptions
         include URIMethods
 
-        option :db, value: {
-                      type:    DB.config.keys,
-                      default: :default,
-                      usage:   'NAME'
-                    },
-                    desc: 'The database to connect to'
+        #
+        # Adds the `--db` and `--db-uri` options to the command class including
+        # the {DatabaseOptions} module.
+        #
+        # @param [Class<Ronin::Core::CLI::Command>] command
+        #   The command class including {DatabaseOptions}.
+        #
+        def self.included(command)
+          command.option :db, value: {
+                                type:    DB.config.keys,
+                                default: :default,
+                                usage:   'NAME'
+                              },
+                              desc: 'The database to connect to'
 
-        option :db_uri, value: {
-                          type:  String,
-                          usage: 'URI'
-                        },
-                        desc: 'The database URI to connect to'
+          command.option :db_uri, value: {
+                                    type:  String,
+                                    usage: 'URI'
+                                  },
+                                  desc: 'The database URI to connect to'
+        end
 
         #
         # The database connection configuration.
@@ -64,7 +73,6 @@ module Ronin
         def connect
           DB.connect(config)
         end
-
       end
     end
   end

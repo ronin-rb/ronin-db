@@ -18,7 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/database_command'
+require 'ronin/db/cli/command'
+require 'ronin/db/cli/database_options'
 require 'ronin/db'
 
 module Ronin
@@ -38,7 +39,9 @@ module Ronin
         #         --db-uri URI                 The database URI to connect to
         #     -h, --help                       Print help information
         #
-        class Migrate < DatabaseCommand
+        class Migrate < Command
+
+          include DatabaseOptions
 
           usage '[options]'
 

@@ -4,8 +4,8 @@ require 'ronin/db/ip_address'
 require 'ronin/db/host_name'
 
 describe Ronin::DB::CLI::ModelCommand do
-  it "must inherit from Ronin::DB::CLI::DatabaseCommand" do
-    expect(described_class).to be < Ronin::DB::CLI::DatabaseCommand
+  it "must inherit from Ronin::DB::CLI::Command" do
+    expect(described_class).to be < Ronin::DB::CLI::Command
   end
 
   describe ".model_file" do
