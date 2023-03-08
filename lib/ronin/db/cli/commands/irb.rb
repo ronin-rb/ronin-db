@@ -55,7 +55,7 @@ module Ronin
           #
           def run
             unless options[:no_connect]
-              connect
+              db_connect
               load_models
             end
 

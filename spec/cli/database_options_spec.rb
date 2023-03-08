@@ -12,10 +12,10 @@ describe Ronin::DB::CLI::DatabaseOptions do
   let(:command_class) { TestDatabaseOptions::Command }
   subject { command_class.new }
 
-  describe "#config" do
+  describe "#db_config" do
     context "when neither options[:db] nor options[:db_uri] are set" do
       it "must default to connecting to the :default database" do
-        expect(subject.config).to eq(Ronin::DB.config[:default])
+        expect(subject.db_config).to eq(Ronin::DB.config[:default])
       end
     end
 
@@ -37,7 +37,7 @@ describe Ronin::DB::CLI::DatabaseOptions do
       end
 
       it "must return the database configuration for options[:db]" do
-        expect(subject.config).to eq(Ronin::DB.config[db_name])
+        expect(subject.db_config).to eq(Ronin::DB.config[db_name])
       end
     end
 
@@ -48,16 +48,16 @@ describe Ronin::DB::CLI::DatabaseOptions do
       before { subject.options[:db_uri] = db_uri }
 
       it "must return the parsed URI for options[:db_uri]" do
-        expect(subject.config).to eq(parsed_uri)
+        expect(subject.db_config).to eq(parsed_uri)
       end
     end
   end
 
-  describe "#connect" do
+  describe "#db_connect" do
     it "must call ActiveRecord::Base.establish_connection with #config" do
-      expect(ActiveRecord::Base).to receive(:establish_connection).with(subject.config)
+      expect(ActiveRecord::Base).to receive(:establish_connection).with(subject.db_config)
 
-      subject.connect
+      subject.db_connect
     end
   end
 end

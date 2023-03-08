@@ -131,7 +131,7 @@ module Ronin
           # Runs the `ronin-db asn` command.
           #
           def run
-            connect
+            db_connect
 
             if options[:update]
               update

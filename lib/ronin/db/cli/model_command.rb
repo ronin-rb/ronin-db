@@ -114,16 +114,16 @@ module Ronin
         # Runs the command.
         #
         def run
-          connect
+          db_connect
           list
         end
 
         #
         # Connects to the database.
         #
-        def connect
+        def db_connect
           # connect to the database but do not load other models.
-          DB.connect(config, load_models: false)
+          DB.connect(db_config, load_models: false)
 
           # load and connect the model
           model.connection

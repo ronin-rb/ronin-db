@@ -58,7 +58,7 @@ module Ronin
         # Runs the command.
         #
         def run
-          connect
+          db_connect
 
           if options[:add]
             add(options[:add])
