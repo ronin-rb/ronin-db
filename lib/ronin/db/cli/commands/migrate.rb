@@ -53,21 +53,21 @@ module Ronin
           # Runs the `ronin-db migrate` command.
           #
           def run
-            connect
-            migrate
+            db_connect
+            db_migrate
           end
 
           #
           # Connects to the database.
           #
-          def connect
-            DB.connect(config, load_models: false)
+          def db_connect
+            DB.connect(db_config, load_models: false)
           end
 
           #
           # Runs migrations.
           #
-          def migrate
+          def db_migrate
             DB.migrate!
           end
 

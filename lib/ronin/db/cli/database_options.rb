@@ -59,7 +59,7 @@ module Ronin
         #
         # @return [Hash{Symbol => String,Integer}]
         #
-        def config
+        def db_config
           if options[:db_uri]
             parse_uri(options[:db_uri])
           else
@@ -70,8 +70,8 @@ module Ronin
         #
         # Connects to the database.
         #
-        def connect
-          DB.connect(config)
+        def db_connect
+          DB.connect(db_config)
         end
       end
     end
