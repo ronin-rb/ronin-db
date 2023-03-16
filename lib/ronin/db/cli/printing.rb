@@ -26,6 +26,8 @@ module Ronin
       #
       # @since 0.2.0
       #
+      # @api semipublic
+      #
       module Printing
         #
         # Maps a record to a human readable display name.
