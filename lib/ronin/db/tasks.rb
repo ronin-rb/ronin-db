@@ -32,13 +32,23 @@ module Ronin
     #
     class Tasks < Rake::TaskLib
 
+      # The database to connect to.
+      #
+      # @return [Symbol, Hash]
+      attr_reader :database
+
       #
       # Initializes the tasks.
       #
+      # @param [Symbol, Hash] database
+      #   The database name or Hash to connect to.
+      #
       # @api public
       #
-      def initialize
+      def initialize(database: :default)
         super()
+
+        @database = database
 
         define
       end
@@ -52,9 +62,7 @@ module Ronin
         namespace :db do
           task :connect do
             require 'ronin/db'
-            require 'logger'
-            DB.logger = Logger.new($stderr,:debug)
-            DB.connect
+            DB.connect(@database)
           end
 
           desc 'Migrates the development database'
@@ -65,6 +73,9 @@ module Ronin
 
           desc 'Starts an interactive database console'
           task :console => :connect do
+            require 'logger'
+            DB.logger = Logger.new($stderr,:debug)
+
             require 'ronin/db/cli/ruby_shell'
             DB::CLI::RubyShell.start
           end
