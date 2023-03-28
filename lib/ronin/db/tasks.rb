@@ -38,6 +38,8 @@ module Ronin
       # @api public
       #
       def initialize
+        super()
+
         define
       end
 
