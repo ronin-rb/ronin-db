@@ -38,38 +38,7 @@ Kramdown::Man::Task.new
 directory 'db'
 file 'db/dev.sqlite3' => %w[db db:migrate]
 
-namespace :db do
-  task :connect do
-    require 'active_record'
-    ActiveRecord::Base.establish_connection(
-      adapter:  'sqlite3',
-      database: 'db/dev.sqlite3'
-    )
-  end
-
-  desc 'Migrates the development database'
-  task :migrate => :connect do
-    require 'ronin/db/migrations'
-    Ronin::DB::Migrations.up
-  end
-
-  desc 'Starts an interactive database console'
-  task :console => 'db/dev.sqlite3' do
-    require 'active_record'
-    ActiveRecord::Base.logger = Logger.new($stderr,:debug)
-
-    ActiveRecord::Base.establish_connection(
-      adapter: 'sqlite3',
-      database: 'db/dev.sqlite3'
-    )
-
-    require 'ronin/db/models'
-    Ronin::DB::Models.connect
-
-    lib_dir = File.expand_path('lib')
-    $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
-
-    require 'ronin/db/cli/ruby_shell'
-    Ronin::DB::CLI::RubyShell.start
-  end
-end
+require 'ronin/db/tasks'
+Ronin::DB::Tasks.new(database: {adapter: 'sqlite3', database: 'db/dev.sqlite3'})
+file 'db/dev.sqlite3' => 'db:migrate'
+task 'db:console' => 'db/dev.sqlite3'
