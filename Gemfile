@@ -10,11 +10,11 @@ gem 'jruby-openssl',	'~> 0.7', platform: :jruby
 #                             branch: 'main'
 
 # Library dependencies
-# gem 'ronin-db-activerecord', '~> 0.1', github: "ronin-rb/ronin-db-activerecord",
+# gem 'ronin-db-activerecord', '~> 0.1', github: 'ronin-rb/ronin-db-activerecord',
 #                                        branch: 'main'
-# gem 'ronin-support',	       '~> 1.0', github: "ronin-rb/ronin-support",
+# gem 'ronin-support',	       '~> 1.0', github: 'ronin-rb/ronin-support',
 #                                        branch: '1.0.0'
-# gem 'ronin-core',	           '~> 0.1', github: "ronin-rb/ronin-core",
+# gem 'ronin-core',	           '~> 0.1', github: 'ronin-rb/ronin-core',
 #                                        branch: 'main'
 
 group :development do
