@@ -20,17 +20,17 @@ Manages IP addresses.
 `-v`, `--verbose`
 	Enable verbose output.
 
-`--add` *USER*:*PASSWORD*
-  Adds the *USER* and *PASSWORD* to the database.
+`--add` *VALUE*
+  Adds the IP address to the database.
 
 `--import` *FILE*
-  Imports the credentials from the given *FILE*.
+  Imports the IP addresses from the given *FILE*.
 
 `--delete` *VALUE*
-  Deletes a value from the database.
+  Deletes a IP address from the database.
 
 `--delete-all`
-  Deletes every value from the database.
+  Deletes every IP address from the database.
 
 `-4`, `--v4`
 	Searches for IPv4 addresses.

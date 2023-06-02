@@ -20,17 +20,17 @@ Manages email addresses.
 `-v`, `--verbose`
 	Enable verbose output.
 
-`--add` *USER*:*PASSWORD*
-  Adds the *USER* and *PASSWORD* to the database.
+`--add` *VALUE*
+  Adds the email address to the database.
 
 `--import` *FILE*
-  Imports the credentials from the given *FILE*.
+  Imports the email addresses from the given *FILE*.
 
 `--delete` *VALUE*
-  Deletes a value from the database.
+  Deletes the email address from the database.
 
 `--delete-all`
-  Deletes every value from the database.
+  Deletes every email address from the database.
 
 `-H`, `--with-host` *HOST*
 	Searches for email addresses associated with the *HOST*.

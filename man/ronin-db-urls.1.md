@@ -20,17 +20,17 @@ Manages URLs.
 `-v`, `--verbose`
 	Enable verbose output.
 
-`--add` *USER*:*PASSWORD*
-  Adds the *USER* and *PASSWORD* to the database.
+`--add` *VALUE*
+  Adds the URL to the database.
 
 `--import` *FILE*
-  Imports the credentials from the given *FILE*.
+  Imports the URLs from the given *FILE*.
 
 `--delete` *VALUE*
-  Deletes a value from the database.
+  Deletes the URL from the database.
 
 `--delete-all`
-  Deletes every value from the database.
+  Deletes every URL from the database.
 
 `--http`
 	Searches for `http://` URLs.

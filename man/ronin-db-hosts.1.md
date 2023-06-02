@@ -20,8 +20,8 @@ Manages host names.
 `-v`, `--verbose`
 	Enable verbose output.
 
-`--add` *USER*:*PASSWORD*
-  Adds the *USER* and *PASSWORD* to the database.
+`--add` *VALUE*
+  Adds the hostname to the database.
 
 `--import` *FILE*
   Imports the credentials from the given *FILE*.

@@ -27,16 +27,16 @@ Manages credentials.
   Imports the credentials from the given *FILE*.
 
 `--delete` *VALUE*
-  Deletes a value from the database.
+  Deletes a credential value from the database.
 
 `--delete-all`
-  Deletes every value from the database.
+  Deletes every credential from the database.
 
 `-u`, `--for-user` *USER*
-	Searches for Credentials associated with the USER.
+	Searches for credentials associated with the USER.
 
 `-p`, `--with-password` *PASSWORD*
-	Searches for Credentials that have the PASSWORD.
+	Searches for credentials that have the PASSWORD.
 
 ## ENVIRONMENT
 
