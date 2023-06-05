@@ -65,7 +65,7 @@ Add a PostgeSQL database:
 
 Add a MySQL database:
 
-        $ ronin-db add other_db --mysql --host example.com --port 3306 --username ronin --password s3r3t --database ronin_db
+        $ ronin-db add other_db --mysql2 --host example.com --port 3306 --username ronin --password s3r3t --database ronin_db
 
 ## ENVIRONMENT
 
