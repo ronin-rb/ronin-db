@@ -6,7 +6,8 @@
 
 ## DESCRIPTION
 
-Lists entries in the `~/.config/ronin-db/database.yml` configuration file.
+Adds a pre-existing database to the `~/.config/ronin-db/database.yml`
+configuration file.
 
 ## ARGUMENTS
 
