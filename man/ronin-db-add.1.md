@@ -53,6 +53,20 @@ configuration file.
 `-h`, `--help`
   Print help information.
 
+## EXAMPLES
+
+Add a sqlite3 database file:
+
+        $ ronin-db add other_db --sqlite3 path/to/db.sqlite3
+
+Add a PostgeSQL database:
+
+        $ ronin-db add other_db --postgres --host example.com --port 5432 --username ronin --password s3r3t --database ronin_db
+
+Add a MySQL database:
+
+        $ ronin-db add other_db --mysql --host example.com --port 3306 --username ronin --password s3r3t --database ronin_db
+
 ## ENVIRONMENT
 
 *HOME*
