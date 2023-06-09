@@ -1,3 +1,11 @@
+### 0.1.1 / 2023-06-09
+
+#### CLI
+
+* Fixed typos in the `ronin-db add` man-page.
+* Fixed typos in the `ronin-db creds` man-page.
+* Fixed formatting of man-pages.
+
 ### 0.1.0 / 2023-02-01
 
 * Initial release:
