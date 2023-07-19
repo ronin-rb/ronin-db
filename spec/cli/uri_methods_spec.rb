@@ -91,7 +91,7 @@ describe Ronin::DB::CLI::URIMethods do
       let(:adapter) { adapter }
 
       context "when given '#{adapter}:path'" do
-        let(:path) { "db.sqlite3"      }
+        let(:path) { "db.sqlite3" }
         let(:uri)  { "#{adapter}:#{path}" }
 
         it "must return {adapter: 'sqlite3', database: absolute_path}" do
@@ -119,7 +119,7 @@ describe Ronin::DB::CLI::URIMethods do
       end
 
       context "when given '#{adapter}::memory:'" do
-        let(:path) { ":memory:"        }
+        let(:path) { ":memory:" }
         let(:uri)  { "#{adapter}:#{path}" }
 
         it "must return {adapter: 'sqlite3', database: ':memory:'}" do
