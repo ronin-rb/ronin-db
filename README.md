@@ -52,7 +52,7 @@ Commands:
     help
     hosts
     ips
-    irb
+    irb, console
     list
     migrate
     remove

@@ -43,6 +43,8 @@ module Ronin
       command_name 'ronin-db'
       version Ronin::DB::VERSION
 
+      command_aliases['console'] = 'irb'
+
     end
   end
 end
