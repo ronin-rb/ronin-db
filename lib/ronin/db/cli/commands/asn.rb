@@ -44,6 +44,7 @@ module Ronin
         #     -C XX|None|Unknown,              Searches for all ASN records with the country code
         #         --country-code
         #     -N, --name NAME                  Searches for all ASN records with the matching name
+        #         --named NAME                 Searches for all ASN records containing the name
         #     -I, --ip IP                      Queries the ASN record for the IP
         #     -4, --ipv4                       Filter ASN records for only IPv4 ranges
         #     -6, --ipv6                       Filter ASN records for only IPv6 ranges
@@ -84,6 +85,14 @@ module Ronin
                         desc: 'Searches for all ASN records with the matching name' do |name|
                           @query_method_calls << [:with_name, [name]]
                         end
+
+          option :named, value: {
+                           type:  String,
+                           usage: 'NAME'
+                         },
+                         desc: 'Searches for all ASN records containing the name' do |name|
+                           @query_method_calls << [:named, [name]]
+                         end
 
           option :ip, short: '-I',
                       value: {

@@ -32,6 +32,9 @@ Queries or updates Autonomous System Numbers (ASNs) in the database.
 `-N`, `--name` *NAME*
   Searches for all ASN records with the matching name.
 
+`--named` *NAME*
+  Searches for all ASN records containing the name.
+
 `-I`, `--ip` *IP*
   Queries the ASN record for the IP.
 
