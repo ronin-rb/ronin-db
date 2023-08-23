@@ -208,7 +208,7 @@ and [ronin-db-activerecord].
 * [libsqlite3][sqlite]
 * [sqlite3][sqlite3]
   (or [activerecord-jdbcsqlite3-adapter] ~> 70.0 on JRuby)
-* [ronin-db-activerecord] ~> 0.1
+* [ronin-db-activerecord] ~> 0.2
 * [ronin-support] ~> 1.0
 * [ronin-core] ~> 0.1
 
