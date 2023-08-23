@@ -56,6 +56,7 @@ Commands:
     list
     migrate
     remove
+    services
     urls
 ```
 
