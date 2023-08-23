@@ -53,6 +53,9 @@ Manages URLs.
 `-Q`, `--with-query-value` *VALUE* [...]
 	Searches for URLs containing the query-param VALUE.
 
+`-h`, `--help`
+  Print help information.
+
 ## ENVIRONMENT
 
 *HOME*

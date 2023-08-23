@@ -47,6 +47,9 @@ Manages IP addresses.
 `-I`, `--with-host` *HOST*
 	Searches for IP addresses associated with the *HOST*.
 
+`-h`, `--help`
+  Print help information.
+
 ## ENVIRONMENT
 
 *HOME*

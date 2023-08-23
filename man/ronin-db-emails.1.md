@@ -41,6 +41,9 @@ Manages email addresses.
 `-u`, `--with-users` *NAME* [...]
 	Searches for email addresses associated with the user NAME(s).
 
+`-h`, `--help`
+  Print help information.
+
 ## ENVIRONMENT
 
 *HOME*

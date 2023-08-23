@@ -44,6 +44,9 @@ Manages host names.
 `-T`, `--tld` *TLD*
 	Searches for HostNames with the Top-Level-Domain (TLD) (`ru`).
 
+`-h`, `--help`
+  Print help information.
+
 ## ENVIRONMENT
 
 *HOME*

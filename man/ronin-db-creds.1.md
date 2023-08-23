@@ -38,6 +38,9 @@ Manages credentials.
 `-p`, `--with-password` *PASSWORD*
 	Searches for credentials that have the PASSWORD.
 
+`-h`, `--help`
+  Print help information.
+
 ## ENVIRONMENT
 
 *HOME*
