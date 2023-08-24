@@ -41,8 +41,8 @@ module Ronin
         #         --import FILE                Imports the values from the FILE into the database
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
-        #     -u, --user [USER]                Username to search for.
-        #     -p, --password [PASS]            Password to search for.
+        #     -u, --for-user [USER]            Username to search for.
+        #     -p, --with-password [PASS]       Password to search for.
         #
         class Creds < ModelCommand
 
@@ -51,23 +51,23 @@ module Ronin
           model_file 'ronin/db/credential'
           model_name 'Credential'
 
-          option :user, short: '-u',
-                        value: {
-                          type:  String,
-                          usage: 'USER'
-                        },
-                        desc: 'Username to search for' do |user|
-                          @query_method_calls << [:for_user, [user]]
-                        end
-
-          option :password, short: '-P',
+          option :for_user, short: '-u',
                             value: {
                               type:  String,
-                              usage: 'PASSWORD'
+                              usage: 'USER'
                             },
-                            desc: 'Password to search for' do |password|
-                              @query_method_calls << [:with_password, [password]]
+                            desc: 'Username to search for' do |user|
+                              @query_method_calls << [:for_user, [user]]
                             end
+
+          option :with_password, short: '-P',
+                                 value: {
+                                   type:  String,
+                                   usage: 'PASSWORD'
+                                 },
+                                 desc: 'Password to search for' do |password|
+                                   @query_method_calls << [:with_password, [password]]
+                                 end
 
           description 'Queries all credentials in the database'
 
