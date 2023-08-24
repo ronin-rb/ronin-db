@@ -41,8 +41,8 @@ module Ronin
         #         --import FILE                Imports the values from the FILE into the database
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
-        #     -u, --for-user [USER]            Username to search for.
-        #     -p, --with-password [PASS]       Password to search for.
+        #     -u, --for-user USER              Username to search for
+        #     -p, --with-password PASSWORD     Password to search for
         #
         class Creds < ModelCommand
 
