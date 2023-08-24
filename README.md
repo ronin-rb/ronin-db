@@ -61,6 +61,7 @@ Commands:
     ports
     remove
     services
+    software
     urls
 ```
 

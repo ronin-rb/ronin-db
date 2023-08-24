@@ -38,6 +38,7 @@ generated_files:
  - man/ronin-db-ports.1
  - man/ronin-db-remove.1
  - man/ronin-db-services.1
+ - man/ronin-db-software.1
  - man/ronin-db-urls.1
 
 required_ruby_version: ">= 3.0.0"
