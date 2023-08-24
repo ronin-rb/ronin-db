@@ -26,7 +26,7 @@ module Ronin
     class CLI
       module Commands
         #
-        # Queries all credentials in the database.
+        # Manages all credentials in the database.
         #
         # ## Usage
         #
@@ -69,7 +69,7 @@ module Ronin
                                    @query_method_calls << [:with_password, [password]]
                                  end
 
-          description 'Queries all credentials in the database'
+          description 'Manages all credentials in the database'
 
           man_page 'ronin-db-creds.1'
 
