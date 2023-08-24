@@ -55,6 +55,7 @@ Commands:
     irb, console
     list
     migrate
+    ports
     remove
     services
     urls
