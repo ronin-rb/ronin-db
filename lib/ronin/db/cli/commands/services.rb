@@ -44,6 +44,7 @@ module Ronin
         #         --named NAME                 Searches for all Services containing the NAME
         #     -p, --with-port PORT             Searches for all Services associated with the PORT
         #     -P, --with-protocol tcp|udp      Searches for all Services associated with the protocol
+        #     -I, --with-ip IP                 Searches for all Services associated with the IP
         #     -h, --help                       Print help information
         #
         # @since 0.2.0
@@ -79,6 +80,15 @@ module Ronin
                                  desc: 'Searches for all Services associated with the protocol' do |protocol|
                                    @query_method_calls << [:with_protocol, [protocol]]
                                  end
+
+          option :with_ip, short: '-I',
+                           value: {
+                             type:  String,
+                             usage: 'IP'
+                           },
+                           desc: 'Searches for all Services associated with the IP' do |ip|
+                             @query_method_calls << [:with_ip_address, [ip]]
+                           end
 
           description 'Manages Services'
 
