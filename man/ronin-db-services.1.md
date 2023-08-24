@@ -38,6 +38,9 @@ Manages Services.
 `--named` *NAME*
   Searches for all Services that contain *NAME* in it's name.
 
+`-p`, `--with-port` *PORT*
+  Searches for all Services that are associated with the port number.
+
 `-h`, `--help`
   Print help information.
 
