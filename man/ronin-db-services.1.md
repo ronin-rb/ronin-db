@@ -44,6 +44,9 @@ Manages Services.
 `-P`, `--with-protocol` [`tcp`\|`udp`]
   Searches for all Services that are associated with the protocol.
 
+`-I`, `--with-ip` *IP*
+  Searches for all Services associated with the IP address.
+
 `-h`, `--help`
   Print help information.
 
