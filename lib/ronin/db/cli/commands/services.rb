@@ -43,6 +43,7 @@ module Ronin
         #         --delete-all                 Deletes all values from the database
         #         --named NAME                 Searches for all Services containing the NAME
         #     -p, --with-port PORT             Searches for all Services associated with the PORT
+        #     -P, --with-protocol tcp|udp      Searches for all Services associated with the protocol
         #     -h, --help                       Print help information
         #
         # @since 0.2.0
@@ -70,6 +71,14 @@ module Ronin
                              desc: 'Searches for all Services associated with the PORT' do |port|
                                @query_method_calls << [:with_port_number, [port]]
                              end
+
+          option :with_protocol, short: '-P',
+                                 value: {
+                                   type: [:tcp, :udp]
+                                 },
+                                 desc: 'Searches for all Services associated with the protocol' do |protocol|
+                                   @query_method_calls << [:with_protocol, [protocol]]
+                                 end
 
           description 'Manages Services'
 
