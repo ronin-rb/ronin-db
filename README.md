@@ -55,6 +55,7 @@ Commands:
     irb, console
     list
     migrate
+    open-ports
     ports
     remove
     services
