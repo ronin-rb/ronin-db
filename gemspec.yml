@@ -23,6 +23,7 @@ metadata:
 generated_files:
  - man/ronin-db-add.1
  - man/ronin-db-asn.1
+ - man/ronin-db-certs.1
  - man/ronin-db-creds.1
  - man/ronin-db-emails.1
  - man/ronin-db-hosts.1

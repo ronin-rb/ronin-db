@@ -46,6 +46,7 @@ Arguments:
 Commands:
     add
     asn
+    certs
     creds
     edit
     emails
