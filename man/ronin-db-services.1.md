@@ -41,6 +41,9 @@ Manages Services.
 `-p`, `--with-port` *PORT*
   Searches for all Services that are associated with the port number.
 
+`-P`, `--with-protocol` [`tcp`\|`udp`]
+  Searches for all Services that are associated with the protocol.
+
 `-h`, `--help`
   Print help information.
 
