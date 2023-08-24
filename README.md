@@ -56,6 +56,7 @@ Commands:
     list
     migrate
     open-ports
+    passwords
     ports
     remove
     services
