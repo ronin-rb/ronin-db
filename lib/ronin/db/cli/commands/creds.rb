@@ -30,7 +30,7 @@ module Ronin
         #
         # ## Usage
         #
-        #     ronin creds [options]
+        #     ronin-db creds [options]
         #
         # ## Options
         #
