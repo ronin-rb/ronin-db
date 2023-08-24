@@ -33,10 +33,10 @@ Manages credentials.
   Deletes every credential from the database.
 
 `-u`, `--for-user` *USER*
-	Searches for credentials associated with the USER.
+	Searches for credentials associated with the *USER*.
 
 `-p`, `--with-password` *PASSWORD*
-	Searches for credentials that have the PASSWORD.
+	Searches for credentials that have the *PASSWORD*.
 
 `-h`, `--help`
   Print help information.
