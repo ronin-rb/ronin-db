@@ -100,7 +100,7 @@ module Ronin
                    raise(UnknownDatabase,"unknown database: #{database.inspect}")
                  end
                else
-                 raise(ArgumentError,"#{self.class}.#{__method__} only accepts a Symbol or a Hash")
+                 raise(ArgumentError,"#{self}.#{__method__} only accepts a Symbol or a Hash")
                end
 
       # load activerecord
