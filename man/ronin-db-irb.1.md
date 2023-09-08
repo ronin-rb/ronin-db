@@ -17,6 +17,10 @@ Connects to a database and start an interactive Ruby shell.
 `--db-uri` *URI*
   The database URI to connect to.
 
+  * **sqlite3**: `sqlite3:relative/path.db` or `sqlite3:///absolute/path.db`
+  * **mysql**: `mysql://user:password@host/database`
+  * **postgres**: `postgres://user:password@host/database`
+
 `--no-connect`
   Causes the Ruby shell to not connect to a database on startup.
 

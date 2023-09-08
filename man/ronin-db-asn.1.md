@@ -14,8 +14,11 @@ Queries or updates Autonomous System Numbers (ASNs) in the database.
   The database name to connect to. Defaults to `default` if not given.
 
 `--db-uri` *URI*
-  The explicit database URI to connect to
-  (ex: `postgres://user:password@host/db`).
+  The explicit database URI to connect to.
+
+  * **sqlite3**: `sqlite3:relative/path.db` or `sqlite3:///absolute/path.db`
+  * **mysql**: `mysql://user:password@host/database`
+  * **postgres**: `postgres://user:password@host/database`
 
 `-v`, `--verbose`
   Enables verbose output
