@@ -171,10 +171,8 @@ describe Ronin::DB do
     context "when given a Hash argument" do
       let(:database) do
         {
-          test: {
-            adapter: 'sqlite3',
-            database: '/path/to/database.sqlite3'
-          }
+          adapter: 'sqlite3',
+          database: '/path/to/database.sqlite3'
         }
       end
 
