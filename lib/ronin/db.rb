@@ -76,8 +76,8 @@ module Ronin
     #
     # Connects to the Database.
     #
-    # @param [Symbol, Hash] database
-    #   The optional database name or Hash of database information.
+    # @param [Symbol, String, Hash] database
+    #   The optional database name, String URL, or Hash of database information.
     #
     # @param [Boolean] migrate
     #   Specifies whether to hard or lazy migrate the database.
@@ -89,7 +89,7 @@ module Ronin
     #   The database name was not listed in the config file.
     #
     # @raise [ArgumentError]
-    #   The given database was not a Symbol or a Hash.
+    #   The given database was not a Symbol, String, or a Hash.
     #
     # @example Connect to the default database (`~/.local/share/ronin-db/default.sqlite3`):
     #   DB.connect
@@ -104,7 +104,7 @@ module Ronin
     #
     def self.connect(database=:default, migrate: nil, load_models: true)
       config = case database
-               when Hash
+               when String, Hash
                  database
                when Symbol
                  self.config.fetch(database) do

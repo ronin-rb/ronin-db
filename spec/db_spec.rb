@@ -168,6 +168,18 @@ describe Ronin::DB do
       end
     end
 
+    context "when given a String argument" do
+      let(:database) { "sqlite3:///path/to/database.sqlite3" }
+
+      it "must call ActiveRecord::Base.establish_connect with the String argument, call .migrate, and Models.connect" do
+        expect(ActiveRecord::Base).to receive(:establish_connection).with(database)
+        expect(subject).to receive(:migrate)
+        expect(described_class::Models).to receive(:connect)
+
+        subject.connect(database)
+      end
+    end
+
     context "when given a Hash argument" do
       let(:database) do
         {
