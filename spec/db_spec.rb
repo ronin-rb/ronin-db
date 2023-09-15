@@ -98,7 +98,7 @@ describe Ronin::DB do
         expect(subject).to receive(:migrate)
         expect(described_class::Models).to receive(:connect)
 
-        subject.connect(database)
+        subject.connect
       end
 
       context "and when given migrate: true" do
@@ -107,7 +107,7 @@ describe Ronin::DB do
           expect(subject).to receive(:migrate!)
           expect(described_class::Models).to receive(:connect)
 
-          subject.connect(database, migrate: true)
+          subject.connect(migrate: true)
         end
       end
 
@@ -117,7 +117,7 @@ describe Ronin::DB do
           expect(subject).to receive(:migrate)
           expect(described_class::Models).to_not receive(:connect)
 
-          subject.connect(database, load_models: false)
+          subject.connect(load_models: false)
         end
       end
     end
