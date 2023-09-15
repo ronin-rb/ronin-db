@@ -101,6 +101,20 @@ describe Ronin::DB do
         subject.connect
       end
 
+      context "and when given pool: N" do
+        let(:pool_size) { 4 }
+
+        it "must merge `pool: N` with the default database config and call ActiveRecord::Base.establish_connection, then call .migrate, and Models.connect" do
+          expect(ActiveRecord::Base).to receive(:establish_connection).with(
+            config[database].merge(pool: pool_size)
+          )
+          expect(subject).to receive(:migrate)
+          expect(described_class::Models).to receive(:connect)
+
+          subject.connect(pool: pool_size)
+        end
+      end
+
       context "and when given migrate: true" do
         it "must pass the default database configuration to ActiveRecord::Base.establish_connection, call .migrate!, and Models.connect" do
           expect(ActiveRecord::Base).to receive(:establish_connection).with(config[database])
@@ -145,6 +159,20 @@ describe Ronin::DB do
 
           subject.connect(database)
         end
+
+        context "and when given pool: N" do
+          let(:pool_size) { 4 }
+
+          it "must merge `pool: N` with the database's config and call ActiveRecord::Base.establish_connection, then call .migrate, and Models.connect" do
+            expect(ActiveRecord::Base).to receive(:establish_connection).with(
+              config[database].merge(pool: pool_size)
+            )
+            expect(subject).to receive(:migrate)
+            expect(described_class::Models).to receive(:connect)
+
+            subject.connect(database, pool: pool_size)
+          end
+        end
       end
 
       context "when it's not a known database name in .config" do
@@ -171,12 +199,28 @@ describe Ronin::DB do
     context "when given a String argument" do
       let(:database) { "sqlite3:///path/to/database.sqlite3" }
 
-      it "must call ActiveRecord::Base.establish_connect with the String argument, call .migrate, and Models.connect" do
-        expect(ActiveRecord::Base).to receive(:establish_connection).with(database)
+      it "must convert the String into a Hash, call ActiveRecord::Base.establish_connect, then call .migrate, and Models.connect" do
+        expect(ActiveRecord::Base).to receive(:establish_connection).with(
+          {url: database}
+        )
         expect(subject).to receive(:migrate)
         expect(described_class::Models).to receive(:connect)
 
         subject.connect(database)
+      end
+
+      context "and when given pool: N" do
+        let(:pool_size) { 4 }
+
+        it "must convert the String into a Hash, then merge `pool: N` into the Hash, then call ActiveRecord::Base.establish_connection with the Hash, .migrate, and Models.connect" do
+          expect(ActiveRecord::Base).to receive(:establish_connection).with(
+            {url: database, pool: pool_size}
+          )
+          expect(subject).to receive(:migrate)
+          expect(described_class::Models).to receive(:connect)
+
+          subject.connect(database, pool: pool_size)
+        end
       end
     end
 
@@ -194,6 +238,20 @@ describe Ronin::DB do
         expect(described_class::Models).to receive(:connect)
 
         subject.connect(database)
+      end
+
+      context "and when given pool: N" do
+        let(:pool_size) { 4 }
+
+        it "must merge `pool: N` with the database config Hash, then call ActiveRecord::Base.establish_connection with the Hash, then call .migrate, and Models.connect" do
+          expect(ActiveRecord::Base).to receive(:establish_connection).with(
+            database.merge(pool: pool_size)
+          )
+          expect(subject).to receive(:migrate)
+          expect(described_class::Models).to receive(:connect)
+
+          subject.connect(database, pool: pool_size)
+        end
       end
     end
   end
