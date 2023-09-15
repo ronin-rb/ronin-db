@@ -79,6 +79,9 @@ module Ronin
     # @param [Symbol, String, Hash] database
     #   The optional database name, String URL, or Hash of database information.
     #
+    # @oaram [Integer, nil] pool
+    #   Sets the connection pool for the database.
+    #
     # @param [Boolean] migrate
     #   Specifies whether to hard or lazy migrate the database.
     #
@@ -93,10 +96,12 @@ module Ronin
     #
     # @api semipublic
     #
-    def self.connect(database=:default, migrate: nil, load_models: true)
+    def self.connect(database=:default, pool: nil,
+                                        migrate: nil,
+                                        load_models: true)
       config = case database
-               when String, Hash
-                 database
+               when Hash   then database
+               when String then {url: database}
                when Symbol
                  self.config.fetch(database) do
                    raise(UnknownDatabase,"unknown database: #{database.inspect}")
@@ -104,6 +109,9 @@ module Ronin
                else
                  raise(ArgumentError,"#{self}.#{__method__} only accepts a Symbol or a Hash")
                end
+
+      # set/override the connection pool setting
+      config = config.merge(pool: pool) if pool
 
       # load activerecord
       require 'active_record'
