@@ -86,8 +86,10 @@ module Ronin
     #   Specifies whether to load all models or just connect to the database.
     #
     # @raise [UnknownDatabase]
+    #   The database name was not listed in the config file.
     #
     # @raise [ArgumentError]
+    #   The given database was not a Symbol or a Hash.
     #
     # @api semipublic
     #
