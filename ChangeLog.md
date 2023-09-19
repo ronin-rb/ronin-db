@@ -1,3 +1,8 @@
+### 0.1.2 / 2023-09-19
+
+* Fixed a typo in an exception message in {Ronin::DB.connect}.
+* Documentation fixes and improvements.
+
 ### 0.1.1 / 2023-06-09
 
 #### CLI
