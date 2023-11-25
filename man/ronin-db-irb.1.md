@@ -21,6 +21,9 @@ Connects to a database and start an interactive Ruby shell.
   * **mysql**: `mysql://user:password@host/database`
   * **postgres**: `postgres://user:password@host/database`
 
+`--db-file` *PATH*
+  The sqlite3 database file to use.
+
 `--no-connect`
   Causes the Ruby shell to not connect to a database on startup.
 

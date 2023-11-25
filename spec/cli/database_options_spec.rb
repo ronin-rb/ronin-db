@@ -51,6 +51,26 @@ describe Ronin::DB::CLI::DatabaseOptions do
         expect(subject.db_config).to eq(parsed_uri)
       end
     end
+
+    context "when options[:db_file] is set" do
+      let(:db_file) { '/path/to/db.sqlite3' }
+
+      before { subject.options[:db_file] = db_file }
+
+      it "must return {sqlite3: ...} Hash containing the options[:db_file] value" do
+        expect(subject.db_config).to eq(sqlite3: db_file)
+      end
+
+      context "when the options[:db_file] path is relative" do
+        let(:db_file) { 'path/to/foo/../db.sqlite3' }
+
+        let(:expanded_db_path) { File.expand_path(db_file) }
+
+        it "must expand the path" do
+          expect(subject.db_config).to eq(sqlite3: expanded_db_path)
+        end
+      end
+    end
   end
 
   describe "#db_connect" do
