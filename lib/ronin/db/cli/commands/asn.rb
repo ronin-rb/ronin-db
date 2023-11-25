@@ -39,6 +39,7 @@ module Ronin
         #
         #         --db NAME                    The database to connect to (Default: default)
         #         --db-uri URI                 The database URI to connect to
+        #         --db-file PATH               The sqlite3 database file to use
         #     -v, --verbose                    Enables verbose output
         #     -n, --number INT                 Searches for all ASN records with the AS number
         #     -C XX|None|Unknown,              Searches for all ASN records with the country code

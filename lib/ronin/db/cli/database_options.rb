@@ -33,8 +33,8 @@ module Ronin
         include URIMethods
 
         #
-        # Adds the `--db` and `--db-uri` options to the command class including
-        # the {DatabaseOptions} module.
+        # Adds the `--db`, `--db-uri`, and `--db-file` options to the command
+        # class including the {DatabaseOptions} module.
         #
         # @param [Class<Ronin::Core::CLI::Command>] command
         #   The command class including {DatabaseOptions}.
@@ -52,6 +52,12 @@ module Ronin
                                     usage: 'URI'
                                   },
                                   desc: 'The database URI to connect to'
+
+          command.option :db_file, value: {
+                                     type:  String,
+                                     usage: 'PATH'
+                                   },
+                                   desc: 'The sqlite3 database file to use'
         end
 
         #
@@ -60,7 +66,9 @@ module Ronin
         # @return [Hash{Symbol => String,Integer}]
         #
         def db_config
-          if options[:db_uri]
+          if options[:db_file]
+            {sqlite3: normalize_sqlite3_path(options[:db_file])}
+          elsif options[:db_uri]
             parse_uri(options[:db_uri])
           else
             DB.config[options[:db]]

@@ -20,6 +20,9 @@ Queries or imports SSL/TLS certificates into the database.
   * **mysql**: `mysql://user:password@host/database`
   * **postgres**: `postgres://user:password@host/database`
 
+`--db-file` *PATH*
+  The sqlite3 database file to use.
+
 `-v`, `--verbose`
   Enables verbose output
 

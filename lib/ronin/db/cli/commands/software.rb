@@ -35,6 +35,7 @@ module Ronin
         #
         #         --db NAME                    The database to connect to (Default: default)
         #         --db-uri URI                 The database URI to connect to
+        #         --db-file PATH               The sqlite3 database file to use
         #     -v, --verbose                    Enables verbose output
         #     -N, --name NAME                  Searches for all OSes records with the matching name
         #         --named NAME                 Searches for all OSes containing the NAME
