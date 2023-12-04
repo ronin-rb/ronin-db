@@ -11,75 +11,75 @@ Queries or updates Autonomous System Numbers (ASNs) in the database.
 ## OPTIONS
 
 `--db` *NAME*
-  The database name to connect to. Defaults to `default` if not given.
+: The database name to connect to. Defaults to `default` if not given.
 
 `--db-uri` *URI*
-  The explicit database URI to connect to.
+: The explicit database URI to connect to.
 
   * **sqlite3**: `sqlite3:relative/path.db` or `sqlite3:///absolute/path.db`
   * **mysql**: `mysql://user:password@host/database`
   * **postgres**: `postgres://user:password@host/database`
 
 `--db-file` *PATH*
-  The sqlite3 database file to use.
+: The sqlite3 database file to use.
 
 `-v`, `--verbose`
-  Enables verbose output
+: Enables verbose output
 
 `-n`, `--number` *INT*
-  Searches for all ASN records with the AS number.
+: Searches for all ASN records with the AS number.
 
 `-C`, `--country-code` *XX*\|`None`\|`Unknown`
-  Searches for all ASN records with the country code.
+: Searches for all ASN records with the country code.
 
 `-N`, `--name` *NAME*
-  Searches for all ASN records with the matching name.
+: Searches for all ASN records with the matching name.
 
 `--named` *NAME*
-  Searches for all ASN records containing the name.
+: Searches for all ASN records containing the name.
 
 `-I`, `--ip` *IP*
-  Queries the ASN record for the IP.
+: Queries the ASN record for the IP.
 
 `-4`, `--ipv4`
-  Filter ASN records for only IPv4 ranges.
+: Filter ASN records for only IPv4 ranges.
 
 `-6`, `--ipv6`
-  Filter ASN records for only IPv6 ranges.
+: Filter ASN records for only IPv6 ranges.
 
 `-u`, `--update`
-  Updates the ASN records.
+: Updates the ASN records.
 
 `-U`, `--url` *URI*
-  Overrides the default ASN list URL.
+: Overrides the default ASN list URL.
   Defaults to `https://iptoasn.com/data/ip2asn-combined.tsv.gz` if not given.
 
 `-f`, `--file` *FILE*
-  Overrides the default ASN list file.
+: Overrides the default ASN list file.
   Defaults to `~/.local/share/ronin/ronin-support/ip2asn-combined.tsv.gz`
   if not given.
 
 `-h`, `--help`
-  Print help information.
+: Print help information.
 
 ## ENVIRONMENT
 
 *HOME*
-  Alternate location for the user's home directory.
+: Alternate location for the user's home directory.
 
 *XDG_CONFIG_HOME*
-  Alternate location for the `~/.config` directory.
+: Alternate location for the `~/.config` directory.
 
 *XDG_DATA_HOME*
-  Alternate location for the `~/.local/share` directory.
+: Alternate location for the `~/.local/share` directory.
 
 ## FILES
 
 `~/.local/share/ronin-db/database.sqlite3`
-  The default sqlite3 database file.
+: The default sqlite3 database file.
 
 `~/.config/ronin-db/database.yml`
-  Optional database configuration.
+: Optional database configuration.
 
 ## AUTHOR
 
