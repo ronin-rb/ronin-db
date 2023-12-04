@@ -12,79 +12,79 @@ configuration file.
 ## ARGUMENTS
 
 *NAME*
-  The name of the database to add.
+: The name of the database to add.
 
 *URI*
-  The optional URI to the database to add.
+: The optional URI to the database to add.
 
 ## OPTIONS
 
 `-A`, `--adapter` `sqlite3|mysql2|postgres|...`
-  The adapter of the database to add.
+: The adapter of the database to add.
 
 `--sqlite3` *FILE*
-  Alias for `--adapter sqlite3 --database` *FILE*.
+: Alias for `--adapter sqlite3 --database` *FILE*.
 
 `--mysql2`
-  Alias for `--adapter mysql2`.
+: Alias for `--adapter mysql2`.
 
 `--postgresql`
-  Alias for `--adapter postgresql`.
+: Alias for `--adapter postgresql`.
 
 `-H`, `--host` *HOST*
-  The host of the database to add.
+: The host of the database to add.
 
 `-p`, `--port` *PORT*
-  The port of the database to add.
+: The port of the database to add.
 
 `-u`, `--username` *USER*
-  The username to authenticate with for the database.
+: The username to authenticate with for the database.
 
 `-P`, `--password` *PASSWORD*
-  The password to authenticate with for the database.
+: The password to authenticate with for the database.
 
 `--read-password`
-  Reads the database password from STDIN.
+: Reads the database password from STDIN.
 
 `-D`, `--database` *NAME*|*PATH*
-  The database name to connect to. If `--adapter sqlite3` is given then a path
+: The database name to connect to. If `--adapter sqlite3` is given then a path
   may be given instead.
 
 `-h`, `--help`
-  Print help information.
+: Print help information.
 
 ## EXAMPLES
 
 Add a sqlite3 database file:
 
-        $ ronin-db add other_db --sqlite3 path/to/db.sqlite3
+    $ ronin-db add other_db --sqlite3 path/to/db.sqlite3
 
 Add a PostgeSQL database:
 
-        $ ronin-db add other_db --postgres --host example.com --port 5432 --username ronin --password s3r3t --database ronin_db
+    $ ronin-db add other_db --postgres --host example.com --port 5432 --username ronin --password s3r3t --database ronin_db
 
 Add a MySQL database:
 
-        $ ronin-db add other_db --mysql2 --host example.com --port 3306 --username ronin --password s3r3t --database ronin_db
+    $ ronin-db add other_db --mysql2 --host example.com --port 3306 --username ronin --password s3r3t --database ronin_db
 
 ## ENVIRONMENT
 
 *HOME*
-  Alternate location for the user's home directory.
+: Alternate location for the user's home directory.
 
 *XDG_CONFIG_HOME*
-  Alternate location for the `~/.config` directory.
+: Alternate location for the `~/.config` directory.
 
 *XDG_DATA_HOME*
-  Alternate location for the `~/.local/share` directory.
+: Alternate location for the `~/.local/share` directory.
 
 ## FILES
 
 `~/.local/share/ronin-db/database.sqlite3`
-  The default sqlite3 database file.
+: The default sqlite3 database file.
 
 `~/.config/ronin-db/database.yml`
-  Optional database configuration.
+: Optional database configuration.
 
 ## AUTHOR
 
@@ -92,4 +92,4 @@ Postmodern <postmodern.mod3@gmail.com>
 
 ## SEE ALSO
 
-ronin-db(1) ronin-db-list(1) ronin-db-edit(1) ronin-db-remove(1)
+[ronin-db](ronin-db.1.md) [ronin-db-list](ronin-db-list.1.md) [ronin-db-edit](ronin-db-edit.1.md) [ronin-db-remove](ronin-db-remove.1.md)
