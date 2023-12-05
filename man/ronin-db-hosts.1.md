@@ -1,5 +1,9 @@
 # ronin-db-hosts 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-hosts - Manages HostNames
+
 ## SYNOPSIS
 
 `ronin-db hosts` [*options*]

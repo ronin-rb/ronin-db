@@ -1,5 +1,9 @@
 # ronin-db-migrate 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-migrate - Runs database migrations
+
 ## SYNOPSIS
 
 `ronin-db migrate` [*options*]

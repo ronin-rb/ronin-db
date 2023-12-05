@@ -1,5 +1,9 @@
 # ronin-db-services 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-services - Manages Services
+
 ## SYNOPSIS
 
 `ronin-db services` [*options*]

@@ -1,5 +1,9 @@
 # ronin-db-creds 1 "2023-01-02" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-creds - Manages all credentials in the database
+
 ## SYNOPSIS
 
 `ronin-db creds` [*options*]

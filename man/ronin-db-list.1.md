@@ -1,5 +1,9 @@
 # ronin-db-list 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-list - List the configured database(s)
+
 ## SYNOPSIS
 
 `ronin-db list` [*options*] [*NAME*]
