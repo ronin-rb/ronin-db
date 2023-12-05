@@ -1,5 +1,9 @@
 # ronin-db-ips 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-ips - Manages IP addresses
+
 ## SYNOPSIS
 
 `ronin-db ips` [*options*]

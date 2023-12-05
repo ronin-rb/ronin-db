@@ -1,5 +1,9 @@
 # ronin-db-software 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-software - Queries Software
+
 ## SYNOPSIS
 
 `ronin-db software` [*options*]

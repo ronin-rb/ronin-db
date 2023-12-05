@@ -1,5 +1,9 @@
 # ronin-db-open-ports 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-open-ports - Queries OpenPorts
+
 ## SYNOPSIS
 
 `ronin-db open-ports` [*options*]
