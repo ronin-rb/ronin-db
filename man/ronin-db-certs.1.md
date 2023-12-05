@@ -1,5 +1,9 @@
 # ronin-db-certs 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-certs - Queries or imports SSL/TLS certificates
+
 ## SYNOPSIS
 
 `ronin-db certs` [*options*]

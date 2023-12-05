@@ -1,5 +1,9 @@
 # ronin-db-remove 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-remove - Removed a database from the configuration file
+
 ## SYNOPSIS
 
 `ronin-db remove` [*options*] *NAME*

@@ -1,5 +1,9 @@
 # ronin-db-irb 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-irb - Connects to a database and start an interactive Ruby shell
+
 ## SYNOPSIS
 
 `ronin-db irb` [*options*]

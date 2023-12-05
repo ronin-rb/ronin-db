@@ -1,5 +1,9 @@
 # ronin-db-emails 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-emails - Manages all email addresses in the database
+
 ## SYNOPSIS
 
 `ronin-db emails` [*options*]

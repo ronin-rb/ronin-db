@@ -1,5 +1,9 @@
 # ronin-db-edit 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-edit - Manually edits the database.yml config
+
 ## SYNOPSIS
 
 `ronin-db edit` [*options*]

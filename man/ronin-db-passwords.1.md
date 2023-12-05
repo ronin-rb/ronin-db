@@ -1,5 +1,9 @@
 # ronin-db-passwords 1 "2023-01-02" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-passwords - Manages all Passwords in the database
+
 ## SYNOPSIS
 
 `ronin-db passwords` [*options*]

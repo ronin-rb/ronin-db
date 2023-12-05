@@ -1,5 +1,9 @@
 # ronin-db-add 1 "2023-02-01" Ronin DB "User Manuals"
 
+## NAME
+
+ronin-db-add - Adds a pre-existing database to ronin-db
+
 ## SYNOPSIS
 
 `ronin-db add` [*options*] *NAME* [*URI*]

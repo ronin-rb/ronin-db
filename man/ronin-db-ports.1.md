@@ -1,5 +1,9 @@
 # ronin-db-ports 1 "2023-02-01" Ronin "User Manuals"
 
+## NAME
+
+ronin-db-ports - Manages Ports
+
 ## SYNOPSIS
 
 `ronin-db ports` [*options*]
