@@ -66,21 +66,21 @@ module Ronin
       #
       def self.validate(path,data)
         unless data.kind_of?(Hash)
-          raise(InvalidConfig)
+          raise(InvalidConfig,"config data must be a Hash: #{data.inspect}")
         end
 
         data.each do |key,value|
           unless (key.kind_of?(Symbol) || key.kind_of?(String))
-            raise(InvalidConfig)
+            raise(InvalidConfig,"all Hash keys must be either a Symbol or a String: #{key.inspect}")
           end
 
           unless value.kind_of?(Hash)
-            raise(InvalidConfig)
+            raise(InvalidConfig,"all Hash values must also be a Hash: #{value.inspect}")
           end
 
           value.each_key do |sub_key|
             unless (sub_key.kind_of?(Symbol) || sub_key.kind_of?(String))
-              raise(InvalidConfig)
+              raise(InvalidConfig,"all sub-keys must be either a Symbol or a String: #{sub_key.inspect}")
             end
           end
         end
