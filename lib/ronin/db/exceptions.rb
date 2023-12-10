@@ -25,5 +25,11 @@ module Ronin
     #
     class UnknownDatabase < RuntimeError
     end
+
+    #
+    # Indicates that the config file is corrupted.
+    #
+    class InvalidConfig < RuntimeError
+    end
   end
 end
