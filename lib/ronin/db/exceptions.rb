@@ -20,6 +20,9 @@
 
 module Ronin
   module DB
+    #
+    # Indicates that the given database name is not in the config file.
+    #
     class UnknownDatabase < RuntimeError
     end
   end
