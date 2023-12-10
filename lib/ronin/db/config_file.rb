@@ -70,8 +70,8 @@ module Ronin
         end
 
         data.each do |key,value|
-          unless (key.kind_of?(Symbol) || key.kind_of?(String))
-            raise(InvalidConfig,"all Hash keys must be either a Symbol or a String: #{key.inspect}")
+          unless key.kind_of?(Symbol)
+            raise(InvalidConfig,"all Hash keys must be a Symbol: #{key.inspect}")
           end
 
           unless value.kind_of?(Hash)
@@ -79,8 +79,8 @@ module Ronin
           end
 
           value.each_key do |sub_key|
-            unless (sub_key.kind_of?(Symbol) || sub_key.kind_of?(String))
-              raise(InvalidConfig,"all sub-keys must be either a Symbol or a String: #{sub_key.inspect}")
+            unless sub_key.kind_of?(Symbol)
+              raise(InvalidConfig,"all sub-keys must be a Symbol: #{sub_key.inspect}")
             end
           end
         end
