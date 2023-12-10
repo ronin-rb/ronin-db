@@ -21,6 +21,7 @@
 require 'ronin/db/exceptions'
 require 'ronin/db/home'
 
+require 'fileutils'
 require 'yaml'
 require 'yaml/store'
 
@@ -124,8 +125,12 @@ module Ronin
       #   The loaded YAML configuration data.
       #
       def self.edit(path=PATH,&block)
-        store = YAML::Store.new(path)
+        unless File.file?(path)
+          # create the parent directory for YAML::Store
+          FileUtils.mkdir_p(File.dirname(path))
+        end
 
+        store = YAML::Store.new(path)
         store.transaction(&block)
       end
     end
