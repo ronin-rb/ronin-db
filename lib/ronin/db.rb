@@ -91,6 +91,15 @@ module Ronin
     # @raise [ArgumentError]
     #   The given database was not a Symbol or a Hash.
     #
+    # @example Connect to the default database (`~/.local/share/ronin-db/default.sqlite3`):
+    #   DB.connect
+    #
+    # @example Connect to a specific database from the configuration file (`~/.config/ronin-db/databases.yml`):
+    #   DB.connect(:my_database)
+    #
+    # @example Connect to an arbitrary database:
+    #   Db.connect({adapter: 'sqlite3', database: '/path/to/database.sqlite3'})
+    #
     # @api semipublic
     #
     def self.connect(database=:default, migrate: nil, load_models: true)
