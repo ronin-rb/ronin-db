@@ -1,3 +1,8 @@
+### 0.1.3 / 2023-12-13
+
+* Fixed a bug in {Ronin::DB::ConfigFile.edit} when `YAML::Store` would attempt
+  to create the config file but the parent directory did not exist yet.
+
 ### 0.1.2 / 2023-09-19
 
 * Fixed a typo in an exception message in {Ronin::DB.connect}.
