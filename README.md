@@ -60,6 +60,7 @@ Commands:
     oses
     passwords
     people
+    phone-numbers
     ports
     remove
     services

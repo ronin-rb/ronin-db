@@ -37,6 +37,7 @@ generated_files:
  - man/ronin-db-oses.1
  - man/ronin-db-passwords.1
  - man/ronin-db-people.1
+ - man/ronin-db-phone-numbers.1
  - man/ronin-db-ports.1
  - man/ronin-db-remove.1
  - man/ronin-db-services.1
