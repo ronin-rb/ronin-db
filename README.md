@@ -64,6 +64,7 @@ Commands:
     remove
     services
     software
+    street-addresses
     urls
 ```
 
