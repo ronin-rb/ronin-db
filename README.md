@@ -59,6 +59,7 @@ Commands:
     open-ports
     oses
     passwords
+    people
     ports
     remove
     services
