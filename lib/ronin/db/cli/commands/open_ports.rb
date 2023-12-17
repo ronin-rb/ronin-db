@@ -51,6 +51,8 @@ module Ronin
         #
         class OpenPorts < ModelCommand
 
+          command_name 'open-ports'
+
           model_file 'ronin/db/open_port'
           model_name 'OpenPort'
 
