@@ -19,6 +19,7 @@
 #
 
 require 'ronin/db/cli/model_command'
+require 'ronin/db/cli/modifiable'
 
 module Ronin
   module DB
@@ -53,6 +54,8 @@ module Ronin
         # @since 0.2.0
         #
         class People < ModelCommand
+
+          include Modifiable
 
           model_file 'ronin/db/person'
           model_name 'Person'
