@@ -42,3 +42,10 @@ require 'ronin/db/tasks'
 Ronin::DB::Tasks.new(database: {adapter: 'sqlite3', database: 'db/dev.sqlite3'})
 file 'db/dev.sqlite3' => 'db:migrate'
 task 'db:console' => 'db/dev.sqlite3'
+
+require 'command_kit/completion/task'
+CommandKit::Completion::Task.new(
+  class_file:  'ronin/db/cli',
+  class_name:  'Ronin::DB::CLI',
+  output_file: 'data/completions/ronin-db'
+)

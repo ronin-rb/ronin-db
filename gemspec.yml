@@ -21,6 +21,7 @@ metadata:
   rubygems_mfa_required: 'true'
 
 generated_files:
+ - data/completions/ronin-db
  - man/ronin-db-add.1
  - man/ronin-db-asn.1
  - man/ronin-db-certs.1
