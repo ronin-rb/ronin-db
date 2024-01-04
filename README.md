@@ -47,6 +47,7 @@ Commands:
     add
     asn
     certs
+    completion
     creds
     edit
     emails
@@ -218,7 +219,7 @@ and [ronin-db-activerecord].
   (or [activerecord-jdbcsqlite3-adapter] ~> 70.0 on JRuby)
 * [ronin-db-activerecord] ~> 0.2
 * [ronin-support] ~> 1.0
-* [ronin-core] ~> 0.1
+* [ronin-core] ~> 0.2
 
 ## Install
 

@@ -6,7 +6,7 @@ gemspec
 
 gem 'jruby-openssl',	'~> 0.7', platform: :jruby
 
-# gem 'command_kit', '0.4.0', github: 'postmodern/command_kit',
+# gem 'command_kit', '0.5.0', github: 'postmodern/command_kit',
 #                             branch: 'main'
 
 # Library dependencies
@@ -14,8 +14,8 @@ gem 'ronin-db-activerecord', '~> 0.2', github: 'ronin-rb/ronin-db-activerecord',
                                        branch: '0.2.0'
 # gem 'ronin-support',	       '~> 1.0', github: 'ronin-rb/ronin-support',
 #                                        branch: '1.0.0'
-# gem 'ronin-core',	           '~> 0.1', github: 'ronin-rb/ronin-core',
-#                                        branch: 'main'
+gem 'ronin-core',	           '~> 0.2', github: 'ronin-rb/ronin-core',
+                                       branch: '0.2.0'
 
 group :development do
   gem 'rake'
