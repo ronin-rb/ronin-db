@@ -24,6 +24,8 @@ module Ronin
       #
       # Allows a {ModelCommand} to add or import records from a file.
       #
+      # @since 0.2.0
+      #
       module Importable
         #
         # Adds the `--add` and `--import` options to the command.
