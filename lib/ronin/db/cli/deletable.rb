@@ -24,6 +24,8 @@ module Ronin
       #
       # Allows a {ModelCommand} to delete a single record or all records.
       #
+      # @since 0.2.0
+      #
       module Deletable
         #
         # Adds the `--delete` and `--delete-all` options to the command.
