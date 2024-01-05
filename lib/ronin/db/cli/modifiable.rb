@@ -18,124 +18,30 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+require 'ronin/db/cli/deletable'
+require 'ronin/db/cli/importable'
+
 module Ronin
   module DB
     class CLI
       #
-      # Allows a {ModelCommand} to add, import, delete, or delete all records.
+      # Allows a {ModelCommand} to add, import records from a file, delete
+      # individual records, or delete all records.
       #
       module Modifiable
         #
-        # Adds the `--add`, `--import`, `--delete`, and `--delete-all` options
+        # Adds the `--add`, `--import`, `--delete` and `--delete-all` options
         # to the command.
         #
         # @param [Class<ModelCommand>] command
         #   The command class including {Modifiable}.
         #
+        # @see Importable
+        # @see Deletable
+        #
         def self.included(command)
-          command.option :add, value: {
-                                 type: String,
-                                 usage: 'VALUE'
-                               },
-                               desc: 'Adds a value to the database'
-
-          command.option :import, value: {
-                                    type:  String,
-                                    usage: 'FILE'
-                                  },
-                                  desc: 'Imports the values from the FILE into the database'
-
-          command.option :delete, value: {
-                                    type: String,
-                                    usage: 'VALUE'
-                                  },
-                                  desc: 'Deletes a value from the database'
-
-          command.option :delete_all, desc: 'Deletes all values from the database'
-        end
-
-        #
-        # Runs the command.
-        #
-        def run
-          if options[:add]
-            db_connect
-            add(options[:add])
-          elsif options[:import]
-            db_connect
-            import_file(options[:import])
-          elsif options[:delete]
-            db_connect
-            delete(options[:delete])
-          elsif options[:delete_all]
-            db_connect
-            delete_all
-          else
-            super
-          end
-        end
-
-        #
-        # Adds a value to the database.
-        #
-        # @param [String] value
-        #   The value to add.
-        #
-        def add(value)
-          record = model.import(value)
-
-          unless record.valid?
-            print_error "failed to import #{value}!"
-
-            record.errors.full_messages.each do |message|
-              print_error " - #{message}"
-            end
-          end
-        end
-
-        #
-        # Imports the values from the given file.
-        #
-        # @param [String] path
-        #   The path to the file.
-        #
-        def import_file(path)
-          unless File.file?(path)
-            print_error "no such file or directory: #{path}"
-            exit(-1)
-          end
-
-          File.open(path) do |file|
-            model.transaction do
-              file.each_line(chomp: true) do |value|
-                log_info "Importing #{value} ..." if verbose?
-
-                add(value)
-              end
-            end
-          end
-        end
-
-        #
-        # Deletes a value from the database.
-        #
-        # @param [String] value
-        #   The value to lookup and delete.
-        #
-        def delete(value)
-          if (record = model.lookup(value))
-            record.destroy
-          else
-            print_error "value does not exist in the database: #{value}"
-            exit(-1)
-          end
-        end
-
-        #
-        # Deletes all values from the database.
-        #
-        def delete_all
-          model.destroy_all
+          command.include Deletable
+          command.include Importable
         end
       end
     end
