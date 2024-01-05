@@ -58,18 +58,20 @@ module Ronin
         # Runs the command.
         #
         def run
-          db_connect
-
           if options[:add]
+            db_connect
             add(options[:add])
           elsif options[:import]
+            db_connect
             import_file(options[:import])
           elsif options[:delete]
+            db_connect
             delete(options[:delete])
           elsif options[:delete_all]
+            db_connect
             delete_all
           else
-            list
+            super
           end
         end
 
