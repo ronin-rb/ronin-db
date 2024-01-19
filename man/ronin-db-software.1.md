@@ -1,4 +1,4 @@
-# ronin-db-software 1 "2023-02-01" Ronin "User Manuals"
+# ronin-db-software 1 "2023-02-01" Ronin DB "User Manuals"
 
 ## NAME
 
