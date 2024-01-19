@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-edit - Manually edits the database.yml config
+ronin-db-edit - Manually edits the database.yml configuration file
 
 ## SYNOPSIS
 
