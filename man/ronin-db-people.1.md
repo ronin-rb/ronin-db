@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-people - Queries people
+ronin-db-people - Queries people in the database
 
 ## SYNOPSIS
 
