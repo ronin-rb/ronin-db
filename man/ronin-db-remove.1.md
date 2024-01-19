@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-remove - Removed a database from the configuration file
+ronin-db-remove - Removes a database from the configuration file
 
 ## SYNOPSIS
 
