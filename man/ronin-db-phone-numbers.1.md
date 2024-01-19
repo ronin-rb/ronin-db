@@ -54,6 +54,9 @@ Manages PhoneNumbers.
 `-l`, `--with-line-number` *NUM*
 : Searches for phone numbers with the matching 4 digit line number.
 
+`-S`, `--similar-to` *PHONE_NUMBER*
+: Searches for phone numbers that are similar to the given *PHONE_NUMBER*.
+
 `-h`, `--help`
 : Print help information.
 
