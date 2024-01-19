@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-urls - Manages URLs
+ronin-db-urls - Manages URLs in the database
 
 ## SYNOPSIS
 
