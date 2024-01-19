@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-software - Queries Software
+ronin-db-software - Queries software in the database
 
 ## SYNOPSIS
 
