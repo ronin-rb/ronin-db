@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-ports - Manages Ports
+ronin-db-ports - Manages port numbers in the database
 
 ## SYNOPSIS
 
