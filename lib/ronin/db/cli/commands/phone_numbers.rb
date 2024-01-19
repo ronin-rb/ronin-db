@@ -46,6 +46,7 @@ module Ronin
         #     -a, --with-area-code NUM         Searches for phone numbers with the area code
         #     -p, --with-prefix NUM            Searches for phone numbers with the prefix
         #     -l, --with-line-number NUM       Searches for phone numbers with the line number
+        #     -S, --similar-to PHONE_NUMBER    Searches for phone numbers similar to another phone number
         #     -h, --help                       Print help information
         #
         # @since 0.2.0
@@ -94,6 +95,15 @@ module Ronin
                                     desc: 'Searches for phone numbers with the line number' do |line_number|
                                       @query_method_calls << [:with_line_number, line_number]
                                     end
+
+          option :similar_to, short: '-S',
+                              value: {
+                                type:  String,
+                                usage: 'PHONE_NUMBER'
+                              },
+                              desc: 'Searches for phone numbers similar to another phone number' do |number|
+                                @query_method_calls << [:similar_to, number]
+                              end
 
           description 'Queries PhoneNumbers'
 
