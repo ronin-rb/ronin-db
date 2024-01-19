@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-passwords - Manages all Passwords in the database
+ronin-db-passwords - Manages all passwords in the database
 
 ## SYNOPSIS
 
