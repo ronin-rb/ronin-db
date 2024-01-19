@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-oses - Queries OSes
+ronin-db-oses - Queries OSes in the database
 
 ## SYNOPSIS
 
