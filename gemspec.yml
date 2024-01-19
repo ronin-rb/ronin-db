@@ -22,6 +22,7 @@ metadata:
 
 generated_files:
  - data/completions/ronin-db
+ - man/ronin-db.1
  - man/ronin-db-add.1
  - man/ronin-db-asn.1
  - man/ronin-db-certs.1
