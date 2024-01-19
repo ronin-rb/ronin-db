@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-hosts - Manages HostNames
+ronin-db-hosts - Manages host names in the database
 
 ## SYNOPSIS
 
