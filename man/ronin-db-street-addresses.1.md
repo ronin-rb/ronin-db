@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-street-addresses - Queries StreetAddresses
+ronin-db-street-addresses - Queries street addresses in the database
 
 ## SYNOPSIS
 
