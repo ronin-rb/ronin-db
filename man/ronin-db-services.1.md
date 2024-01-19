@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-services - Manages Services
+ronin-db-services - Manages services in the database
 
 ## SYNOPSIS
 
