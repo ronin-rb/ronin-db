@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-ips - Manages IP addresses
+ronin-db-ips - Manages IP addresses in the database
 
 ## SYNOPSIS
 
