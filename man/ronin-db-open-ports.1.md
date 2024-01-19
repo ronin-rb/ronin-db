@@ -2,7 +2,7 @@
 
 ## NAME
 
-ronin-db-open-ports - Queries OpenPorts
+ronin-db-open-ports - Queries open ports in the database
 
 ## SYNOPSIS
 
