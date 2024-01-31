@@ -68,6 +68,7 @@ Commands:
     software
     street-addresses
     urls
+    web-vulns
 ```
 
 List available Databases:
