@@ -45,6 +45,9 @@ Manages PhoneNumbers.
 `-P`, `--for-person` *FULL_NAME*
 : Searches for phone numbers associated with the person's full name.
 
+`-O`, `--for-organization` *NAME*
+: Searches for phone numbers associated with the organization's name.
+
 `-c`, `--with-country-code` *NUM*
 : Searches for phone numbers with the matching 1-3 digit country code.
 
