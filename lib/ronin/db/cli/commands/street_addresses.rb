@@ -37,6 +37,7 @@ module Ronin
         #         --db-uri URI                 The database URI to connect to
         #         --db-file PATH               The sqlite3 database file to use
         #     -v, --verbose                    Enables verbose output
+        #     -P, --for-person FULL_NAME       Searches for street addresses associated with the person's full name
         #     -a, --with-address ADDRESS       Searches for street addresses with the matching address
         #     -c, --with-city CITY             Searches for street addresses with the matching city
         #     -s, --with-state STATE           Searches for street addresses with the matching state
@@ -52,6 +53,15 @@ module Ronin
 
           model_file 'ronin/db/street_address'
           model_name 'StreetAddress'
+
+          option :for_person, short: '-P',
+                              value: {
+                                type:  String,
+                                usage: 'FULL_NAME'
+                              },
+                              desc: "Searches for street addresses associated with the person's full name" do |full_name|
+                                @query_method_calls << [:for_person, [full_name]]
+                              end
 
           option :with_address, short: '-a',
                                 value: {

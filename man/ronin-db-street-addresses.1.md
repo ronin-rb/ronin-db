@@ -30,6 +30,9 @@ Queries StreetAddresses.
 `-v`, `--verbose`
 : Enable verbose output.
 
+`-P`, `--for-person` *FULL_NAME*
+: Searches for street addresses associated with the person's full name.
+
 `-a`, `--with-address` *ADDRESS*
 : Searches for street addresses with the matching address.
 
