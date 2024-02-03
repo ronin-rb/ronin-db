@@ -42,6 +42,9 @@ Manages PhoneNumbers.
 `--delete-all`
 : Deletes every phone number from the database.
 
+`-P`, `--for-person` *FULL_NAME*
+: Searches for phone numbers associated with the person's full name.
+
 `-c`, `--with-country-code` *NUM*
 : Searches for phone numbers with the matching 1-3 digit country code.
 

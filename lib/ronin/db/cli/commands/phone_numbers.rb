@@ -42,6 +42,7 @@ module Ronin
         #         --import FILE                Imports the values from the FILE into the database
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
+        #     -P, --for-person FULL_NAME       Searches for phone numbers associated with the person's full name
         #     -c, --with-country-code NUM      Searches for phone numbers with the country code
         #     -a, --with-area-code NUM         Searches for phone numbers with the area code
         #     -p, --with-prefix NUM            Searches for phone numbers with the prefix
@@ -59,6 +60,15 @@ module Ronin
 
           model_file 'ronin/db/phone_number'
           model_name 'PhoneNumber'
+
+          option :for_person, short: '-P',
+                              value: {
+                                type:  String,
+                                usage: 'FULL_NAME'
+                              },
+                              desc: "Searches for phone numbers associated with the person's full name" do |full_name|
+                                @query_method_calls << [:for_person, [full_name]]
+                              end
 
           option :with_country_code, short: '-c',
                                      value: {
