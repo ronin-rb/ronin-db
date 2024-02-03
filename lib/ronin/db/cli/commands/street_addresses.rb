@@ -38,6 +38,7 @@ module Ronin
         #         --db-file PATH               The sqlite3 database file to use
         #     -v, --verbose                    Enables verbose output
         #     -P, --for-person FULL_NAME       Searches for street addresses associated with the person's full name
+        #     -O, --for-organization NAME      Searches for street addresses associated with the organization's name
         #     -a, --with-address ADDRESS       Searches for street addresses with the matching address
         #     -c, --with-city CITY             Searches for street addresses with the matching city
         #     -s, --with-state STATE           Searches for street addresses with the matching state
@@ -62,6 +63,15 @@ module Ronin
                               desc: "Searches for street addresses associated with the person's full name" do |full_name|
                                 @query_method_calls << [:for_person, [full_name]]
                               end
+
+          option :for_organization, short: '-O',
+                                    value: {
+                                      type:  String,
+                                      usage: 'NAME'
+                                    },
+                                    desc: "Searches for street addresses associated with the organization's name" do |name|
+                                      @query_method_calls << [:for_organization, [name]]
+                                    end
 
           option :with_address, short: '-a',
                                 value: {

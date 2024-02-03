@@ -33,6 +33,9 @@ Queries StreetAddresses.
 `-P`, `--for-person` *FULL_NAME*
 : Searches for street addresses associated with the person's full name.
 
+`-O`, `--for-organization` *NAME*
+: Searches for street addresses associated with the organization's name.
+
 `-a`, `--with-address` *ADDRESS*
 : Searches for street addresses with the matching address.
 
