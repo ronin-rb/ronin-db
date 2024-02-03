@@ -43,6 +43,7 @@ module Ronin
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
         #     -P, --for-person FULL_NAME       Searches for phone numbers associated with the person's full name
+        #     -O, --for-organization NAME      Searches for phone numbers associated with the organization's name
         #     -c, --with-country-code NUM      Searches for phone numbers with the country code
         #     -a, --with-area-code NUM         Searches for phone numbers with the area code
         #     -p, --with-prefix NUM            Searches for phone numbers with the prefix
@@ -69,6 +70,15 @@ module Ronin
                               desc: "Searches for phone numbers associated with the person's full name" do |full_name|
                                 @query_method_calls << [:for_person, [full_name]]
                               end
+
+          option :for_organization, short: '-O',
+                                    value: {
+                                      type:  String,
+                                      usage: 'NAME'
+                                    },
+                                    desc: "Searches for phone numbers associated with the organization's name" do |name|
+                                      @query_method_calls << [:for_organization, [name]]
+                                    end
 
           option :with_country_code, short: '-c',
                                      value: {
