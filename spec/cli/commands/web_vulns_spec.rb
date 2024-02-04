@@ -3,9 +3,11 @@ require 'ronin/db/cli/commands/web_vulns'
 require 'ronin/db/url'
 
 require_relative 'man_page_example'
+require_relative 'model_command_examples'
 
 describe Ronin::DB::CLI::Commands::WebVulns do
   include_examples "man_page"
+  include_examples "ModelCommand"
 
   let(:url) { Ronin::DB::URL.import('https://example.com/page.php?id=1') }
 
