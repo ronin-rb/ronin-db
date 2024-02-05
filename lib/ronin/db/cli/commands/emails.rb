@@ -45,6 +45,7 @@ module Ronin
         #     -H, --with-host [HOST [...]]
         #     -I, --with-ip [IP [...]]
         #     -u, --with-user [NAME [...]]
+        #     -P, --for-person FULL_NAME       Searches for the associated person
         #
         class Emails < ModelCommand
 
@@ -79,6 +80,15 @@ module Ronin
                              desc: 'Searches for the associated user name' do |user|
                                @query_method_calls << [:with_user_name, [user]]
                              end
+
+          option :for_person, short: '-P',
+                              value: {
+                                type:  String,
+                                usage: 'FULL_NAME'
+                              },
+                              desc: 'Searches for the associated person' do |full_name|
+                                @query_method_calls << [:for_person, [full_name]]
+                              end
 
           description 'Manages all email addresses in the database'
 
