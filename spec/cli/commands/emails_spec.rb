@@ -71,5 +71,20 @@ describe Ronin::DB::CLI::Commands::Emails do
         expect(Ronin::DB::EmailAddress).to respond_to(:for_person)
       end
     end
+
+    describe "--for-person FULL_NAME" do
+      let(:name) { 'ACME, Inc.' }
+      let(:argv) { ['--for-organization', name] }
+
+      it "must append :for_organization and the name to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:for_organization, [name]]
+        )
+      end
+
+      it "and .for_organization must be a class method on Ronin::DB::EmailAddress" do
+        expect(Ronin::DB::EmailAddress).to respond_to(:for_organization)
+      end
+    end
   end
 end
