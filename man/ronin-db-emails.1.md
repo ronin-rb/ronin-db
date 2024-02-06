@@ -54,6 +54,9 @@ Manages email addresses.
 `-P`, `--for-person` *FULL_NAME*
 : Searches for email addresses associated with the person's full name.
 
+`-O`, `--for-organization` *NAME*
+: Searches for email addresses associated with the organization's name.
+
 `-h`, `--help`
 : Print help information.
 
