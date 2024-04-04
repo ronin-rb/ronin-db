@@ -42,6 +42,7 @@ module Ronin
         #         --import FILE                Imports the values from the FILE into the database
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
+        #     -a, --for-address ADDRESS        Searches for all People associated with the street address
         #     -P, --with-prefix PREFIX         Searches for all People with the prefix
         #     -f, --with-first-name NAME       Searches for all People with the first name
         #     -m, --with-middle-name NAME      Searches for all People with the middle name
@@ -59,6 +60,15 @@ module Ronin
 
           model_file 'ronin/db/person'
           model_name 'Person'
+
+          option :for_address, short: '-a',
+                               value: {
+                                 type:  String,
+                                 usage: 'ADDRESS'
+                               },
+                               desc: 'Searches for all People associated with the street address' do |address|
+                                 @query_method_calls << [:for_address, [address]]
+                               end
 
           option :with_prefix, short: '-P',
                                value: {
