@@ -43,6 +43,7 @@ module Ronin
         #         --delete VALUE               Deletes a value from the database
         #         --delete-all                 Deletes all values from the database
         #     -a, --for-address ADDRESS        Searches for all People associated with the street address
+        #     -c, --for-city CITY              Searches for all People associated with the city
         #     -P, --with-prefix PREFIX         Searches for all People with the prefix
         #     -f, --with-first-name NAME       Searches for all People with the first name
         #     -m, --with-middle-name NAME      Searches for all People with the middle name
@@ -69,6 +70,15 @@ module Ronin
                                desc: 'Searches for all People associated with the street address' do |address|
                                  @query_method_calls << [:for_address, [address]]
                                end
+
+          option :for_city, short: '-c',
+                            value: {
+                              type:  String,
+                              usage: 'CITY'
+                            },
+                            desc: 'Searches for all People associated with the city' do |city|
+                              @query_method_calls << [:for_city, [city]]
+                            end
 
           option :with_prefix, short: '-P',
                                value: {

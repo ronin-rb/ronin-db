@@ -33,6 +33,9 @@ Queries people.
 `-a`, `--for-address` *ADDRESS*
 : Searches for all People associated with the street address.
 
+`-c`, `--for-city` *CITY*
+: Searches for all People associated with the city.
+
 `-P`, `--with-prefix` *PREIFX*
 : Searches for all People with the given prefix.
 
