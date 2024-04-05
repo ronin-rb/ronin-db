@@ -42,6 +42,9 @@ Queries people.
 `-z`, `--for-zipcode` *ZIPCODE*
 : Searches for all People associated with the zipcode.
 
+`-C`, `--for-country` *COUNTRY*
+: Searches for all People associated with the Country.
+
 `-P`, `--with-prefix` *PREIFX*
 : Searches for all People with the given prefix.
 
