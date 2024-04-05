@@ -44,6 +44,7 @@ module Ronin
         #         --delete-all                 Deletes all values from the database
         #     -a, --for-address ADDRESS        Searches for all People associated with the street address
         #     -c, --for-city CITY              Searches for all People associated with the city
+        #     -s, --for-state STATE            Searches for all People associated with the state
         #     -z, --for-zipcode ZIPCODE        Searches for all People associated with the zipcode
         #     -P, --with-prefix PREFIX         Searches for all People with the prefix
         #     -f, --with-first-name NAME       Searches for all People with the first name
@@ -80,6 +81,15 @@ module Ronin
                             desc: 'Searches for all People associated with the city' do |city|
                               @query_method_calls << [:for_city, [city]]
                             end
+
+          option :for_state, short: '-s',
+                             value: {
+                               type:  String,
+                               usage: 'STATE'
+                             },
+                             desc: 'Searches for all People associated with the state' do |state|
+                               @query_method_calls << [:for_state, [state]]
+                             end
 
           option :for_zipcode, short: '-z',
                                value: {

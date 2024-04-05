@@ -36,6 +36,9 @@ Queries people.
 `-c`, `--for-city` *CITY*
 : Searches for all People associated with the city.
 
+`-s`, `--for-state` *STATE*
+: Searches for all People associated with the State.
+
 `-z`, `--for-zipcode` *ZIPCODE*
 : Searches for all People associated with the zipcode.
 
