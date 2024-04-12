@@ -45,6 +45,7 @@ module Ronin
         #     -a, --for-address ADDRESS        Searches for all People associated with the street address
         #     -c, --for-city CITY              Searches for all People associated with the city
         #     -s, --for-state STATE            Searches for all People associated with the state
+        #     -s, --for-province PROVINCE      Searches for all People associated with the province
         #     -z, --for-zipcode ZIPCODE        Searches for all People associated with the zipcode
         #     -C, --for-country COUNTRY        Searches for all People associated with the Country
         #     -P, --with-prefix PREFIX         Searches for all People with the prefix
@@ -91,6 +92,15 @@ module Ronin
                              desc: 'Searches for all People associated with the state' do |state|
                                @query_method_calls << [:for_state, [state]]
                              end
+
+          option :for_province, short: '-p',
+                                value: {
+                                  type:  String,
+                                  usage: 'PROVINCE'
+                                },
+                                desc: 'Searches for all People associated with the province' do |province|
+                                  @query_method_calls << [:for_province, [province]]
+                                end
 
           option :for_zipcode, short: '-z',
                                value: {

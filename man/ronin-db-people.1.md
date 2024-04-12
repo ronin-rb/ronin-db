@@ -39,6 +39,9 @@ Queries people.
 `-s`, `--for-state` *STATE*
 : Searches for all People associated with the State.
 
+`-p`, `--for-province` *PROVINCE*
+: Searches for all People associated with the Province.
+
 `-z`, `--for-zipcode` *ZIPCODE*
 : Searches for all People associated with the zipcode.
 
