@@ -49,3 +49,5 @@ CommandKit::Completion::Task.new(
   class_name:  'Ronin::DB::CLI',
   output_file: 'data/completions/ronin-db'
 )
+
+task :setup => %w[man command_kit:completion]
