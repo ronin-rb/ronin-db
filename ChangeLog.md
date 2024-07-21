@@ -1,4 +1,4 @@
-### 0.2.0 / 2024-XX-XX
+### 0.2.0 / 2024-07-22
 
 * Require [ronin-db-activerecord] ~> 0.2.
 * Added {Ronin::DB::Tasks}.
