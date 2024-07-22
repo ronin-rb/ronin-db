@@ -1,6 +1,7 @@
 ### 0.2.0 / 2024-07-22
 
 * Require [ronin-db-activerecord] ~> 0.2.
+* Require [ronin-core] ~> 0.2.
 * Added {Ronin::DB::Tasks}.
 * Added the `pool:` keyword argument to {Ronin::DB.connect}.
 * Allow {Ronin::DB.connect} to accept a String URL.
@@ -56,3 +57,4 @@
 
 [sqlite]: https://sqlite.org/
 [ronin-db-activerecord]: https://github.com/ronin-rb/ronin-db-activerecord#readme
+[ronin-core]: https://github.com/ronin-rb/ronin-core#readme
