@@ -60,9 +60,9 @@ jruby_dependencies:
 
 dependencies:
   # Ronin dependencies:
-  ronin-db-activerecord: ~> 0.2.0.rc1
+  ronin-db-activerecord: ~> 0.2
   ronin-support: ~> 1.0
-  ronin-core: ~> 0.2.0.rc1
+  ronin-core: ~> 0.2
 
 development_dependencies:
   bundler: ~> 2.0
