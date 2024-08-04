@@ -18,9 +18,9 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/model_command'
-require 'ronin/core/cli/logging'
+require_relative '../model_command'
 
+require 'ronin/core/cli/logging'
 require 'ronin/support/network/asn'
 require 'ronin/support/network/asn/list'
 

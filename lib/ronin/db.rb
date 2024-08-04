@@ -18,9 +18,9 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/exceptions'
-require 'ronin/db/config_file'
-require 'ronin/db/version'
+require_relative 'db/exceptions'
+require_relative 'db/config_file'
+require_relative 'db/version'
 
 module Ronin
   #

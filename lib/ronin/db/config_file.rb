@@ -18,8 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/exceptions'
-require 'ronin/db/home'
+require_relative 'exceptions'
+require_relative 'home'
 
 require 'fileutils'
 require 'yaml'

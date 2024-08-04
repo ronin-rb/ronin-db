@@ -18,10 +18,10 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/command'
-require 'ronin/db/cli/database_options'
-require 'ronin/core/cli/logging'
+require_relative 'command'
+require_relative 'database_options'
 
+require 'ronin/core/cli/logging'
 require 'command_kit/options/verbose'
 
 module Ronin

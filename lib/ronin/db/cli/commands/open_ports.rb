@@ -18,7 +18,7 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/model_command'
+require_relative '../model_command'
 
 module Ronin
   module DB

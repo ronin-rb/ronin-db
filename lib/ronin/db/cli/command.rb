@@ -18,7 +18,7 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/root'
+require_relative '../root'
 
 require 'ronin/core/cli/command'
 

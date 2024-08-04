@@ -18,8 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/deletable'
-require 'ronin/db/cli/importable'
+require_relative 'deletable'
+require_relative 'importable'
 
 module Ronin
   module DB

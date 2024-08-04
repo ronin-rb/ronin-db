@@ -18,8 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/command'
-require 'ronin/db'
+require_relative 'command'
+require_relative '../../db'
 
 module Ronin
   module DB

@@ -18,9 +18,9 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/command'
-require 'ronin/db/cli/database_options'
-require 'ronin/db/cli/ruby_shell'
+require_relative '../command'
+require_relative '../database_options'
+require_relative '../ruby_shell'
 
 module Ronin
   module DB

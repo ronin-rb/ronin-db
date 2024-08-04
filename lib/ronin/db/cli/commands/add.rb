@@ -18,9 +18,9 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/command'
-require 'ronin/db/cli/uri_methods'
-require 'ronin/db/config_file'
+require_relative '../command'
+require_relative '../uri_methods'
+require_relative '../../config_file'
 
 require 'command_kit/options/verbose'
 require 'command_kit/printing'

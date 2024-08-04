@@ -18,8 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/uri_methods'
-require 'ronin/db'
+require_relative 'uri_methods'
+require_relative '../../db'
 
 module Ronin
   module DB

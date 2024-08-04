@@ -18,8 +18,8 @@
 # along with ronin-db.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/db/cli/model_command'
-require 'ronin/db/cli/modifiable'
+require_relative '../model_command'
+require_relative '../modifiable'
 
 module Ronin
   module DB
