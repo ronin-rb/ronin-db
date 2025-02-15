@@ -1,3 +1,7 @@
+### 0.2.1 / 2025-02-14
+
+* Use `require_relative` to improve load times.
+
 ### 0.2.0 / 2024-07-22
 
 * Require [ronin-db-activerecord] ~> 0.2.
