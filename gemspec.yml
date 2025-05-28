@@ -55,7 +55,7 @@ ruby_dependencies:
   sqlite3: ~> 1.0
 
 jruby_dependencies:
-  activerecord-jdbcsqlite3-adapter: ~> 70.0
+  activerecord-jdbcsqlite3-adapter: ~> 71.0
   activerecord: < 7.1.0
 
 dependencies:
