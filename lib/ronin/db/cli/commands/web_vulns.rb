@@ -25,11 +25,11 @@ module Ronin
     class CLI
       module Commands
         #
-        # Manages all PhoneNumbers in the database.
+        # Manages all WebVulns in the database.
         #
         # ## Usage
         #
-        #     ronin-db phone-numbers [options]
+        #     ronin-db web-vulns [options]
         #
         # ## Options
         #
