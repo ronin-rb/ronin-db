@@ -36,6 +36,145 @@ describe Ronin::DB::CLI::Commands::WebVulns do
     Ronin::DB::WebVuln.destroy_all
   end
 
+  describe "options" do
+    before { subject.parse_options(argv) }
+
+    describe "--with-type TYPE" do
+      let(:type) { 'open_redirect' }
+      let(:argv) { ['--with-type', 'open-redirect'] }
+
+      it "must append :with_type and TYPE to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_type, type]
+        )
+      end
+
+      it "and .with_type must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_type)
+      end
+    end
+
+    describe "--for-host HOST" do
+      let(:host) { 'example.com' }
+      let(:argv) { ['--for-host', host] }
+
+      it "must append :for_host and the HOST to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:for_host, host]
+        )
+      end
+
+      it "and .for_host must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:for_host)
+      end
+    end
+
+    describe "--for-domain DOMAIN" do
+      let(:domain) { 'example.com' }
+      let(:argv) { ['--for-domain', domain] }
+
+      it "must append :for_domain and the DOMAIN to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:for_domain, domain]
+        )
+      end
+
+      it "and .for_domain must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:for_domain)
+      end
+    end
+
+    describe "--for-path PATH" do
+      let(:path) { '/admin' }
+      let(:argv) { ['--for-path', path] }
+
+      it "must append :for_path and the PATH to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:for_path, path]
+        )
+      end
+
+      it "and .for_path must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:for_path)
+      end
+    end
+
+    describe "--with-query-param NAME" do
+      let(:name) { 'id' }
+      let(:argv) { ['--with-query-param', name] }
+
+      it "must append :with_query_param and the NAME to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_query_param, name]
+        )
+      end
+
+      it "and .with_query_param must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_query_param)
+      end
+    end
+
+    describe "--with-header-name NAME" do
+      let(:name) { 'X-Forwarded-For' }
+      let(:argv) { ['--with-header-name', name] }
+
+      it "must append :with_header_name and the NAME to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_header_name, name]
+        )
+      end
+
+      it "and .with_header_name must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_header_name)
+      end
+    end
+
+    describe "--with-cookie-param NAME" do
+      let(:name) { 'session_id' }
+      let(:argv) { ['--with-cookie-param', name] }
+
+      it "must append :with_cookie_param and the NAME to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_cookie_param, name]
+        )
+      end
+
+      it "and .with_cookie_param must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_cookie_param)
+      end
+    end
+
+    describe "--with-form-param NAME" do
+      let(:name) { 'username' }
+      let(:argv) { ['--with-form-param', name] }
+
+      it "must append :with_form_param and the NAME to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_form_param, name]
+        )
+      end
+
+      it "and .with_form_param must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_form_param)
+      end
+    end
+
+    describe "--with-request-method HTTP_METHOD" do
+      let(:http_method) { :get }
+      let(:argv) { ['--with-request-method', 'GET'] }
+
+      it "must append :with_request_method and :get to #query_method_calls" do
+        expect(subject.query_method_calls[-1]).to eq(
+          [:with_request_method, http_method]
+        )
+      end
+
+      it "and .with_request_method must be a class method on Ronin::DB::WebVuln" do
+        expect(Ronin::DB::WebVuln).to respond_to(:with_request_method)
+      end
+    end
+  end
+
   describe "#web_vuln_type" do
     context "when given a Ronin::Vulns::LFI object" do
       let(:type) { 'lfi' }
