@@ -121,7 +121,7 @@ describe Ronin::DB::CLI::Commands::Add do
 
         subject.run(name,uri)
 
-        expect(config_file_hash[name]).to eq(
+        expect(config_file_hash[name.to_sym]).to eq(
           {
             adapter:  adapter,
             database: database
@@ -145,7 +145,7 @@ describe Ronin::DB::CLI::Commands::Add do
 
         subject.run(name)
 
-        expect(config_file_hash[name]).to eq(
+        expect(config_file_hash[name.to_sym]).to eq(
           {
             adapter:  adapter,
             database: database

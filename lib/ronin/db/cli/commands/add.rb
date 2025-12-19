@@ -173,7 +173,7 @@ module Ronin
             validate_config!
 
             ConfigFile.edit do |yaml|
-              yaml[name] = @config
+              yaml[name.to_sym] = @config
             end
           end
 
