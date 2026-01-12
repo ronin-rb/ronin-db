@@ -58,6 +58,8 @@ jruby_dependencies:
   activerecord-jdbcsqlite3-adapter: ~> 71.0
 
 dependencies:
+  # NOTE: required for 'yaml/store'.
+  pstore: ~> 0.1
   # Ronin dependencies:
   ronin-db-activerecord: ~> 0.2
   ronin-support: ~> 1.0

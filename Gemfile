@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'pstore' if RUBY_VERSION >= '4.0.0'
 gem 'jruby-openssl',	'~> 0.7', platform: :jruby
 
 # gem 'command_kit', '0.5.0', github: 'postmodern/command_kit',
